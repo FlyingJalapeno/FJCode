@@ -181,7 +181,7 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 - (void)centerOnAnnotations
 {
     if(numberOfLocationsToCenterMap < 1)
-        numberOfLocationsToCenterMap == 1;
+        numberOfLocationsToCenterMap = 1;
     
     if([[self annotations] count] == 1){
         

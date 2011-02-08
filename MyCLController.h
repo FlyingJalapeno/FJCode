@@ -1,39 +1,31 @@
 
 
-
-
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@protocol MyCLControllerDelegate <NSObject>
-
-@required
-- (void)locationUpdate:(CLLocation *)location; 
-- (void)locationError:(NSError *)error;
-
-@end
-
-
-
-
-
-@interface MyCLController : NSObject <CLLocationManagerDelegate> {
+@interface MyCLController : NSObject <CLLocationManagerDelegate>  {	
     
 	CLLocationManager *locationManager;
-	id <MyCLControllerDelegate> delegate;
+            	
+	BOOL locationServicesEnabled;
+    
+    NSTimer* updateTimer;
+    
+    NSDate* lastActiveTime;
+	
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, assign) id <MyCLControllerDelegate> delegate;
+@property(nonatomic, retain, readonly)CLLocation *location;
+@property(nonatomic, readwrite)BOOL locationServicesEnabled;
+@property (nonatomic, retain) NSTimer *updateTimer;
+@property (nonatomic, copy) NSDate *lastActiveTime;
 
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation;
++ (MyCLController *)sharedMyCLController;
 
-- (void)locationManager:(CLLocationManager *)manager
-	   didFailWithError:(NSError *)error;
+- (void)startUpdating;
+- (void)stopUpdating;
 
--(void)stopUpdating;
--(void)startUpdating;
+- (void)printDescription;
 
 @end
