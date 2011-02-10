@@ -60,6 +60,7 @@
 
 - (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate;
 
+- (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate sortedByKey:(NSString*)key ascending:(BOOL)ascending;
 
 
 //returns all entities of 'entityName' where 'key' has a certain 'value'

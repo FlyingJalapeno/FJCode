@@ -286,6 +286,18 @@
 }
 
 
+- (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate sortedByKey:(NSString*)key ascending:(BOOL)ascending{
+	
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:self]];
+
+    [request setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:key ascending:ascending]]];
+    [request setPredicate:predicate];
+    
+    return [self executeFetchRequest:request error:NULL];
+	
+	
+}
 - (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate{
 	
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
