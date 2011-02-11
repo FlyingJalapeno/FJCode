@@ -70,7 +70,7 @@
 //==========================================================================================
 - (id) initWithURL:(NSURL *)_baseURL
 {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.currentURL = _baseURL;
 		self.hasToolbar = TRUE;
 		self.canOpenSafari = TRUE;

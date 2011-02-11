@@ -17,7 +17,7 @@
 @implementation SDNextRunloopProxy
 
 - (id) initWithTarget:(id)newTarget {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		target = [newTarget retain];
 	}
 	return self;
@@ -56,7 +56,7 @@
 @implementation FJSDelayProxy
 
 - (id) initWithTarget:(id)newTarget delay:(float)time{
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		target = [newTarget retain];
 		delay = time;
 	}
