@@ -2,9 +2,12 @@
 #import "NSError+FJNetwork.h"
 
 NSString* const FJNetworkErrorDomain = @"FJNetworkErrorDomain";
+NSString* const FJNetworkServerErrorDomain = @"FJNetworkServerErrorDomain";
+
 NSString* const kUnparsedJSONStringKey = @"kUnparsedJSONStringKey";
 NSString* const kInvalidResponseDataKey = @"kInvalidResponseDataKey";
 NSString* const kCorruptImageResponseDataKey = @"kCorruptImageResponseDataKey";
+NSString* const kOriginalPostParametersDataKey = @"kOriginalPostParametersDataKey";
 
 
 
@@ -175,6 +178,20 @@ NSString* const kCorruptImageResponseDataKey = @"kCorruptImageResponseDataKey";
                           nil];
     
     NSError* err = [NSError errorWithDomain: FJNetworkErrorDomain code:FJNetworkErrorMissingRequiredInfo userInfo:dict];
+    
+    return err;
+    
+    
+}
+
++ (NSError*)serverErrorWithStatusCode:(int)status message:(NSString*)message URL:(NSURL*)url postParameters:(NSDictionary*)parameters{
+    
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setObjectIfNotNil:message forKey:NSLocalizedDescriptionKey];                             
+    [dict setObjectIfNotNil:parameters forKey:kOriginalPostParametersDataKey];                             
+    [dict setObjectIfNotNil:url forKey:NSURLErrorKey];                             
+    
+    NSError* err = [NSError errorWithDomain: FJNetworkServerErrorDomain code:status userInfo:dict];
     
     return err;
     
