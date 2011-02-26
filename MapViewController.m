@@ -41,6 +41,7 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 @synthesize currentCcoordinate;
 @synthesize delegate;
 @synthesize numberOfLocationsToCenterMap;
+@synthesize defaultCoordinate;
 
 
 #pragma mark -
@@ -58,21 +59,6 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     [annotations release], annotations = nil;
     
     [super dealloc];
-}
-
-
-- (id)initWithAnnotations:(NSArray*)someAnnotations{
-    
-    self = [super initWithNibName:@"MapView" bundle:nil];
-    if (self != nil) {
-        self.annotations = someAnnotations;
-        self.numberOfLocationsToCenterMap = 100;
-        [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
-        
-    }
-    return self;
-    
-    
 }
 
 
@@ -115,7 +101,8 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-
+        
+    [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -125,8 +112,7 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
         
     }   
-    
-    
+
     if([self.annotations count] > 0){
         
         [self refreshMapAnnotations];
@@ -180,15 +166,24 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)centerOnAnnotations
 {
-    if(numberOfLocationsToCenterMap < 1)
-        numberOfLocationsToCenterMap = 1;
+    //center on defualt if no locations
+    if([[self annotations] count] == 0){
+        
+        [self centerOnCoordinate:[self defaultCoordinate]];
+        return;
+    }
     
+    //center on single
     if([[self annotations] count] == 1){
         
         [self centerOnAnnotation:[self.annotations objectAtIndex:0]];
         return;
     }
     
+    //calculate bitches
+    if(numberOfLocationsToCenterMap < 1)
+        numberOfLocationsToCenterMap = 1;
+
     
 	CLLocationCoordinate2D	minCoord;
 	CLLocationCoordinate2D	maxCoord;
