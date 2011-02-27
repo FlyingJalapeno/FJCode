@@ -24,6 +24,8 @@
 
 @interface NSArray (UtilityExtensions)
 - (id) firstObject;
+- (id) firstObjectSafe; //checks to see if length > 0
+
 - (NSArray *) uniqueMembers;
 - (NSArray *) unionWithArray: (NSArray *) array;
 - (NSArray *) intersectionWithArray: (NSArray *) array;
