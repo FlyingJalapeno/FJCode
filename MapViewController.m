@@ -88,6 +88,7 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 	// Release any cached data, images, etc that aren't in use.
 }
 
+
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
@@ -104,6 +105,15 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
     
     if([self.annotations count] > 0){
+        
+        [self refreshMapAnnotations];
+    }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    if([self.mapView.annotations count] == 0){
         
         [self refreshMapAnnotations];
     }

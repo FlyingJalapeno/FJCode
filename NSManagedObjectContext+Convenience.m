@@ -82,7 +82,7 @@
     NSArray *results = [self executeFetchRequest:request error:&error];
     if (error != nil)
     {
-        [NSException raise:NSGenericException format:[error description]];
+        [NSException raise:NSGenericException format:@"%@", [error description]];
     }
     
     return [NSSet setWithArray:results];
