@@ -3,8 +3,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-
-@interface MapViewController : UIViewController <MKMapViewDelegate> {
+@interface MapViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate> {
 	IBOutlet MKMapView *mapView;
 
     NSMutableArray* annotations;
@@ -14,6 +13,7 @@
         
     int numberOfLocationsToCenterMap; //default is 100
     BOOL shouldPromptToLaunchDirections;    
+    id<MKAnnotation> selectedAnnotation;
 
 }
 @property(nonatomic,retain)NSMutableArray *annotations;
@@ -24,10 +24,14 @@
 
 @property (nonatomic) int numberOfLocationsToCenterMap;
 @property (nonatomic) BOOL shouldPromptToLaunchDirections;
+@property (nonatomic, retain) id<MKAnnotation> selectedAnnotation;
 
 
 //subclasses overide
 - (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation;
+
+//NOTE: if you overide this method in your custom subclass, be sure to forward to super if you want directions to work!
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 
 @end

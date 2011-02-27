@@ -42,6 +42,8 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 @synthesize numberOfLocationsToCenterMap;
 @synthesize defaultCoordinate;
 @synthesize shouldPromptToLaunchDirections;
+@synthesize selectedAnnotation;
+
 
 
 #pragma mark -
@@ -50,7 +52,10 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 - (void)dealloc {
 
     [self removeObserver:self forKeyPath:@"annotations"];
-
+    
+    [selectedAnnotation release];
+    selectedAnnotation = nil;
+    
     if (nil != self.mapView) {
 		self.mapView.delegate = nil;	
 	}
@@ -293,12 +298,11 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     if(self.shouldPromptToLaunchDirections){
         
-        CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
-        
-        CLLocation* startLocation = [self.mapView userLocation].location;
-        
-        openGoogleMapsForDirectionsToLocation(startLocation, storeLocation);
-        
+        self.selectedAnnotation = annotation;
+        UIAlertView* v = [[UIAlertView alloc] initWithTitle:@"Get Directions?" message:@"Select OK to close the app and get directions using Google maps" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        v.tag = 98989;
+        [v show];
+        [v release];
     }
 }
 
@@ -306,6 +310,26 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     //nonop
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(alertView.tag != 98989)
+        return;
+    
+    id <MKAnnotation> annotation = self.selectedAnnotation;
+
+    if(buttonIndex != [alertView cancelButtonIndex]){
+        
+        CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
+        
+        CLLocation* startLocation = [self.mapView userLocation].location;
+        
+        openGoogleMapsForDirectionsToLocation(startLocation, storeLocation);
+        
+    }
+    
+    self.selectedAnnotation = nil;
 }
 
 @end
