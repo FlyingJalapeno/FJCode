@@ -264,6 +264,13 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 - (MKAnnotationView*)mapView: (MKMapView*)mapView viewForAnnotation: (id <MKAnnotation>)annotation
 {
 	MKAnnotationView*	annotationView = nil;
+    
+    if([annotation isKindOfClass:[MKUserLocation class]]){
+        
+        return nil; 
+    }
+    
+    
 	
     annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"locationAnnotation"];
     
