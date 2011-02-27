@@ -104,15 +104,6 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         
     [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
     
-}
-- (void)viewWillAppear:(BOOL)animated{
-    
-    if([self.annotations count] == 1){
-        
-        self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
-        
-    }   
-
     if([self.annotations count] > 0){
         
         [self refreshMapAnnotations];
@@ -130,6 +121,12 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 	[self.mapView addAnnotations:self.annotations];	
     
     [self centerOnAnnotations];
+    
+    if([self.annotations count] == 1){
+        
+        self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
+        
+    }   
 		
 }
 

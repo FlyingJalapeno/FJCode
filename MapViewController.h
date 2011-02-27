@@ -10,7 +10,7 @@
 @interface MapViewController : UIViewController <MKMapViewDelegate> {
 	IBOutlet MKMapView *mapView;
 
-    NSArray* annotations;
+    NSMutableArray* annotations;
         
     CLLocationCoordinate2D currentCcoordinate;
     CLLocationCoordinate2D defaultCoordinate;
@@ -20,7 +20,7 @@
     id delegate;
 
 }
-@property(nonatomic,retain)NSArray *annotations;
+@property(nonatomic,retain)NSMutableArray *annotations;
 @property (nonatomic) CLLocationCoordinate2D defaultCoordinate;
 
 @property(nonatomic,retain)IBOutlet MKMapView *mapView;
