@@ -3,9 +3,6 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@protocol MapViewControllerDelegate;
-
-@class Store;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate> {
 	IBOutlet MKMapView *mapView;
@@ -14,10 +11,9 @@
         
     CLLocationCoordinate2D currentCcoordinate;
     CLLocationCoordinate2D defaultCoordinate;
-    
+        
     int numberOfLocationsToCenterMap; //default is 100
-    
-    id delegate;
+    BOOL shouldPromptToLaunchDirections;    
 
 }
 @property(nonatomic,retain)NSMutableArray *annotations;
@@ -27,15 +23,11 @@
 @property(nonatomic,assign)CLLocationCoordinate2D currentCcoordinate;
 
 @property (nonatomic) int numberOfLocationsToCenterMap;
-@property (nonatomic, assign) id delegate;
-
-@end
+@property (nonatomic) BOOL shouldPromptToLaunchDirections;
 
 
+//subclasses overide
+- (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation;
 
-@protocol MapViewControllerDelegate <NSObject>
-
-@optional
-- (void)mapViewController:(MapViewController*)controller selectedAnnotation:(id<MKAnnotation>)anAnnotation;
 
 @end

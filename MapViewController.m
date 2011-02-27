@@ -39,9 +39,9 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 @synthesize annotations;
 @synthesize mapView;
 @synthesize currentCcoordinate;
-@synthesize delegate;
 @synthesize numberOfLocationsToCenterMap;
 @synthesize defaultCoordinate;
+@synthesize shouldPromptToLaunchDirections;
 
 
 #pragma mark -
@@ -49,7 +49,6 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)dealloc {
 
-    delegate = nil;
     [self removeObserver:self forKeyPath:@"annotations"];
 
     if (nil != self.mapView) {
@@ -280,11 +279,9 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     id <MKAnnotation> annotation = view.annotation;
     
-    if([delegate respondsToSelector:@selector(mapViewController:selectedAnnotation:)])
-        [self.delegate mapViewController:self selectedAnnotation:annotation];
+    [self selectedAnnotation:annotation];
     
-    
-    if([self.annotations count] == 1){
+    if(self.shouldPromptToLaunchDirections){
         
         CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
         
@@ -293,6 +290,12 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         openGoogleMapsForDirectionsToLocation(startLocation, storeLocation);
         
     }
+}
+
+- (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation{
+    
+    //nonop
+    
 }
 
 @end
