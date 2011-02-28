@@ -47,44 +47,20 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 
 #pragma mark -
-#pragma mark NSObject
+#pragma mark Cleanup
 
 - (void)dealloc {
 
     [self removeObserver:self forKeyPath:@"annotations"];
-    
+    self.mapView.delegate = nil;	
     [selectedAnnotation release];
     selectedAnnotation = nil;
-    
-    if (nil != self.mapView) {
-		self.mapView.delegate = nil;	
-	}
     [mapView release], mapView = nil;
     [annotations release], annotations = nil;
     
     [super dealloc];
 }
 
-
-#pragma mark -
-#pragma mark KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-	
-	if([keyPath isEqualToString:@"annotations"]){
-		
-		[self refreshMapAnnotations];
-		
-		return;
-		
-	}
-	
-	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-}
-
-
-#pragma mark -
-#pragma mark UIViewController
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -98,6 +74,19 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    self.mapView.delegate = nil;	
+    
+}
+
+
+#pragma mark -
+#pragma mark UIViewController
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -118,14 +107,34 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:animated];
+    
+    self.mapView.delegate = self;
+    
     if([self.mapView.annotations count] == 0){
         
         [self refreshMapAnnotations];
     }
-    
 }
 
-    
+
+#pragma mark -
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+	
+	if([keyPath isEqualToString:@"annotations"]){
+		
+		[self refreshMapAnnotations];
+		
+		return;
+		
+	}
+	
+	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+
 #pragma mark -
 #pragma mark MKMapView
 
