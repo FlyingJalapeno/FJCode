@@ -272,29 +272,27 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (MKAnnotationView*)mapView: (MKMapView*)mapView viewForAnnotation: (id <MKAnnotation>)annotation
 {
-	MKAnnotationView*	annotationView = nil;
+	MKPinAnnotationView* annotationView = nil;
     
     if([annotation isKindOfClass:[MKUserLocation class]]){
         
         return nil; 
     }
-    
-    
-	
-    annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"locationAnnotation"];
+        
+    annotationView = (MKPinAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"locationAnnotation"];
     
     if (annotationView == nil)
     {
-        annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"locationAnnotation"] autorelease];
+        annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier:@"locationAnnotation"] autorelease];
+        annotationView.canShowCallout = YES;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.animatesDrop = YES;
+        
     }
     else
     {
         annotationView.annotation = annotation;
     }
-    
-    annotationView.canShowCallout = YES;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    ((MKPinAnnotationView*)annotationView).animatesDrop = YES;
     
     
     if([self.annotations count] == 1){

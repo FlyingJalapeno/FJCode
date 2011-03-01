@@ -14,7 +14,7 @@
     int numberOfLocationsToCenterMap; //default is 100
     BOOL shouldPromptToLaunchDirections;    
     id<MKAnnotation> selectedAnnotation;
-
+    
 }
 @property(nonatomic,retain)NSMutableArray *annotations;
 @property (nonatomic) CLLocationCoordinate2D defaultCoordinate;
