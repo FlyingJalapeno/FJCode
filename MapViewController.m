@@ -54,14 +54,21 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)dealloc {
 
-    [self removeObserver:self forKeyPath:@"annotations"];
     self.mapView.delegate = nil;	
+    
+    [self removeObserver:self forKeyPath:@"annotations"];
     [selectedAnnotation release];
     selectedAnnotation = nil;
-    [mapView release], mapView = nil;
     [annotations release], annotations = nil;
     
-    [super dealloc];
+    //Doing this to avoid crash from animations not completing before the view disapears
+    dispatch_after(dispatchTimeFromNow(2), dispatch_get_main_queue(), ^{
+        
+        [mapView release], mapView = nil;
+        [super dealloc];
+
+    });
+    
 }
 
 
