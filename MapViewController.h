@@ -14,6 +14,7 @@
     int numberOfLocationsToCenterMap; //default is 100
     BOOL shouldPromptToLaunchDirections;    
     id<MKAnnotation> selectedAnnotation;
+    BOOL shouldAnimatePinDrop;
     
 }
 @property(nonatomic,retain)NSMutableArray *annotations;
@@ -25,6 +26,7 @@
 @property (nonatomic) int numberOfLocationsToCenterMap;
 @property (nonatomic) BOOL shouldPromptToLaunchDirections;
 @property (nonatomic, retain) id<MKAnnotation> selectedAnnotation;
+@property (nonatomic) BOOL shouldAnimatePinDrop;
 
 
 //subclasses overide

@@ -43,6 +43,9 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 @synthesize defaultCoordinate;
 @synthesize shouldPromptToLaunchDirections;
 @synthesize selectedAnnotation;
+@synthesize shouldAnimatePinDrop;
+
+
 
 
 
@@ -286,7 +289,7 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier:@"locationAnnotation"] autorelease];
         annotationView.canShowCallout = YES;
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        annotationView.animatesDrop = YES;
+        annotationView.animatesDrop = self.shouldAnimatePinDrop;
         
     }
     else
@@ -297,7 +300,12 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     if([self.annotations count] == 1){
         
-        [[self.mapView proxyWithDelay:1] selectAnnotation:[self.annotations objectAtIndex:0] animated:YES];
+        dispatch_after(dispatchTimeFromNow(1), dispatch_get_main_queue(), ^{
+            
+            [self.mapView selectAnnotation:[self.annotations objectAtIndex:0] animated:YES];
+            
+        });
+        
     }
     
     return annotationView;
