@@ -32,6 +32,8 @@
 //subclasses overide
 - (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation;
 
+- (void)openedMap;
+
 //NOTE: if you overide this method in your custom subclass, be sure to forward to super if you want directions to work!
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 

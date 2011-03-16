@@ -358,9 +358,16 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         
         [storeLocation release];
         
+        [self openedMap];
+        
     }
     
     self.selectedAnnotation = nil;
+}
+
+- (void)openedMap{
+    
+    //nonop
 }
 
 @end
