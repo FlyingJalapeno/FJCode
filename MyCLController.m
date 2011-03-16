@@ -16,7 +16,7 @@ CLLocationDistance const kLocationDistanceFilter = 100.0;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
 
-@synthesize locationManager, location, locationServicesEnabled;
+@synthesize locationManager, location;
 @synthesize updateTimer;
 @synthesize lastActiveTime;
 
@@ -47,9 +47,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
 
 - (id)init {
 	if ((self = [super init])) {
-		
-		self.locationServicesEnabled = YES;
-        
+		        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActiveWithNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveWithNotification:) name:UIApplicationWillResignActiveNotification object:nil];
         
@@ -83,16 +81,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
 #pragma mark -
 #pragma mark [self class]
 
-
-- (void)startUpdating {
+- (void)timerUpdate{
     
-	if (!self.locationServicesEnabled)
+    if (![CLLocationManager locationServicesEnabled])
 		return;
     
+    [self startUpdating];
+    
+}
+
+
+- (void)startUpdating {
+        
     //start timer if needed
     if(self.updateTimer == nil){
         
-        self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(startUpdating) userInfo:nil repeats:YES];
+        self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(timerUpdate) userInfo:nil repeats:YES];
         
     }
     
@@ -110,19 +114,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
         debugLog(@"location manager created");
         [self printDescription];
         
-    }
-    
-    //if we are denied, then wtf
-	if (![CLLocationManager locationServicesEnabled]) {
-		self.locationServicesEnabled = NO;
-        NSLog(@"location services disabled");
-        [self printDescription];
-        self.location = nil;
-		return;
-        
-	}else{
-        
-        self.locationServicesEnabled = YES;
     }
     
     //stop updating, ensures there will in fact be an update.
@@ -182,7 +173,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
         
 		[self stopUpdating];
 		self.locationManager = nil;
-		self.locationServicesEnabled = NO;
         
         [self printDescription];
         
