@@ -55,4 +55,26 @@
 	return [self count] == 0 ? YES : NO;
 }
 
+- (id)objectForKeyNilIfNULL:(id)aKey{
+    
+    id obj = [self objectForKey:aKey];
+    
+    if(obj == [NSNull null])
+        return nil;
+    
+    return obj;
+}
+
+@end
+
+
+@implementation NSMutableDictionary (Helper)
+
+- (void)setObjectIfNotNil:(id)anObject forKey:(id)aKey{
+    
+    if(anObject != nil)
+        [self setObject:anObject forKey:aKey];
+    
+}
+
 @end

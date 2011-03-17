@@ -25,4 +25,14 @@
  */
 @property(nonatomic,readonly,getter=isEmpty) BOOL empty;
 
+- (id)objectForKeyNilIfNULL:(id)aKey;
+
+
+@end
+
+
+@interface NSMutableDictionary (Helper)
+
+- (void)setObjectIfNotNil:(id)anObject forKey:(id)aKey;
+
 @end
