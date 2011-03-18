@@ -142,6 +142,12 @@
 		C486535110BCA7360064A126 /* UIDevice-Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Reachability.m"; sourceTree = "<group>"; };
 		C489B6A01032782B00514567 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = ../../../../../Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = FJSCODE_SRC; };
 		C489B6B310327C2A00514567 /* NSManagedObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extensions.m"; sourceTree = "<group>"; };
+		C492BC871301A41400D241BF /* FJSMultiFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSMultiFetchedResultsController.h; sourceTree = "<group>"; };
+		C492BC881301A41400D241BF /* FJSMultiFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSMultiFetchedResultsController.m; sourceTree = "<group>"; };
+		C492BC891301A41400D241BF /* FJSMultiFetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSMultiFetchedResultsTableViewController.h; sourceTree = "<group>"; };
+		C492BC8A1301A41400D241BF /* FJSMultiFetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSMultiFetchedResultsTableViewController.m; sourceTree = "<group>"; };
+		C492BC8B1301A41400D241BF /* FJSMultiFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSMultiFetchRequest.h; sourceTree = "<group>"; };
+		C492BC8C1301A41400D241BF /* FJSMultiFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSMultiFetchRequest.m; sourceTree = "<group>"; };
 		C49D434B1021454500FF8BCC /* AQGlassButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGlassButton.h; sourceTree = "<group>"; };
 		C49D434C1021454500FF8BCC /* AQGlassButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGlassButton.m; sourceTree = "<group>"; };
 		C49D439B10220C8B00FF8BCC /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 		C4E41F9C12D7B14D00FC8F83 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		C4EFEC9D10E1D13C005180AC /* FJSDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSDatePickerController.h; sourceTree = "<group>"; };
 		C4EFEC9E10E1D13C005180AC /* FJSDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSDatePickerController.m; sourceTree = "<group>"; };
+		C4F39D1412FE47A300013378 /* FetchQueryContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchQueryContext.h; sourceTree = "<group>"; };
+		C4F39D1512FE47A300013378 /* FetchQueryContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchQueryContext.m; sourceTree = "<group>"; };
 		C4F64E5211BC3DCC000A4993 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C4F64E5311BC3DCC000A4993 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C4FD3EB50FD242EA0084CFE3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -578,6 +586,8 @@
 		C489B66C1032762E00514567 /* CoreData Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C4F39D1412FE47A300013378 /* FetchQueryContext.h */,
+				C4F39D1512FE47A300013378 /* FetchQueryContext.m */,
 				C4C921C4129968CA005C12F4 /* FJCoreDataExtensions.h */,
 				C470935611C974D30082307C /* NSManagedObjectContext+CoreDataStack.h */,
 				C470935711C974D30082307C /* NSManagedObjectContext+CoreDataStack.m */,
@@ -586,8 +596,22 @@
 				C4A4596910339C30002CBE45 /* NSManagedObject+Extensions.h */,
 				C489B6B310327C2A00514567 /* NSManagedObject+Extensions.m */,
 				C4C9220E12997127005C12F4 /* DDCoreData */,
+				C492BC901301A42900D241BF /* MultiFetchedResultsController */,
 			);
 			name = "CoreData Categories";
+			sourceTree = "<group>";
+		};
+		C492BC901301A42900D241BF /* MultiFetchedResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				C492BC871301A41400D241BF /* FJSMultiFetchedResultsController.h */,
+				C492BC881301A41400D241BF /* FJSMultiFetchedResultsController.m */,
+				C492BC891301A41400D241BF /* FJSMultiFetchedResultsTableViewController.h */,
+				C492BC8A1301A41400D241BF /* FJSMultiFetchedResultsTableViewController.m */,
+				C492BC8B1301A41400D241BF /* FJSMultiFetchRequest.h */,
+				C492BC8C1301A41400D241BF /* FJSMultiFetchRequest.m */,
+			);
+			name = MultiFetchedResultsController;
 			sourceTree = "<group>";
 		};
 		C49D41AA102121A500FF8BCC /* Buttons */ = {

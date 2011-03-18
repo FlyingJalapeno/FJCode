@@ -35,7 +35,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like[c] %@",key , value];
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 }
 
 
@@ -82,7 +82,7 @@
     NSArray *results = [self executeFetchRequest:request error:&error];
     if (error != nil)
     {
-        [NSException raise:NSGenericException format:[error description]];
+        [NSException raise:NSGenericException format:@"%@", [error description]];
     }
     
     return [NSSet setWithArray:results];
@@ -104,7 +104,7 @@
     
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
     
 }
 
@@ -172,9 +172,9 @@
 	[request release];
 	request = nil;
 	
-    //return [[self executeFetchRequest:request error:NULL] firstObject];
+    //return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 	
-	return [fetchResults firstObject];
+	return [fetchResults firstObjectSafe];
 }
 
 
@@ -204,24 +204,34 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",key , value];
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 }
 
+- (NSArray *)entitiesWithName:(NSString *)entityName whereKey:(NSString *)key isIn:(id)values
+{
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:self]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K IN %@",key , values];
+    [request setPredicate:predicate];
+    
+    return [self executeFetchRequest:request error:NULL];
+}
+
+/*
 - (NSArray*)entitiesWithName: (NSString*)entityName whereKey: (NSString*)key isIn: (id)collection
 {
 	NSArray*		result = nil;
 	NSFetchRequest* request = [[NSFetchRequest alloc] init];
-	
-	//debugLog(@"searching for entities with name %@ where %@ is in %@ (length %d)", entityName, key, collection, [collection count]);
-	
+		
 	[request setEntity: [NSEntityDescription entityForName: entityName inManagedObjectContext: self]];
 	[request setFetchLimit: [collection count]];
 	
 	//[request setResultType: NSManagedObjectIDResultType];
 	
-	NSPredicate*	predicate = [NSPredicate predicateWithFormat: @"%K in %@", key, collection];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat: @"%K in %@", key, collection];
 	
-	[request setPredicate: predicate];
+	[request setPredicate:predicate];
 	
 	result = [self executeFetchRequest: request error: NULL];
 	
@@ -230,6 +240,7 @@
 	
 	return result;
 }
+*/
 
 - (id)retrieveOrCreateEntityWithName:(NSString *)entityName whereKey:(NSString *)key like:(NSString *)value
 {
@@ -274,6 +285,19 @@
     return [self countForFetchRequest:request error:NULL];
 }
 
+
+- (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate sortedByKey:(NSString*)key ascending:(BOOL)ascending{
+	
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:self]];
+
+    [request setSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:key ascending:ascending]]];
+    [request setPredicate:predicate];
+    
+    return [self executeFetchRequest:request error:NULL];
+	
+	
+}
 - (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate{
 	
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
@@ -356,20 +380,6 @@
     
     return newObj;
     
-}
-
-@end
-
-
-
-@implementation NSArray (CDArrayExtensions)
-
-- (id)firstObject
-{
-	if ([self count] > 0)
-		return [self objectAtIndex:0];
-	
-	return nil;
 }
 
 @end

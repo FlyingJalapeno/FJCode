@@ -37,8 +37,6 @@
 
 
 
-
-
 /*
  Almost all methods here have comparable syntax.
  It's all something like '...entitiyWithName: whereKey: like:',
@@ -60,6 +58,7 @@
 
 - (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate;
 
+- (NSArray *)entitiesWithName:(NSString *)entityName predicate:(NSPredicate*)predicate sortedByKey:(NSString*)key ascending:(BOOL)ascending;
 
 
 //returns all entities of 'entityName' where 'key' has a certain 'value'
@@ -71,19 +70,6 @@
 // returns all entities of 'entityName' where 'key' is one of a collection of values (collection must be an array, set, or dictionary (in which case the values are used))
 - (NSArray*)entitiesWithName: (NSString*)entityName whereKey: (NSString*)key isIn: (id)collection;
 
-
-
-//returns YES if there exists an entity with 'entityName' which has a 'key' with a certain 'value', NO otherwise
-- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key like:(NSString *)value;
-
-//Containing strings (case insensitive)
-- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key contains:(NSString *)value;
-
-//Case Insensitive optional
-- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key like:(NSString *)value caseInsensitive:(BOOL)flag;
-
-//exact object matches 
-- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key equalToObject:(id )value;
 
 
 
@@ -102,11 +88,24 @@
 
 
 
+//returns YES if there exists an entity with 'entityName' which has a 'key' with a certain 'value', NO otherwise
+- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key like:(NSString *)value;
+
+//Containing strings (case insensitive)
+- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key contains:(NSString *)value;
+
+//Case Insensitive optional
+- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key like:(NSString *)value caseInsensitive:(BOOL)flag;
+
+//exact object matches 
+- (BOOL)entityWithNameExists:(NSString *)entityName whereKey:(NSString *)key equalToObject:(id )value;
+
+
+
 
 //creates an entity with an unique value for key, derived from the default value.
 //for example, if there already exists and entity "Person" with "name"="Foo", it will create an entity with "name"="Foo 1" etc
 - (id)createEntity:(NSString *)entityName withUniqueValueForKey:(NSString *)key defaultValue:(NSString *)def;
-
 
 
 
@@ -118,6 +117,7 @@
 
 
 /*
+ 
  Help moving between contexts
  
 */

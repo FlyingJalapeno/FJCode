@@ -2,6 +2,8 @@
 #import <UIKit/UIKit.h>
 
 extern NSString* const FJNetworkErrorDomain;
+extern NSString* const FJNetworkServerErrorDomain;
+
 
 typedef enum  {
     
@@ -18,6 +20,7 @@ typedef enum  {
 extern NSString* const kUnparsedJSONStringKey;
 extern NSString* const kInvalidResponseDataKey;
 extern NSString* const kCorruptImageResponseDataKey;
+extern NSString* const kOriginalPostParametersDataKey;
 
 
 @interface NSError(FJNetwork)
@@ -45,5 +48,8 @@ extern NSString* const kCorruptImageResponseDataKey;
 + (NSError*)corruptImageResponse:(NSURL*)url data:(NSData*)corruptData;
 
 + (NSError*)missingRequiredDataError;
+
++ (NSError*)serverErrorWithStatusCode:(int)status message:(NSString*)message URL:(NSURL*)url postParameters:(NSDictionary*)parameters;
+
 
 @end

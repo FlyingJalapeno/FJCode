@@ -20,6 +20,7 @@
 #define NSNO [NSNumber numberWithBool:NO]
 
 #define ASSERT_TRUE_OR_LOG(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
+#define errorLog(object)    (NSLog(@"" @"%s:" #object @"Error! %@", __PRETTY_FUNCTION__, [object description]));
 
 
 #if DEBUG==1

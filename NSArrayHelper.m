@@ -34,6 +34,15 @@
 	return [self objectAtIndex:0];
 }
 
+- (id) firstObjectSafe{
+    
+    if ([self count] > 0)
+		return [self objectAtIndex:0];
+	
+	return nil;
+    
+}
+
 - (NSArray *) uniqueMembers
 {
 	NSMutableArray *copy = [self mutableCopy];
