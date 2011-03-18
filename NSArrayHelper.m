@@ -133,7 +133,7 @@
 
 - (id)top{
     
-    [self lastObject];
+    return [self lastObject];
     
 }
 - (NSArray*)popToObject:(id)object{
@@ -146,7 +146,7 @@
     
     return [returnArray autorelease];
 }
-- (void)popToRootObject{
+- (NSArray*)popToRootObject{
  
     return [self popToObject:[self firstObject]];
 }
