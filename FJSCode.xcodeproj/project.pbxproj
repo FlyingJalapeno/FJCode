@@ -11,14 +11,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = C45954731331E2EC00D6C668 /* ATMHud.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* ATMHud.app */;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = ATMHud;
 		};
 		C45954C31331E37500D6C668 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C45954BB1331E37500D6C668 /* TokenFieldExample.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* TokenFieldExample.app */;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = TokenFieldExample;
 		};
 /* End PBXContainerItemProxy section */
