@@ -22,10 +22,6 @@
 		C403FCE9100FA10A00DCA31A /* ListenerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerController.m; sourceTree = "<group>"; };
 		C40A51640FFF27CD001D4CDE /* KBCollectionExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBCollectionExtensions.m; sourceTree = "<group>"; };
 		C40A51650FFF27CD001D4CDE /* KBCollectionExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBCollectionExtensions.h; sourceTree = "<group>"; };
-		C40B1D9811D51ABC00ADE99B /* Connect_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect_iphone.png; sourceTree = "<group>"; };
-		C40B1D9911D51ABC00ADE99B /* FacebookAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAgent.h; sourceTree = "<group>"; };
-		C40B1D9A11D51ABC00ADE99B /* FacebookAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAgent.m; sourceTree = "<group>"; };
-		C40B1D9B11D51ABC00ADE99B /* Logout_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout_iphone.png; sourceTree = "<group>"; };
 		C410226611CBE6E000E651D3 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		C410226711CBE6E000E651D3 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		C41AFD31101E0F910095F37D /* VisualFeedbackHiddenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualFeedbackHiddenButton.h; sourceTree = "<group>"; };
@@ -215,17 +211,6 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
-		C40B1D9711D51ABC00ADE99B /* FacebookAgent */ = {
-			isa = PBXGroup;
-			children = (
-				C40B1D9811D51ABC00ADE99B /* Connect_iphone.png */,
-				C40B1D9911D51ABC00ADE99B /* FacebookAgent.h */,
-				C40B1D9A11D51ABC00ADE99B /* FacebookAgent.m */,
-				C40B1D9B11D51ABC00ADE99B /* Logout_iphone.png */,
-			);
-			path = FacebookAgent;
-			sourceTree = "<group>";
-		};
 		C41CD521113096470085A3BF /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +266,6 @@
 				C4CC17C510DE10AA00DBE821 /* Solicit Review */,
 				C4F6D0080FCA532200F6AD69 /* Progress View */,
 				C41CD521113096470085A3BF /* Twitter */,
-				C40B1D9711D51ABC00ADE99B /* FacebookAgent */,
 				C45F72D511D71B3E0040CF4E /* Twitter Controller */,
 				C470937811C977640082307C /* Date Picker */,
 				C486535F10BCA73A0064A126 /* UIDevice Categories */,
@@ -506,7 +490,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FJSCode" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
