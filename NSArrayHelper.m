@@ -34,6 +34,15 @@
 	return [self objectAtIndex:0];
 }
 
+- (id) firstObjectSafe{
+    
+    if ([self count] > 0)
+		return [self objectAtIndex:0];
+	
+	return nil;
+    
+}
+
 - (NSArray *) uniqueMembers
 {
 	NSMutableArray *copy = [self mutableCopy];
@@ -120,6 +129,26 @@
 	id r = [[self lastObject] retain];
 	[self removeLastObject];
 	return [r autorelease];
+}
+
+- (id)top{
+    
+    return [self lastObject];
+    
+}
+- (NSArray*)popToObject:(id)object{
+    
+    NSMutableArray *returnArray = [[NSMutableArray alloc] init];
+
+    while (![[self top] isEqual:object]) {
+		[returnArray addObject:[self pop]];
+	}
+    
+    return [returnArray autorelease];
+}
+- (NSArray*)popToRootObject{
+ 
+    return [self popToObject:[self firstObject]];
 }
 
 @end

@@ -24,6 +24,8 @@
 
 @interface NSArray (UtilityExtensions)
 - (id) firstObject;
+- (id) firstObjectSafe; //checks to see if length > 0
+
 - (NSArray *) uniqueMembers;
 - (NSArray *) unionWithArray: (NSArray *) array;
 - (NSArray *) intersectionWithArray: (NSArray *) array;
@@ -45,15 +47,20 @@
 
 @interface  NSMutableArray(Stack)
 
--(void) push:(id)item;
--(id) pop;
+- (void)push:(id)item;
+- (id)pop;
+- (id)top;
+- (NSArray*)popToObject:(id)object;
+- (NSArray*)popToRootObject;
 
 @end
 
 @interface  NSMutableArray(Queue)
 
--(void) enqueue:(id)item;
--(id) dequeue;
+- (void)enqueue:(id)item;
+- (id)dequeue;
+
+
 
 @end
 

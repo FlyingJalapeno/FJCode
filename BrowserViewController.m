@@ -153,6 +153,7 @@
 	webView.contentMode = UIViewContentModeTop;
 	webView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 	webView.scalesPageToFit = NO;
+    webView.dataDetectorTypes = (UIDataDetectorTypeAll);
 	[self.view addSubview:webView];
     
     

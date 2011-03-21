@@ -104,7 +104,6 @@ enum {
  * Returns the long value of the string
  */
 - (long)longValue;
-- (long long)longLongValue;
 
 + (NSString *) commasForNumber: (long long) num;
 

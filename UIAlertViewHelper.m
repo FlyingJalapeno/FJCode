@@ -141,10 +141,25 @@ void UIAlertViewQuick(NSString* title, NSString* message, NSString* dismissButto
                                                        message:[[[error userInfo] objectForKey:NSUnderlyingErrorKey] localizedDescription]
                                                       delegate:object 
                                              cancelButtonTitle:@"OK" 
-                                             otherButtonTitles:nil, nil] autorelease];
+                                             otherButtonTitles:nil] autorelease];
     [message show];
     
     return message;
+    
+}
+
++ (id)presentAlertViewWithLocalNotification:(UILocalNotification*)notification delegate:(id)object{
+    
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+													message:notification.alertBody
+												   delegate:object 
+										  cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil];
+    
+    [alert show];
+    
+    return alert;
     
 }
 

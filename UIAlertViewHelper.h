@@ -34,6 +34,6 @@ void UIAlertViewQuick(NSString* title, NSString* message, NSString* dismissButto
 
 + (id)presentErrorinAlertView:(NSError*)error delegate:(id)object;
 
-
++ (id)presentAlertViewWithLocalNotification:(UILocalNotification*)notification delegate:(id)object;
 
 @end

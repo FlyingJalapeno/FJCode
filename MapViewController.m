@@ -39,40 +39,92 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 @synthesize annotations;
 @synthesize mapView;
 @synthesize currentCcoordinate;
-@synthesize delegate;
 @synthesize numberOfLocationsToCenterMap;
+@synthesize defaultCoordinate;
+@synthesize shouldPromptToLaunchDirections;
+@synthesize selectedAnnotation;
+@synthesize shouldAnimatePinDrop;
+
+
+
 
 
 #pragma mark -
-#pragma mark NSObject
+#pragma mark Cleanup
 
 - (void)dealloc {
 
-    delegate = nil;
+    self.mapView.delegate = nil;	
+    
     [self removeObserver:self forKeyPath:@"annotations"];
-
-    if (nil != self.mapView) {
-		self.mapView.delegate = nil;	
-	}
-    [mapView release], mapView = nil;
+    [selectedAnnotation release];
+    selectedAnnotation = nil;
     [annotations release], annotations = nil;
     
-    [super dealloc];
+    //Doing this to avoid crash from animations not completing before the view disapears
+    dispatch_after(dispatchTimeFromNow(2), dispatch_get_main_queue(), ^{
+        
+        [mapView release], mapView = nil;
+        [super dealloc];
+
+    });
+    
 }
 
 
-- (id)initWithAnnotations:(NSArray*)someAnnotations{
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
     
-    self = [super initWithNibName:@"MapView" bundle:nil];
-    if (self != nil) {
-        self.annotations = someAnnotations;
-        self.numberOfLocationsToCenterMap = 100;
-        [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
+    [super viewWillDisappear:animated];
+    
+    self.mapView.delegate = nil;	
+    
+}
+
+
+#pragma mark -
+#pragma mark UIViewController
+
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
         
+    [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
+    
+    if([self.annotations count] > 0){
+        
+        [self refreshMapAnnotations];
     }
-    return self;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:animated];
+    
+    self.mapView.delegate = self;
+    
+    if([self.mapView.annotations count] == 0){
+        
+        [self refreshMapAnnotations];
+    }
 }
 
 
@@ -94,48 +146,6 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 
 #pragma mark -
-#pragma mark UIViewController
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.mapView.showsUserLocation = YES;
-    self.mapView.delegate = self;
-
-    
-}
-- (void)viewWillAppear:(BOOL)animated{
-    
-    if([self.annotations count] == 1){
-        
-        self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
-        
-    }   
-    
-    
-    if([self.annotations count] > 0){
-        
-        [self refreshMapAnnotations];
-    }
-    
-}
-
-    
-#pragma mark -
 #pragma mark MKMapView
 
 - (void)refreshMapAnnotations{
@@ -144,6 +154,12 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 	[self.mapView addAnnotations:self.annotations];	
     
     [self centerOnAnnotations];
+    
+    if([self.annotations count] == 1){
+        
+        self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
+        
+    }   
 		
 }
 
@@ -180,15 +196,24 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)centerOnAnnotations
 {
-    if(numberOfLocationsToCenterMap < 1)
-        numberOfLocationsToCenterMap = 1;
+    //center on defualt if no locations
+    if([[self annotations] count] == 0){
+        
+        [self centerOnCoordinate:[self defaultCoordinate]];
+        return;
+    }
     
+    //center on single
     if([[self annotations] count] == 1){
         
         [self centerOnAnnotation:[self.annotations objectAtIndex:0]];
         return;
     }
     
+    //calculate bitches
+    if(numberOfLocationsToCenterMap < 1)
+        numberOfLocationsToCenterMap = 1;
+
     
 	CLLocationCoordinate2D	minCoord;
 	CLLocationCoordinate2D	maxCoord;
@@ -257,27 +282,37 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (MKAnnotationView*)mapView: (MKMapView*)mapView viewForAnnotation: (id <MKAnnotation>)annotation
 {
-	MKAnnotationView*	annotationView = nil;
-	
-    annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"locationAnnotation"];
+	MKPinAnnotationView* annotationView = nil;
+    
+    if([annotation isKindOfClass:[MKUserLocation class]]){
+        
+        return nil; 
+    }
+        
+    annotationView = (MKPinAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"locationAnnotation"];
     
     if (annotationView == nil)
     {
-        annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"locationAnnotation"] autorelease];
+        annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier:@"locationAnnotation"] autorelease];
+        annotationView.canShowCallout = YES;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.animatesDrop = self.shouldAnimatePinDrop;
+        
     }
     else
     {
         annotationView.annotation = annotation;
     }
     
-    annotationView.canShowCallout = YES;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    ((MKPinAnnotationView*)annotationView).animatesDrop = YES;
-    
     
     if([self.annotations count] == 1){
         
-        [[self.mapView proxyWithDelay:1] selectAnnotation:[self.annotations objectAtIndex:0] animated:YES];
+        dispatch_after(dispatchTimeFromNow(1), dispatch_get_main_queue(), ^{
+            
+            [self.mapView selectAnnotation:[self.annotations objectAtIndex:0] animated:YES];
+            
+        });
+        
     }
     
     return annotationView;
@@ -288,11 +323,32 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
     
     id <MKAnnotation> annotation = view.annotation;
     
-    if([delegate respondsToSelector:@selector(mapViewController:selectedAnnotation:)])
-        [self.delegate mapViewController:self selectedAnnotation:annotation];
+    [self selectedAnnotation:annotation];
     
+    if(self.shouldPromptToLaunchDirections){
+        
+        self.selectedAnnotation = annotation;
+        UIAlertView* v = [[UIAlertView alloc] initWithTitle:@"Get Directions?" message:@"Select OK to close the app and get directions using Google maps" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        v.tag = 98989;
+        [v show];
+        [v release];
+    }
+}
+
+- (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation{
     
-    if([self.annotations count] == 1){
+    //nonop
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(alertView.tag != 98989)
+        return;
+    
+    id <MKAnnotation> annotation = self.selectedAnnotation;
+
+    if(buttonIndex != [alertView cancelButtonIndex]){
         
         CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
         
@@ -300,7 +356,18 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
         
         openGoogleMapsForDirectionsToLocation(startLocation, storeLocation);
         
+        [storeLocation release];
+        
+        [self openedMap];
+        
     }
+    
+    self.selectedAnnotation = nil;
+}
+
+- (void)openedMap{
+    
+    //nonop
 }
 
 @end

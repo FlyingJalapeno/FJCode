@@ -35,7 +35,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like[c] %@",key , value];
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 }
 
 
@@ -82,7 +82,7 @@
     NSArray *results = [self executeFetchRequest:request error:&error];
     if (error != nil)
     {
-        [NSException raise:NSGenericException format:[error description]];
+        [NSException raise:NSGenericException format:@"%@", [error description]];
     }
     
     return [NSSet setWithArray:results];
@@ -104,7 +104,7 @@
     
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
     
 }
 
@@ -172,9 +172,9 @@
 	[request release];
 	request = nil;
 	
-    //return [[self executeFetchRequest:request error:NULL] firstObject];
+    //return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 	
-	return [fetchResults firstObject];
+	return [fetchResults firstObjectSafe];
 }
 
 
@@ -204,7 +204,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",key , value];
     [request setPredicate:predicate];
     
-    return [[self executeFetchRequest:request error:NULL] firstObject];
+    return [[self executeFetchRequest:request error:NULL] firstObjectSafe];
 }
 
 - (NSArray *)entitiesWithName:(NSString *)entityName whereKey:(NSString *)key isIn:(id)values
@@ -380,20 +380,6 @@
     
     return newObj;
     
-}
-
-@end
-
-
-
-@implementation NSArray (CDArrayExtensions)
-
-- (id)firstObject
-{
-	if ([self count] > 0)
-		return [self objectAtIndex:0];
-	
-	return nil;
 }
 
 @end

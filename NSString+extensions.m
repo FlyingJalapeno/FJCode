@@ -384,16 +384,6 @@
 	return (long)[self longLongValue];
 }
 
-- (long long)longLongValue {
-	NSScanner* scanner = [NSScanner scannerWithString:self];
-	long long valueToGet;
-	if([scanner scanLongLong:&valueToGet] == YES) {
-		return valueToGet;
-	} else {
-		return 0;
-	}
-}
-
 // return a comma delimited string
 + (NSString *) commasForNumber: (long long) num
 {
