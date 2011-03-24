@@ -195,7 +195,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
     
 }
 
+/*
+
 - (NSString*)description{
+    
     
     NSMutableString* desc = [NSMutableString string];    
     
@@ -252,6 +255,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(MyCLController)
     return desc;
     
 }
+
+ */
 
 @end
 
