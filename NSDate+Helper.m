@@ -789,6 +789,15 @@ NSString* prettyMinutesAndSecondsFromInterval(NSTimeInterval seconds){
 	}	
 }
 
+- (BOOL)isEarlierThanDate:(NSDate*)anotherDate{
+    
+	if([[anotherDate earlierDate:self] isEqualToDate:self]) {
+		return YES;
+	} else {
+		return NO;
+	}	
+}
+
 - (NSDate*)midnightDate {
 	return [[NSCalendar currentCalendar] dateFromComponents:[[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self]];
 }

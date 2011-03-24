@@ -126,7 +126,15 @@ typedef enum {
 + (NSPredicate *)predicateForPhone;
 + (NSPredicate *)predicateForZip;
 
++ (NSPredicate *)predicateForStongPasswordLength:(NSUInteger)length; //requires special character "@#$%^&+=", upper case, lower case, number
++ (NSPredicate *)predicateForMediumPasswordLength:(NSUInteger)length; //requires upper case, lower case, number
++ (NSPredicate *)predicateForWeakPasswordLength:(NSUInteger)length; //requires letter, number
+
+
+
 - (BOOL)isValid:(int)type acceptWhiteSpace:(BOOL)acceptWhiteSpace;
+
+- (BOOL)validatesWithPredicate:(NSPredicate*)predicate acceptWhiteSpace:(BOOL)acceptWhiteSpace;
 
 @end
 

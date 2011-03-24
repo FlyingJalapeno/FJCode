@@ -142,6 +142,10 @@
 		C486535110BCA7360064A126 /* UIDevice-Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Reachability.m"; sourceTree = "<group>"; };
 		C489B6A01032782B00514567 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = ../../../../../Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = FJSCODE_SRC; };
 		C489B6B310327C2A00514567 /* NSManagedObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extensions.m"; sourceTree = "<group>"; };
+		C48B522C1336E777008FFD16 /* LambdaAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaAlert.h; sourceTree = "<group>"; };
+		C48B522D1336E777008FFD16 /* LambdaAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaAlert.m; sourceTree = "<group>"; };
+		C48B522E1336E777008FFD16 /* LambdaSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaSheet.h; sourceTree = "<group>"; };
+		C48B522F1336E777008FFD16 /* LambdaSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaSheet.m; sourceTree = "<group>"; };
 		C492BC871301A41400D241BF /* FJSMultiFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSMultiFetchedResultsController.h; sourceTree = "<group>"; };
 		C492BC881301A41400D241BF /* FJSMultiFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSMultiFetchedResultsController.m; sourceTree = "<group>"; };
 		C492BC891301A41400D241BF /* FJSMultiFetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSMultiFetchedResultsTableViewController.h; sourceTree = "<group>"; };
@@ -521,6 +525,7 @@
 				C403FC77100F865300DCA31A /* Audio */,
 				C46C16BD11F6107500377E8C /* Map */,
 				C49D41AA102121A500FF8BCC /* Buttons */,
+				C48B52311336E77D008FFD16 /* Block Alerts and Sheets */,
 				C4A9085412B89034006CFE9B /* FJExpandingTextView.h */,
 				C4A9085512B89034006CFE9B /* FJExpandingTextView.m */,
 				C4B3A70E12984FE30084F2C9 /* Flip View */,
@@ -599,6 +604,17 @@
 				C492BC901301A42900D241BF /* MultiFetchedResultsController */,
 			);
 			name = "CoreData Categories";
+			sourceTree = "<group>";
+		};
+		C48B52311336E77D008FFD16 /* Block Alerts and Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				C48B522C1336E777008FFD16 /* LambdaAlert.h */,
+				C48B522D1336E777008FFD16 /* LambdaAlert.m */,
+				C48B522E1336E777008FFD16 /* LambdaSheet.h */,
+				C48B522F1336E777008FFD16 /* LambdaSheet.m */,
+			);
+			name = "Block Alerts and Sheets";
 			sourceTree = "<group>";
 		};
 		C492BC901301A42900D241BF /* MultiFetchedResultsController */ = {
