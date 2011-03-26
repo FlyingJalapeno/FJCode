@@ -321,6 +321,15 @@
     
 }
 
++ (NSString*)stringWithDouble:(double)aDouble decimalPlaces:(int)decimalPlaces{
+    
+    NSMutableString *formatString = [NSMutableString stringWithString:@"%."];
+    [formatString appendString:[NSString stringWithInt:decimalPlaces]];
+    [formatString appendString:@"f"];
+    return [NSString stringWithFormat:formatString, aDouble];
+    
+}
+
 
 
 - (BOOL)holdsFloatingPointValue

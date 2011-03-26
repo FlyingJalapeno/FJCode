@@ -94,7 +94,7 @@ enum {
 
 + (NSString*)stringWithInt:(int)anInteger;
 + (NSString*)stringWithFloat:(float)aFloat decimalPlaces:(int)decimalPlaces;
-
++ (NSString*)stringWithDouble:(double)aDouble decimalPlaces:(int)decimalPlaces;
 
 - (BOOL)holdsFloatingPointValue;
 - (BOOL)holdsFloatingPointValueForLocale:(NSLocale *)locale;
