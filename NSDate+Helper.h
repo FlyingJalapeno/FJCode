@@ -119,6 +119,8 @@ NSString* prettyMinutesAndSecondsFromInterval(NSTimeInterval seconds); //mm:ss
 
 - (BOOL)isEarlierThanDate:(NSDate*)anotherDate;
 
+- (BOOL)isLaterThanDate:(NSDate*)anotherDate;
+
 // Returns the current date, at midnight
 - (NSDate*)midnightDate;
 

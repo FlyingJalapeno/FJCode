@@ -23,12 +23,6 @@
  */
 
 
-//application documents directory
-NSString* defaultStoreLocation();
-
-extern NSString* const kDefaultStoreName; //storedata
-extern NSString* const kStoreExtension; //sqlite
-
 @interface DDCoreDataStack : NSObject
 {
     NSManagedObjectModel * _model;
@@ -36,53 +30,67 @@ extern NSString* const kStoreExtension; //sqlite
     NSPersistentStore * _mainStore;
     NSManagedObjectContext * _mainContext;
 }
-
 @property (readonly, retain) NSManagedObjectModel * model;
 @property (readonly, retain) NSPersistentStoreCoordinator * coordinator;
 @property (readonly, retain) NSPersistentStore * mainStore;
 @property (readonly, retain) NSManagedObjectContext * mainContext;
-@property (readonly, readonly) NSURL * mainStoreURL;
+@property (readonly, readonly) NSURL * mainStoreURL; 
 
 
-- (NSManagedObjectContext *)scratchpadContext; //autoreleased
+
+#pragma mark -
+#pragma mark Defaults
+
+extern NSString* const kDefaultStoreName; //storedata
+extern NSString* const kStoreExtension; //sqlite
+
++ (NSString*)defaultStoreDirectory; //documents
+
++ (NSURL*)defaultStoreURL; //documents/storedata.sqlite
+
++ (NSURL*)versionedModelURLInBundle:(NSBundle*)bundle; //get the versioned MOMD URL in the bundle
++ (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle; //get the versioned MOM URLs in the bundle
+
++ (NSURL*)bundledStoreURLInBundle:(NSBundle*)bundle; //get the bundled Store URL in the bundle, must be .sqlite
+
++ (BOOL)copyStoreFromURL:(NSURL*)bundledStoreURL toStoreLocation:(NSURL*)storeLocation overwriteExistingStore:(BOOL)overwrite;
+
++ (NSMutableDictionary*)automaticMigrationOptions;
 
 
-//convienence methods, most common way to create stores
+#pragma mark -
+#pragma mark Convienence Methods
 
-//default name, location, merging from bundles
-- (BOOL)createFullStackWithDefaultSettings;
-
-//specify a name of the store
-- (BOOL)createFullStackWithSQLiteStoreWithName:(NSString*)name; //no extension
-
-//same, but copies the store from this URL if the store doesn't exist. Use this if you have a default store that ships with the app
-- (BOOL)createFullStackWithSQLiteStoreWithName:(NSString*)name copyStoreFromURLIfNeccesary:(NSURL*)storeURL; //must have .sqlite extension
-
-//copy, will not overwrite existing store
-- (BOOL)createFullStackByCopyingStoreAtURL:(NSURL*)storeURL;
+//merging from bundles, creates store at URL
+- (BOOL)createFullSQLiteStackWithDefaultSettingsAtURL:(NSURL*)url;
 
 //in memory store merging from bundles
 - (BOOL)createFullStackWithInMemoryStore;
 
 
-
-//full stack
+#pragma mark -
+#pragma mark Create Full Stack 
 
 - (BOOL)createFullStackWithStoreType:(NSString *)storeType
-                                 URL:(NSURL *)url
-                               error:(NSError **)error;
+                                 URL:(NSURL *)url;
+
+- (BOOL)createFullStackFromModelsInBundles:(NSArray *)bundles
+                                 storeType:(NSString *)storeType
+                                       URL:(NSURL *)url;
 
 - (BOOL)createFullStackFromModelsInBundles:(NSArray *)bundles
                                  storeType:(NSString *)storeType
                                        URL:(NSURL *)url
                                      error:(NSError **)error;
 
-- (void)createFullStackWithStoreType:(NSString *)storeType
-                                 URL:(NSURL *)url;
+//use for specific model or versioning
+- (BOOL)createFullStackFromModelAtURL:(NSURL *)modelURL
+                            storeType:(NSString *)storeType
+                                  URL:(NSURL *)url
+                              options:(NSDictionary*)options
+                                error:(NSError **)error;
+    
 
-- (void)createFullStackFromModelsInBundles:(NSArray *)bundles
-                                 storeType:(NSString *)storeType
-                                       URL:(NSURL *)url;
 
 - (void)destroyFullStack;
 
@@ -97,6 +105,8 @@ extern NSString* const kStoreExtension; //sqlite
 - (void)createMergedModelFromMainBundle;
 
 - (void)createMergedModelFromBundles:(NSArray *)bundles;
+
+- (void)createModelFromFromURL:(NSURL *)url; 
 
 - (void)destroyModel;
 
@@ -129,12 +139,19 @@ extern NSString* const kStoreExtension; //sqlite
 
 - (void)deleteMainStoreFromDisk;
 
+
+
 //(4) context
 
 - (void)createMainContext;
 
-- (NSManagedObjectContext*)newContext;
-
 - (void)destroyMainContext;
+
+
+
+- (NSManagedObjectContext *)scratchpadContext; //autoreleased
+
+- (NSManagedObjectContext*)newContext; //+1
+
 
 @end

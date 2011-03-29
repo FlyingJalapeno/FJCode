@@ -29,13 +29,6 @@ NSString* const kDefaultStoreName = @"storedata";
 
 NSString* const kStoreExtension = @"sqlite";
 
-NSString* defaultStoreLocation(){
-    
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-
-}
-
-
 
 @implementation DDCoreDataStack
 
@@ -44,6 +37,7 @@ NSString* defaultStoreLocation(){
 @synthesize mainStore = _mainStore;
 @synthesize mainContext = _mainContext;
 
+#pragma mark NSObject
 
 - (void)dealloc
 {
@@ -51,101 +45,153 @@ NSString* defaultStoreLocation(){
     [super dealloc];
 }
 
+
+#pragma mark DDCoreDataStack
+
++ (NSString*)defaultStoreDirectory{
+    
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+
+}
+
++ (NSURL*)defaultStoreURL{
+    
+    NSString* fileName = [kDefaultStoreName stringByAppendingPathExtension:kStoreExtension];
+    NSString* path = [[DDCoreDataStack defaultStoreDirectory] stringByAppendingPathComponent:fileName];
+    
+    NSURL* url = [NSURL fileURLWithPath:path];
+    
+    return url;
+}
+
++ (NSURL*)versionedModelURLInBundle:(NSBundle*)bundle{
+    
+    NSArray* urls = [bundle URLsForResourcesWithExtension:@"momd" subdirectory:nil];
+    
+    if([urls count] > 1){
+        
+        return nil;
+    }
+        
+    if([urls count] == 0){
+        
+        return nil;
+    }
+    
+    return [urls objectAtIndex:0];
+        
+}
+
++ (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle{
+    
+    NSArray* urls = [bundle URLsForResourcesWithExtension:@"mom" subdirectory:nil];
+    
+    return urls;
+    
+}
+
++ (NSURL*)bundledStoreURLInBundle:(NSBundle*)bundle{
+    
+    NSArray* urls = [bundle URLsForResourcesWithExtension:kStoreExtension subdirectory:nil];
+    
+    if([urls count] > 1){
+        
+        return nil;
+    }
+    
+    if([urls count] == 0){
+        
+        return nil;
+    }
+    
+    return [urls objectAtIndex:0];
+    
+    
+}
+
++ (BOOL)copyStoreFromURL:(NSURL*)bundledStoreURL toStoreLocation:(NSURL*)storeLocation overwriteExistingStore:(BOOL)overwrite{
+          
+    if(!overwrite && [[NSFileManager defaultManager] fileExistsAtPath:[storeLocation path]]){
+        
+        //not overwriting exiting store
+        return NO;
+        
+    }
+    
+    [[NSFileManager defaultManager] removeItemAtURL:storeLocation error:nil];
+    
+    NSError* error = nil;
+    [[NSFileManager defaultManager] copyItemAtURL:bundledStoreURL 
+                                            toURL:storeLocation
+                                            error:&error];
+    
+    if(error != nil)
+        return NO;
+    
+    return YES;
+    
+}
+
++ (NSMutableDictionary*)automaticMigrationOptions{
+    
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    return options;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
 - (NSURL*)mainStoreURL{
     
     return [[self mainStore] URL];
     
 }
 
-- (BOOL)createFullStackWithDefaultSettings{
-    
-    return [self createFullStackWithSQLiteStoreWithName:kDefaultStoreName];
-}
 
-- (BOOL)createFullStackWithSQLiteStoreWithName:(NSString*)name{
-    
-    NSString* fileName = [name stringByAppendingPathExtension:kStoreExtension];
-    NSString* path = [defaultStoreLocation() stringByAppendingPathComponent:fileName];
-    
-    NSURL* url = [NSURL fileURLWithPath:path];
-    
-    return [self createFullStackWithStoreType:NSSQLiteStoreType URL:url error:nil];
-}
+- (BOOL)createFullSQLiteStackWithDefaultSettingsAtURL:(NSURL*)url{
+     
+    return [self createFullStackWithStoreType:NSSQLiteStoreType URL:url];
 
-- (BOOL)createFullStackWithSQLiteStoreWithName:(NSString*)name copyStoreFromURLIfNeccesary:(NSURL*)storeURL{
-    
-    NSString* storePathExtension = [storeURL pathExtension];
-    
-	if(![storePathExtension isEqualToString:@"sqlite"])
-        return NO;
-    
-    NSString* fileName = [name stringByAppendingPathExtension:kStoreExtension];
-    NSString* path = [defaultStoreLocation() stringByAppendingPathComponent:fileName];
-    NSURL* url = [NSURL fileURLWithPath:path];
-
-    if(![[NSFileManager defaultManager] fileExistsAtPath:path]){
-        
-        NSError* error;
-        [[NSFileManager defaultManager] copyItemAtURL:storeURL 
-                                                toURL:url
-                                                 error:&error];
-        
-        if(error != nil)
-            return NO;
-    }
-    
-    
-    return [self createFullStackWithSQLiteStoreWithName:name];
-    
-}
-
-
-- (BOOL)createFullStackByCopyingStoreAtURL:(NSURL*)storeURL{
-    
-    NSString* storePathExtension = [storeURL pathExtension];
-    
-	if(![storePathExtension isEqualToString:@"sqlite"])
-        return NO;
-    
-    NSString* fileName = [kDefaultStoreName stringByAppendingPathExtension:kStoreExtension];
-    NSString* path = [defaultStoreLocation() stringByAppendingPathComponent:fileName];
-    NSURL* url = [NSURL fileURLWithPath:path];
-    
-    NSError* error;
-    [[NSFileManager defaultManager] copyItemAtURL:storeURL 
-                                            toURL:url
-                                            error:&error];
-    
-    if(error != nil)
-        return NO;
-    
-    return [self createFullStackWithDefaultSettings];
-    
-}
-
-       
+}       
 
 - (BOOL)createFullStackWithInMemoryStore{
         
-    return [self createFullStackWithStoreType:NSInMemoryStoreType URL:nil error:nil];
+    return [self createFullStackWithStoreType:NSInMemoryStoreType URL:nil];
     
 }
 
 
+#pragma mark -
+#pragma mark Full Stack
+
 - (BOOL)createFullStackWithStoreType:(NSString *)storeType
-                                 URL:(NSURL *)url
-                               error:(NSError **)error;
+                                 URL:(NSURL *)url;
 {
-    return [self createFullStackFromModelsInBundles:nil
-                                          storeType:storeType
-                                                URL:url
-                                              error:error];
+   return [self createFullStackFromModelsInBundles:nil
+                                   storeType:storeType
+                                         URL:url];
 }
+
+
+- (BOOL)createFullStackFromModelsInBundles:(NSArray *)bundles
+                                 storeType:(NSString *)storeType
+                                       URL:(NSURL *)url;
+{
+    
+   return [self createFullStackFromModelsInBundles:bundles 
+                                   storeType:storeType 
+                                         URL:url 
+                                       error:nil];
+}
+
 
 - (BOOL)createFullStackFromModelsInBundles:(NSArray *)bundles
                                  storeType:(NSString *)storeType
                                        URL:(NSURL *)url
-                                     error:(NSError **)error;
+                                     error:(NSError **)error
 {
     [self createMergedModelFromBundles:bundles];
     [self createCoordinator];
@@ -164,26 +210,30 @@ NSString* defaultStoreLocation(){
     return YES;
 }
 
-- (void)createFullStackWithStoreType:(NSString *)storeType
-                                 URL:(NSURL *)url;
-{
-    [self createFullStackFromModelsInBundles:nil
-                                   storeType:storeType
-                                         URL:url];
+- (BOOL)createFullStackFromModelAtURL:(NSURL *)modelURL
+                            storeType:(NSString *)storeType
+                                  URL:(NSURL *)url
+                              options:(NSDictionary*)options
+                                error:(NSError **)error{
+    
+    [self createModelFromFromURL:modelURL];
+    [self createCoordinator];
+    if (![self addMainStoreWithType:storeType
+                      configuration:nil
+                                URL:url
+                            options:options
+                              error:error])
+    {
+        [self destroyCoordinator];
+        [self destroyModel];
+        return NO;
+    }
+    
+    [self createMainContext];
+    return YES;
+    
 }
 
-- (void)createFullStackFromModelsInBundles:(NSArray *)bundles
-                                 storeType:(NSString *)storeType
-                                       URL:(NSURL *)url;
-{
-    [self createMergedModelFromBundles:bundles];
-    [self createCoordinator];
-    [self addMainStoreWithType:storeType
-                 configuration:nil
-                           URL:url
-                       options:nil];
-    [self createMainContext];
-}
 
 - (void)destroyFullStack;
 {
@@ -202,6 +252,9 @@ NSString* defaultStoreLocation(){
     
 }
 
+#pragma mark -
+#pragma mark Model
+
 - (void)createMergedModelFromMainBundle;
 {
     [self createMergedModelFromBundles:nil];
@@ -211,6 +264,13 @@ NSString* defaultStoreLocation(){
 {
     NSAssert(_model == nil, @"Model is already created");
     _model = [[NSManagedObjectModel mergedModelFromBundles:bundles] retain];
+    NSAssert(_model != nil, @"Created model is nil");
+}
+
+- (void)createModelFromFromURL:(NSURL *)url{
+    
+    NSAssert(_model == nil, @"Model is already created");
+    _model = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
     NSAssert(_model != nil, @"Created model is nil");
 }
 
