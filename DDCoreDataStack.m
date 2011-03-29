@@ -84,7 +84,11 @@ NSString* const kStoreExtension = @"sqlite";
 
 + (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle{
     
-    NSArray* urls = [bundle URLsForResourcesWithExtension:@"mom" subdirectory:nil];
+    NSURL* momd = [self versionedModelURLInBundle:bundle];
+    NSString* path = [momd path];
+    NSString* momdFileName = [path lastPathComponent];
+    
+    NSArray* urls = [bundle URLsForResourcesWithExtension:@"mom" subdirectory:momdFileName];
     
     return urls;
     
