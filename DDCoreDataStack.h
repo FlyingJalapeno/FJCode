@@ -48,10 +48,15 @@ extern NSString* const kStoreExtension; //sqlite
 
 + (NSURL*)defaultStoreURL; //documents/storedata.sqlite
 
-+ (NSURL*)versionedModelURLInBundle:(NSBundle*)bundle; //get the versioned MOMD URL in the bundle
-+ (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle; //get the versioned MOM URLs in the bundle
++ (NSURL*)modelURL; //get the MOM URL in the main bundle
 
-+ (NSURL*)bundledStoreURLInBundle:(NSBundle*)bundle; //get the bundled Store URL in the bundle, must be .sqlite
++ (NSURL*)versionedModelURL; //get the versioned MOMD URL
++ (NSURL*)versionedModelURLInBundle:(NSBundle*)bundle; //get the versioned MOMD URL in the specified bundle
+
++ (NSArray*)versionedModeURLS; //get the versioned MOM URLs within MOMD bundle
++ (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle; //get the versioned MOM URLs within MOMD bundle in the specified bundle
+
++ (NSURL*)bundledStoreURLInBundle:(NSBundle*)bundle; //get the bundled Store URL in the bundle, must be .sqlite, can be any name
 
 + (BOOL)copyStoreFromURL:(NSURL*)bundledStoreURL toStoreLocation:(NSURL*)storeLocation overwriteExistingStore:(BOOL)overwrite;
 

@@ -64,6 +64,30 @@ NSString* const kStoreExtension = @"sqlite";
     return url;
 }
 
++ (NSURL*)modelURL{
+    
+    NSArray* urls = [[NSBundle mainBundle] URLsForResourcesWithExtension:@"mom" subdirectory:nil];
+   
+    if([urls count] > 1){
+        
+        return nil;
+    }
+    
+    if([urls count] == 0){
+        
+        return nil;
+    }
+    
+    return [urls objectAtIndex:0];
+    
+}
+
++ (NSURL*)versionedModelURL{
+    
+    return [self versionedModelURLInBundle:[NSBundle mainBundle]];
+}
+
+
 + (NSURL*)versionedModelURLInBundle:(NSBundle*)bundle{
     
     NSArray* urls = [bundle URLsForResourcesWithExtension:@"momd" subdirectory:nil];
@@ -81,6 +105,12 @@ NSString* const kStoreExtension = @"sqlite";
     return [urls objectAtIndex:0];
         
 }
+
++ (NSArray*)versionedModeURLS{
+    
+    return [self versionedModeURLSInBundle:[NSBundle mainBundle]];
+}
+
 
 + (NSArray*)versionedModeURLSInBundle:(NSBundle*)bundle{
     
