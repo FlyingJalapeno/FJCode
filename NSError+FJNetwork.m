@@ -184,6 +184,19 @@ NSString* const kOriginalPostParametersDataKey = @"kOriginalPostParametersDataKe
     
 }
 
++ (NSError*)passwordResetRequiredError{
+    
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"Password Must Be Reset", NSLocalizedDescriptionKey, 
+                          nil];
+    
+    NSError* err = [NSError errorWithDomain: FJNetworkErrorDomain code:FJNetworkErrorPasswordResetRequired userInfo:dict];
+    
+    return err;
+    
+    
+}
+
 + (NSError*)serverErrorWithStatusCode:(int)status message:(NSString*)message URL:(NSURL*)url postParameters:(NSDictionary*)parameters{
     
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];

@@ -7,13 +7,14 @@ extern NSString* const FJNetworkServerErrorDomain;
 
 typedef enum  {
     
-     FJNetworkErrorUnknown,
-     FJNetworkErrorNilNetworkResponse,
-     FJNetworkErrorJSONParse,
-     FJNetworkErrorInvalidResponse,
-     FJNetworkErrorNotAuthenticated,
-     FJNetworkErrorCorruptImageResponse,
-     FJNetworkErrorMissingRequiredInfo
+    FJNetworkErrorUnknown,
+    FJNetworkErrorNilNetworkResponse,
+    FJNetworkErrorJSONParse,
+    FJNetworkErrorInvalidResponse,
+    FJNetworkErrorNotAuthenticated,
+    FJNetworkErrorCorruptImageResponse,
+    FJNetworkErrorPasswordResetRequired,
+    FJNetworkErrorMissingRequiredInfo
     
 } FJNetworkErrorType;
 
@@ -48,6 +49,8 @@ extern NSString* const kOriginalPostParametersDataKey;
 + (NSError*)corruptImageResponse:(NSURL*)url data:(NSData*)corruptData;
 
 + (NSError*)missingRequiredDataError;
+
++ (NSError*)passwordResetRequiredError;
 
 + (NSError*)serverErrorWithStatusCode:(int)status message:(NSString*)message URL:(NSURL*)url postParameters:(NSDictionary*)parameters;
 
