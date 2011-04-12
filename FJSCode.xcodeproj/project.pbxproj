@@ -55,6 +55,8 @@
 		C41CD43211308D730085A3BF /* tweetbubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweetbubble.png; sourceTree = "<group>"; };
 		C422B99710FAA0A900925B8E /* NSURL+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Extensions.h"; sourceTree = "<group>"; };
 		C422B99810FAA0A900925B8E /* NSURL+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Extensions.m"; sourceTree = "<group>"; };
+		C425B0551354A2F800380290 /* NSTimer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extensions.h"; sourceTree = "<group>"; };
+		C425B0561354A2F800380290 /* NSTimer+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extensions.m"; sourceTree = "<group>"; };
 		C42E952810D6CEB600754443 /* UIBarButtonItem+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+extensions.h"; sourceTree = "<group>"; };
 		C42E952910D6CEB600754443 /* UIBarButtonItem+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+extensions.m"; sourceTree = "<group>"; };
 		C42E952E10D6CEE900754443 /* UIColor+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+extensions.h"; sourceTree = "<group>"; };
@@ -844,6 +846,8 @@
 			isa = PBXGroup;
 			children = (
 				C4C921981299664E005C12F4 /* FJFoundationExtensions.h */,
+				C425B0551354A2F800380290 /* NSTimer+Extensions.h */,
+				C425B0561354A2F800380290 /* NSTimer+Extensions.m */,
 				C4E41F9B12D7B14D00FC8F83 /* NSData+Base64.h */,
 				C4E41F9C12D7B14D00FC8F83 /* NSData+Base64.m */,
 				C4A83633117A2369007D9A2A /* NSObject+Proxy.h */,
