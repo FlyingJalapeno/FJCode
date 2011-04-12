@@ -150,7 +150,9 @@ void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation
 
 - (void)refreshMapAnnotations{
 		
-	[self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeAnnotations: [self.mapView.annotations filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"!(self isKindOfClass: %@)", [MKUserLocation class]]]];
+
+	//[self.mapView removeAnnotations:self.mapView.annotations];
 	[self.mapView addAnnotations:self.annotations];	
     
     [self centerOnAnnotations];
