@@ -10,7 +10,7 @@
 
 static NSMutableDictionary* _keyedTimers = nil;
 
-@implementation NSTimer
+@implementation NSTimer(Extensions)
 
 
 + (void)load{
