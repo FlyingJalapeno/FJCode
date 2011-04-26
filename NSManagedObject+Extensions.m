@@ -15,5 +15,11 @@
     NSDictionary *vals = [self committedValuesForKeys:nil];
     return [vals count] == 0;
 }
+
+- (void)faultIntoContext{
+    
+    [[self managedObjectContext] existingObjectWithID:[self objectID] error:nil];
+    
+}
 @end
 
