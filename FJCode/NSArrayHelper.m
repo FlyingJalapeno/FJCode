@@ -69,9 +69,8 @@
 	return [copy uniqueMembers];
 }
 
-/*
 // A la LISP, will return an array populated with values
-- (NSArray *) map: (SEL) selector withObject: (id) object1 withObject: (id) object2
+- (NSArray *) mapWithSelector: (SEL) selector withObject: (id) object1 withObject: (id) object2
 {
 	NSMutableArray *results = [NSMutableArray array];
 	for (id eachitem in self)
@@ -82,7 +81,7 @@
 			continue;
 		}
 		
-		id riz = [eachitem objectByPerformingSelector:selector withObject:object1 withObject:object2];
+		id riz = [eachitem performSelector:selector withObject:object1 withObject:object2];
 		if (riz)
 			[results addObject:riz];
 		else
@@ -92,17 +91,17 @@
 }
  
  
-
-- (NSArray *) map: (SEL) selector withObject: (id) object1
+- (NSArray *) mapWithSelector: (SEL) selector withObject: (id) object1
 {
-	return [self map:selector withObject:object1 withObject:nil];
+	return [self mapWithSelector:selector withObject:object1 withObject:nil];
 }
 
-- (NSArray *) map: (SEL) selector
+
+- (NSArray *) mapWithSelector: (SEL) selector
 {
-	return [self map:selector withObject:nil];
+	return [self mapWithSelector:selector withObject:nil];
 }
-*/
+
 
 @end
 

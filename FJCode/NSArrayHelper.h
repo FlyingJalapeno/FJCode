@@ -32,9 +32,9 @@
 
 
 // Note also see: makeObjectsPeformSelector: withObject:. Map collects the results a la mapcar in Lisp
-//- (NSArray *) map: (SEL) selector;
-//- (NSArray *) map: (SEL) selector withObject: (id)object;
-//- (NSArray *) map: (SEL) selector withObject: (id)object1 withObject: (id)object2;
+- (NSArray *) mapWithSelector: (SEL) selector;
+- (NSArray *) mapWithSelector: (SEL) selector withObject: (id)object;
+- (NSArray *) mapWithSelector: (SEL) selector withObject: (id)object1 withObject: (id)object2;
 
 @end
 
