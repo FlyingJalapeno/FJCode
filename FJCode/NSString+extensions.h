@@ -27,13 +27,22 @@ enum {
 
 
 
-
 @interface NSString (comparison) 
 
 - (NSComparisonResult)localizedCaseInsensitiveArticleStrippingCompare:(NSString*)aString;
 
 @end
 
+
+
+@interface NSString (OAURLEncodingAdditions)
+
+- (NSString *)encodedURLString;
+- (NSString *)encodedURLParameterString;
+- (NSString *)decodedURLString;
+- (NSString *)removeQuotes;
+
+@end
 
 
 @interface NSString (parsing) 
