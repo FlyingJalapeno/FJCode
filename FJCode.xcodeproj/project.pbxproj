@@ -54,6 +54,11 @@
 		C4478AC21349A3450097BB67 /* DDCoreDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478ABA1349A3450097BB67 /* DDCoreDataProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478AC31349A3450097BB67 /* DDCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478ABB1349A3450097BB67 /* DDCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478AC41349A3450097BB67 /* DDCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */; };
+		C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06D134A5BF500E01A2B /* CoreFoundation.framework */; };
+		C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44F1BD31378EC47008BF6ED /* InfoPlist.strings */; };
+		C44F1BDD1378EC5E008BF6ED /* 11-x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC0134A4BF400E01A2B /* 11-x.png */; };
+		C44F1BDE1378EC5E008BF6ED /* 19-check.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC1134A4BF400E01A2B /* 19-check.png */; };
+		C44F1BDF1378EC61008BF6ED /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFD6134A4C0200E01A2B /* pop.wav */; };
 		C483EE5C1349B0A8004D164C /* UIView-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4A1349B0A2004D164C /* UIView-Extensions.m */; };
 		C483EE5D1349B0A8004D164C /* UIView-Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE4B1349B0A2004D164C /* UIView-Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE5E1349B0A8004D164C /* UITableViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */; };
@@ -159,6 +164,13 @@
 			remoteGlobalIDString = C4474C591349A2060097BB67;
 			remoteInfo = FJCode;
 		};
+		C44F1BDB1378EC52008BF6ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4474C511349A2060097BB67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C44F1BCD1378EC46008BF6ED;
+			remoteInfo = FJCodeBundle;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +224,10 @@
 		C4478ABA1349A3450097BB67 /* DDCoreDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataProvider.h; sourceTree = "<group>"; };
 		C4478ABB1349A3450097BB67 /* DDCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataStack.h; sourceTree = "<group>"; };
 		C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCoreDataStack.m; sourceTree = "<group>"; };
+		C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJCodeResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44F1BD21378EC47008BF6ED /* FJCodeBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FJCodeBundle-Info.plist"; sourceTree = "<group>"; };
+		C44F1BD41378EC47008BF6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C44F1BD61378EC47008BF6ED /* FJCodeBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCodeBundle-Prefix.pch"; sourceTree = "<group>"; };
 		C483EE4A1349B0A2004D164C /* UIView-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-Extensions.m"; sourceTree = "<group>"; };
 		C483EE4B1349B0A2004D164C /* UIView-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView-Extensions.h"; sourceTree = "<group>"; };
 		C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerHelper.m; sourceTree = "<group>"; };
@@ -342,6 +358,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C44F1BCB1378EC46008BF6ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -350,6 +374,7 @@
 			children = (
 				C4474C5F1349A2060097BB67 /* FJCode */,
 				C4474C701349A2070097BB67 /* FJCodeTests */,
+				C44F1BD01378EC46008BF6ED /* FJCodeBundle */,
 				C4474C5C1349A2060097BB67 /* Frameworks */,
 				C4474C5B1349A2060097BB67 /* Products */,
 			);
@@ -360,6 +385,7 @@
 			children = (
 				C4474C5A1349A2060097BB67 /* libFJCode.a */,
 				C4474C671349A2070097BB67 /* FJCodeTests.octest */,
+				C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -503,6 +529,24 @@
 				C4478AAB1349A33B0097BB67 /* NSManagedObject+Extensions.m */,
 			);
 			name = "Core Data Cateorgries";
+			sourceTree = "<group>";
+		};
+		C44F1BD01378EC46008BF6ED /* FJCodeBundle */ = {
+			isa = PBXGroup;
+			children = (
+				C44F1BD11378EC47008BF6ED /* Supporting Files */,
+			);
+			path = FJCodeBundle;
+			sourceTree = "<group>";
+		};
+		C44F1BD11378EC47008BF6ED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C44F1BD21378EC47008BF6ED /* FJCodeBundle-Info.plist */,
+				C44F1BD31378EC47008BF6ED /* InfoPlist.strings */,
+				C44F1BD61378EC47008BF6ED /* FJCodeBundle-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C483EE711349B0E5004D164C /* UIKit Categories */ = {
@@ -789,6 +833,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C44F1BDC1378EC52008BF6ED /* PBXTargetDependency */,
 			);
 			name = FJCode;
 			productName = FJCode;
@@ -814,6 +859,23 @@
 			productReference = C4474C671349A2070097BB67 /* FJCodeTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		C44F1BCD1378EC46008BF6ED /* FJCodeResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C44F1BD91378EC47008BF6ED /* Build configuration list for PBXNativeTarget "FJCodeResources" */;
+			buildPhases = (
+				C44F1BCA1378EC46008BF6ED /* Sources */,
+				C44F1BCB1378EC46008BF6ED /* Frameworks */,
+				C44F1BCC1378EC46008BF6ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FJCodeResources;
+			productName = FJCodeBundle;
+			productReference = C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -836,6 +898,7 @@
 			targets = (
 				C4474C591349A2060097BB67 /* FJCode */,
 				C4474C661349A2070097BB67 /* FJCodeTests */,
+				C44F1BCD1378EC46008BF6ED /* FJCodeResources */,
 			);
 		};
 /* End PBXProject section */
@@ -847,6 +910,17 @@
 			files = (
 				C4474C751349A2070097BB67 /* InfoPlist.strings in Resources */,
 				C4474C781349A2070097BB67 /* FJCodeTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C44F1BCC1378EC46008BF6ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */,
+				C44F1BDD1378EC5E008BF6ED /* 11-x.png in Resources */,
+				C44F1BDE1378EC5E008BF6ED /* 19-check.png in Resources */,
+				C44F1BDF1378EC61008BF6ED /* pop.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +1016,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C44F1BCA1378EC46008BF6ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -950,6 +1031,11 @@
 			target = C4474C591349A2060097BB67 /* FJCode */;
 			targetProxy = C4474C6D1349A2070097BB67 /* PBXContainerItemProxy */;
 		};
+		C44F1BDC1378EC52008BF6ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C44F1BCD1378EC46008BF6ED /* FJCodeResources */;
+			targetProxy = C44F1BDB1378EC52008BF6ED /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -957,6 +1043,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4474C741349A2070097BB67 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C44F1BD31378EC47008BF6ED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44F1BD41378EC47008BF6ED /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1071,6 +1165,43 @@
 			};
 			name = Release;
 		};
+		C44F1BD71378EC47008BF6ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FJCodeBundle/FJCodeBundle-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "FJCodeBundle/FJCodeBundle-Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C44F1BD81378EC47008BF6ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FJCodeBundle/FJCodeBundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "FJCodeBundle/FJCodeBundle-Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1100,6 +1231,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C44F1BD91378EC47008BF6ED /* Build configuration list for PBXNativeTarget "FJCodeResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44F1BD71378EC47008BF6ED /* Debug */,
+				C44F1BD81378EC47008BF6ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
