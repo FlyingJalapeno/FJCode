@@ -46,6 +46,8 @@
     NSArray* keyURLs; //get opportunity to handle specific respond urls
     Reachability* network;
 
+    NSString* staticHTMLPageFileName;
+    NSString* pageTitle;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
@@ -60,6 +62,9 @@
 @property (nonatomic, retain) Reachability *network;
 @property (nonatomic) BOOL showsActivitySpinner;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property (nonatomic, copy) NSString *staticHTMLPageFileName;
+@property (nonatomic, copy) NSString *pageTitle;
 
 - (id) initWithURL:(NSURL *)_baseUrl;
 

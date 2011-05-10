@@ -61,6 +61,8 @@
 @synthesize keyURLs;
 @synthesize showsActivitySpinner;
 @synthesize activityIndicator;
+@synthesize staticHTMLPageFileName;
+@synthesize pageTitle;
 
 
 
@@ -175,9 +177,26 @@
 {
 	MARK;
     
+    NSString* localFile = [[NSBundle mainBundle] pathForResource:self.staticHTMLPageFileName ofType:@"html"];
     
-	NSURLRequest *req = [NSURLRequest requestWithURL:currentURL];
-	[webView loadRequest:req];
+    
+    if(self.currentURL != nil && [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
+        
+        
+    }else if(localFile != nil){
+        
+        BOOL isDir;
+        [[NSFileManager defaultManager] fileExistsAtPath:localFile isDirectory:&isDir];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:localFile isDirectory:isDir]]];
+        
+        
+    }else{
+        
+        [UIAlertView presentAlertViewWithTitle:@"Error" message:@"No webpage to load" delegate:nil];
+    }
+
     //	[self showLoadingView];
 	[super viewDidLoad];
 }
@@ -226,6 +245,11 @@
 //==========================================================================================
 - (void)dealloc
 {
+    
+    [staticHTMLPageFileName release];
+    staticHTMLPageFileName = nil;
+    [pageTitle release];
+    pageTitle = nil;
     [activityIndicator release];
     activityIndicator = nil;    
     [keyURLs release];
