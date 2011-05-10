@@ -13,20 +13,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4474C591349A2060097BB67"
-               BuildableName = "libFJCode.a"
-               BlueprintName = "FJCode"
-               ReferencedContainer = "container:FJCode.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "C44F1BCD1378EC46008BF6ED"
                BuildableName = "FJCodeResources.bundle"
                BlueprintName = "FJCodeResources"
@@ -41,16 +27,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4474C661349A2070097BB67"
-               BuildableName = "FJCodeTests.octest"
-               BlueprintName = "FJCodeTests"
-               ReferencedContainer = "container:FJCode.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
