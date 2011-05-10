@@ -35,7 +35,7 @@ enum {
 
 
 
-@interface NSString (OAURLEncodingAdditions)
+@interface NSString (encoding)
 
 - (NSString *)encodedURLString;
 - (NSString *)encodedURLParameterString;

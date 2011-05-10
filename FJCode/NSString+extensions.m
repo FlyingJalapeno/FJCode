@@ -24,7 +24,7 @@
 @end
 
 
-@implementation NSString (OAURLEncodingAdditions)
+@implementation NSString (encoding)
 
 - (NSString *)encodedURLString {
 	NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
