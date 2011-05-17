@@ -46,7 +46,7 @@
     NSArray* keyURLs; //get opportunity to handle specific respond urls
     Reachability* network;
 
-    NSString* staticHTMLPageFileName;
+    NSString* staticHTMLPath;
     NSString* pageTitle;
 }
 
@@ -63,7 +63,7 @@
 @property (nonatomic) BOOL showsActivitySpinner;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (nonatomic, copy) NSString *staticHTMLPageFileName;
+@property (nonatomic, copy) NSString *staticHTMLPath;
 @property (nonatomic, copy) NSString *pageTitle;
 
 - (id) initWithURL:(NSURL *)_baseUrl;

@@ -61,7 +61,7 @@
 @synthesize keyURLs;
 @synthesize showsActivitySpinner;
 @synthesize activityIndicator;
-@synthesize staticHTMLPageFileName;
+@synthesize staticHTMLPath;
 @synthesize pageTitle;
 
 
@@ -176,20 +176,18 @@
 - (void)viewDidLoad
 {
 	MARK;
-    
-    NSString* localFile = [[NSBundle mainBundle] pathForResource:self.staticHTMLPageFileName ofType:@"html"];
-    
+        
     
     if(self.currentURL != nil && [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
         
         [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
         
         
-    }else if(localFile != nil){
+    }else if(self.staticHTMLPath != nil){
         
         BOOL isDir;
-        [[NSFileManager defaultManager] fileExistsAtPath:localFile isDirectory:&isDir];
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:localFile isDirectory:isDir]]];
+        [[NSFileManager defaultManager] fileExistsAtPath:self.staticHTMLPath isDirectory:&isDir];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.staticHTMLPath isDirectory:isDir]]];
         
         
     }else{
@@ -246,8 +244,8 @@
 - (void)dealloc
 {
     
-    [staticHTMLPageFileName release];
-    staticHTMLPageFileName = nil;
+    [staticHTMLPath release];
+    staticHTMLPath = nil;
     [pageTitle release];
     pageTitle = nil;
     [activityIndicator release];
