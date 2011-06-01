@@ -17,7 +17,7 @@
 }
 
 - (id)initWithFrame:(CGRect)frame title:(NSString*)title {
-	if (self = [super initWithFrame:frame]) {
+	if ((self = [super initWithFrame:frame])) {
 		self.backgroundColor = [UIColor clearColor];
 		
 		label = [[UILabel alloc] initWithFrame:CGRectZero];

@@ -13,7 +13,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+    if ((self = [super initWithFrame:frame])) {
 		self.backgroundColor = [UIColor colorWithWhite:0.15 alpha:1.000];
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
