@@ -677,25 +677,39 @@
 {
 	self.currentURL = _webView.request.URL;
     
-    UILabel* l = (UILabel*)self.navigationItem.titleView;
+    float width = 180;
+    if(IS_IPAD)
+        width = 250;
     
-    if(![l isKindOfClass:[UILabel class]]){
+    UILabel* l = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 40)] autorelease];
+    
+    l.adjustsFontSizeToFitWidth = YES;
+    l.font = [UIFont boldSystemFontOfSize:17.0];
+    l.shadowColor = [UIColor darkGrayColor];
+    //l.shadowOffset = CGSizeMake(0, 1.0);
+    l.backgroundColor = [UIColor clearColor];
+    l.textColor = [UIColor whiteColor];
+    l.textAlignment = UITextAlignmentCenter;
+
+    if(self.pageTitle == nil){
         
-        float width = 180;
-        if(IS_IPAD)
-            width = 250;
+        l.text = [webView stringByEvaluatingJavaScriptFromString: @"document.title"];
         
-        l = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 40)] autorelease];
-        l.adjustsFontSizeToFitWidth = YES;
-        l.font = [UIFont boldSystemFontOfSize:17.0];
-        l.shadowColor = [UIColor darkGrayColor];
-        //l.shadowOffset = CGSizeMake(0, 1.0);
-        l.backgroundColor = [UIColor clearColor];
-        l.textColor = [UIColor whiteColor];
+    }else{
+        
+        l.text = self.pageTitle;
+
     }
     
-    //l.text = [webView stringByEvaluatingJavaScriptFromString: @"document.title"];
-    //self.navigationItem.titleView = l;
+    l.alpha = 0.0;
+    self.navigationItem.titleView = l;
+
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        l.alpha = 1.0;
+    });
+      
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	[self fixToolbarButtons];
     [self.activityIndicator stopAnimating];
