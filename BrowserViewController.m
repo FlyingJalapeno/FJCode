@@ -657,7 +657,15 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	if (([error code] != 102) && ([error code] != NSURLErrorCancelled)) {
+    
+    if(self.staticHTMLPath != nil){
+        
+        BOOL isDir;
+        [[NSFileManager defaultManager] fileExistsAtPath:self.staticHTMLPath isDirectory:&isDir];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.staticHTMLPath isDirectory:isDir]]];
+        
+
+    }else if (([error code] != 102) && ([error code] != NSURLErrorCancelled)) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) 
                                                         message:NSLocalizedString(@"Error while loading the page. Please try again.", nil) 
                                                        delegate:nil 
