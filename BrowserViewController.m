@@ -78,7 +78,6 @@
 		self.canOpenSafari = TRUE;
 		self.canRotateLandscape = TRUE;
 		self.confirmBeforeExiting = TRUE;
-		self.network = [Reachability reachabilityWithHostName:[_baseURL host]];
 	}
 	return self;
 }
@@ -177,8 +176,9 @@
 {
 	MARK;
         
-    
-    if(self.currentURL != nil && [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable){
+    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
+
+    if(self.currentURL && [self.network currentReachabilityStatus]){
         
         [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
         
@@ -285,7 +285,7 @@
 - (void) reloadWebview
 {
 	[webView stopLoading];
-	[webView reload];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
 }
 
 //==========================================================================================
