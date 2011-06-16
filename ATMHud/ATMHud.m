@@ -75,6 +75,7 @@
 
 - (void)dealloc {
 	[sound release];
+    [__view setP:nil]; //TODO: I did this because this hud should not be retained by the view anyways.
 	[__view release];
 	[displayQueue release];
 	
