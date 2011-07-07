@@ -13,19 +13,20 @@
 
 @interface UIImage(File)
 
+//returns path
+- (NSString*)writeToimageDirectory;
+- (NSString*)writeToimageCacheDirectory;
+
 
 // ~/Documents/images/
-+ (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName;
++ (NSString*)imageDirectoryPath;
+//+ (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName;
+//- (BOOL)writeToImageDirectoryWithName:(NSString*)fileName;
 
 // ~/Caches/images/
-+ (UIImage*)imageFromImageCacheDirectoryNamed:(NSString*)fileName;
-
-// ~/Documents/images/
-- (BOOL)writeToImageDirectoryWithName:(NSString*)fileName;
-
-// ~/Caches/images/
-- (BOOL)writeToImageCacheDirectoryWithName:(NSString*)fileName;
-
++ (NSString*)imageCacheDirectoryPath;
+//+ (UIImage*)imageFromImageCacheDirectoryNamed:(NSString*)fileName;
+//- (BOOL)writeToImageCacheDirectoryWithName:(NSString*)fileName;
 
 //Write to arbitrary path
 - (BOOL)writeToPath:(NSString*)path;

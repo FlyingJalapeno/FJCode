@@ -8,6 +8,7 @@
 
 #import "UIImage+Disk.h"
 #import "NSOperationQueue+Shared.h"
+#import "NSString+extensions.h"
 
 
 NSString* const FJSImageNotFoundKey = @"FJSimageNotFound";
@@ -18,58 +19,74 @@ NSString* const FJSImageWriteFailedKey = @"FJSimageWriteFailed";
 
 NSString* const ImageFetchedAtPathNotification = @"FJSimageFetchedFromDisk";
 
-static NSString* folderName = @"images";
+static NSString* folderName = @"Images";
 //static NSString* fetching = @"imageInCue";
 
-
-NSString* imageDirectoryPath()
-{
-	
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [paths objectAtIndex:0]; 
-	filePath = [filePath stringByAppendingPathComponent:folderName]; 
-    
-    return filePath;
-}
-
-NSString* filePathWithName(NSString* name)
-{
-	return [imageDirectoryPath() stringByAppendingPathComponent:name];	
-}
-
-BOOL createImagesDirectory()
+createImagesDirectory()
 {
 	
 	BOOL isDirectory;
     
-    if([[NSFileManager defaultManager] fileExistsAtPath:imageDirectoryPath() isDirectory:&isDirectory]) {
+    if([[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageDirectoryPath] isDirectory:&isDirectory]) {
         
         if(!isDirectory){
-            [[NSFileManager defaultManager] removeItemAtPath:imageDirectoryPath() error:nil];
-            [[NSFileManager defaultManager] createDirectoryAtPath:imageDirectoryPath() withIntermediateDirectories:NO attributes:nil error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:[UIImage imageDirectoryPath] error:nil];
+            [[NSFileManager defaultManager] createDirectoryAtPath:[UIImage imageDirectoryPath] withIntermediateDirectories:NO attributes:nil error:nil];
 
         }
     }
     
-    if(![[NSFileManager defaultManager] fileExistsAtPath:imageDirectoryPath()]){
-        [[NSFileManager defaultManager] createDirectoryAtPath:imageDirectoryPath() withIntermediateDirectories:NO attributes:nil error:nil];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageDirectoryPath]]){
+        [[NSFileManager defaultManager] createDirectoryAtPath:[UIImage imageDirectoryPath] withIntermediateDirectories:NO attributes:nil error:nil];
         
     } 
     
-	return [[NSFileManager defaultManager] fileExistsAtPath:imageDirectoryPath()];
+    [[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageDirectoryPath]];
+    
+    
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageCacheDirectoryPath] isDirectory:&isDirectory]) {
+        
+        if(!isDirectory){
+            [[NSFileManager defaultManager] removeItemAtPath:[UIImage imageCacheDirectoryPath] error:nil];
+            [[NSFileManager defaultManager] createDirectoryAtPath:[UIImage imageCacheDirectoryPath] withIntermediateDirectories:NO attributes:nil error:nil];
+            
+        }
+    }
+    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageCacheDirectoryPath]]){
+        [[NSFileManager defaultManager] createDirectoryAtPath:[UIImage imageCacheDirectoryPath] withIntermediateDirectories:NO attributes:nil error:nil];
+        
+    } 
+    
+    [[NSFileManager defaultManager] fileExistsAtPath:[UIImage imageCacheDirectoryPath]];
+
 }
 
 
 
 @implementation UIImage(File)
 
++ (NSString*)imageDirectoryPath{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *directory = [paths objectAtIndex:0];
+    NSString *fullPath = [directory stringByAppendingPathComponent:folderName];   
+    return fullPath;
+}
+
++ (NSString*)imageCacheDirectoryPath{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	NSString *directory = [paths objectAtIndex:0];
+    NSString *fullPath = [directory stringByAppendingPathComponent:folderName];   
+    return fullPath;
+}
+
 
 + (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName {
 	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *directory = [paths objectAtIndex:0];
-    NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    NSString *fullPath = [[UIImage imageDirectoryPath] stringByAppendingPathComponent:fileName];
 	UIImage *res = [UIImage imageWithContentsOfFile:fullPath];
     
 	return res;
@@ -77,10 +94,7 @@ BOOL createImagesDirectory()
 
 + (UIImage*)imageFromImageCacheDirectoryNamed:(NSString*)fileName{
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-	NSString *directory = [paths objectAtIndex:0];
-    NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    NSString *fullPath = [[UIImage imageCacheDirectoryPath] stringByAppendingPathComponent:fileName];
     UIImage *res = [UIImage imageWithContentsOfFile:fullPath];
     
 	return res;
@@ -89,78 +103,55 @@ BOOL createImagesDirectory()
 
 - (BOOL)writeToImageDirectoryWithName:(NSString*)fileName{
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *directory = [paths objectAtIndex:0];
-	NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
-
+    NSString *fullPath = [[UIImage imageDirectoryPath] stringByAppendingPathComponent:fileName];
     return [self writeToPath:fullPath];
 }
 
 - (BOOL)writeToImageCacheDirectoryWithName:(NSString*)fileName{
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-	NSString *directory = [paths objectAtIndex:0];
-    NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
-    
+    NSString *fullPath = [[UIImage imageCacheDirectoryPath] stringByAppendingPathComponent:fileName];
     return [self writeToPath:fullPath];
 
 }
 
-- (BOOL)writeToFileWithImageName:(NSString*)fileName asynchronous:(BOOL)flag{
-	if(!createImagesDirectory())
-		return NO;
-	
-	
-	if(flag){
-		
-		return [self writeToPath:filePathWithName(fileName)];
-		
-	}else{
-		
-		NSInvocationOperation* cacheOperation = [[[NSInvocationOperation alloc] initWithTarget:self 
-																					  selector:@selector(writeToPath:) 
-																						object:filePathWithName(fileName)] autorelease];
-		
-		[[NSOperationQueue sharedOperationQueue] addOperation:cacheOperation];
-		
-		
-	}
-	
-	return NO;
-	
-	
-	
+- (NSString*)writeToimageDirectory{
+    
+    NSString* fileName = [[NSString GUIDString] stringByAppendingPathExtension:@"png"];    
+    NSString *fullPath = [[UIImage imageDirectoryPath] stringByAppendingPathComponent:fileName];
+
+    if([self writeToPath:fullPath])
+        return fullPath;
+    else
+        return nil;
+    
 }
-- (BOOL)writeToFile:(NSString*)path asynchronous:(BOOL)flag{
-	
-	if(flag){
-		
-		return [self writeToPath:path];
-		
-	}else{
-		
-		NSInvocationOperation* cacheOperation = [[[NSInvocationOperation alloc] initWithTarget:self 
-																					  selector:@selector(writeToPath:) 
-																						object:path] autorelease];
-		
-		[[NSOperationQueue sharedOperationQueue] addOperation:cacheOperation];
-		
-		
-	}
-	
-	return NO;
+                                   
+                            
+- (NSString*)writeToimageCacheDirectory{
+    
+    NSString* fileName = [[NSString GUIDString] stringByAppendingPathExtension:@"png"];
+    NSString *fullPath = [[UIImage imageCacheDirectoryPath] stringByAppendingPathComponent:fileName];
+    
+    if([self writeToPath:fullPath])
+        return fullPath;
+    else
+        return nil;
+
 }
 
 - (BOOL)writeToPath:(NSString*)path{
 	
+    createImagesDirectory();
+    
 	NSData* imageData = UIImagePNGRepresentation(self); 
 	
 	[UIImage deleteImageAtPath:path];
 	
-	BOOL success = [imageData writeToFile:path atomically:YES];
-	
+    NSError* error = nil;
+    BOOL success = [imageData writeToFile:path options:NSDataWritingAtomic error:&error];
+    	
+    //debugLog([error description]);
+    
 	NSDictionary* userInfo = nil;
 	
 	if(success)
