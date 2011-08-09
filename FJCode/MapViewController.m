@@ -12,7 +12,7 @@
 
 
 
-void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation* endLocation) {
+static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation* endLocation) {
 	
 	CLLocationCoordinate2D start = startLocation.coordinate;
 	CLLocationCoordinate2D destination = endLocation.coordinate;        

@@ -22,7 +22,7 @@ static NSString* folderName = @"images";
 //static NSString* fetching = @"imageInCue";
 
 
-NSString* imageDirectoryPath()
+static NSString* imageDirectoryPath()
 {
 	
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -32,12 +32,12 @@ NSString* imageDirectoryPath()
     return filePath;
 }
 
-NSString* filePathWithName(NSString* name)
+static NSString* filePathWithName(NSString* name)
 {
 	return [imageDirectoryPath() stringByAppendingPathComponent:name];	
 }
 
-BOOL createImagesDirectory()
+static BOOL createImagesDirectory()
 {
 	
 	BOOL isDirectory;

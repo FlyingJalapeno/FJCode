@@ -10,7 +10,7 @@
 #import </usr/include/objc/objc-class.h>
 
 // Credit: http://www.cocoadev.com/index.pl?MethodSwizzle
-BOOL MethodSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
+static BOOL MethodSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
 	
     // Make sure the class isn't nil
 	if (klass == nil)
@@ -93,14 +93,14 @@ BOOL MethodSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
 	return YES;
 }
 
-void appendMethod(Class aClass, Class bClass, SEL bSel) {
+static void appendMethod(Class aClass, Class bClass, SEL bSel) {
 	if(!aClass) return;
 	if(!bClass) return;
 	Method bMethod = class_getInstanceMethod(bClass, bSel);
 	class_addMethod(aClass, method_getName(bMethod), method_getImplementation(bMethod), method_getTypeEncoding(bMethod));
 }
 
-void replaceMethod(Class toClass, Class fromClass, SEL aSelector) {
+static void replaceMethod(Class toClass, Class fromClass, SEL aSelector) {
 	if(!toClass) return;
 	if(!fromClass) return;
 	Method aMethod = class_getInstanceMethod(fromClass, aSelector);
