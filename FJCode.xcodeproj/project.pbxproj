@@ -183,7 +183,7 @@
 		C4474C721349A2070097BB67 /* FJCodeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FJCodeTests-Info.plist"; sourceTree = "<group>"; };
 		C4474C741349A2070097BB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4474C761349A2070097BB67 /* FJCodeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCodeTests-Prefix.pch"; sourceTree = "<group>"; };
-		C4474C771349A2070097BB67 /* FJCodeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCodeTests.h; sourceTree = "<group>"; };
+		C4474C771349A2070097BB67 /* FJCodeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FJCodeTests.h; path = FJCodeTests/FJCodeTests.h; sourceTree = SOURCE_ROOT; };
 		C4474C791349A2070097BB67 /* FJCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCodeTests.m; sourceTree = "<group>"; };
 		C4474C831349A2550097BB67 /* FJSCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSCode.h; sourceTree = "<group>"; };
 		C4474C861349A2550097BB67 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };

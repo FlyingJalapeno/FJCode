@@ -47,7 +47,7 @@
 
 - (id)initWithFrame:(CGRect)frame 
 {
-    if (self = [super initWithFrame:frame]) 
+    if ((self = [super initWithFrame:frame])) 
 	{
         // Initialization code
 		
@@ -58,7 +58,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-	if (self = [super initWithCoder:decoder]) 
+	if ((self = [super initWithCoder:decoder])) 
 	{
         // Initialization code
 		[self initState];

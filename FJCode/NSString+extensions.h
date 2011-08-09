@@ -101,6 +101,8 @@ enum {
 
 @interface NSString (NumberStuff) 
 
++ (NSString*)secondsToStringWithHours:(int)seconds;
+
 + (NSString*)stringWithInt:(int)anInteger;
 + (NSString*)stringWithFloat:(float)aFloat decimalPlaces:(int)decimalPlaces;
 + (NSString*)stringWithDouble:(double)aDouble decimalPlaces:(int)decimalPlaces;

@@ -59,4 +59,13 @@
  */
 - (UIImage*)scaleToSize:(CGSize)size withOffset:(CGPoint)offset;	
 
+/**
+ * Draws the image as a rounded rectangle.
+ */
+- (void)drawInRect:(CGRect)rect radius:(CGFloat)radius;
+
+- (void)drawInRect:(CGRect)rect radius:(CGFloat)radius contentMode:(UIViewContentMode)contentMode;
+
++ (UIImage *)makeRoundCornerImage : (UIImage*) img : (int) cornerWidth : (int) cornerHeight;
+
 @end

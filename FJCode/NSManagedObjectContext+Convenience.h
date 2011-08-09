@@ -2,15 +2,6 @@
 #import <CoreData/CoreData.h>
 
 
-
-
-@interface NSArray (CDArrayExtensions)
-
-- (id)firstObject;
-
-@end
-
-
 @interface NSManagedObjectContext (DictionaryExtensions)
 
 - (NSMutableDictionary*) mutableDictionaryForEntityWithName:(NSString*)entityName keyedBy:(NSString*)keyName;

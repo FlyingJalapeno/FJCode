@@ -30,7 +30,7 @@
             if (error == kAudioServicesNoError) { // success
                 _soundID = aSoundID;
             } else {
-                NSLog(@"Error %d loading sound at path: %@", error, path);
+                NSLog(@"Error %d loading sound at path: %@", (int)error, path);
                 [self release], self = nil;
             }
         } else {
