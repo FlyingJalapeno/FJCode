@@ -74,7 +74,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(FJLocationController)
 - (void)applicationWillResignActiveWithNotification:(NSNotification*)note{
     
     debugLog(@"app resigned");
-    //[self stopUpdating];
+    [self stopUpdating];
 }
 
 
