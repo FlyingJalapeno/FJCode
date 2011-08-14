@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */; };
+		C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */; };
 		C4474C5E1349A2060097BB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C5D1349A2060097BB67 /* Foundation.framework */; };
 		C4474C691349A2070097BB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C681349A2070097BB67 /* UIKit.framework */; };
 		C4474C6A1349A2070097BB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C5D1349A2060097BB67 /* Foundation.framework */; };
@@ -174,6 +176,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extensions.h"; sourceTree = "<group>"; };
+		C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extensions.m"; sourceTree = "<group>"; };
 		C4474C5A1349A2060097BB67 /* libFJCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFJCode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4474C5D1349A2060097BB67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4474C611349A2060097BB67 /* FJCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCode-Prefix.pch"; sourceTree = "<group>"; };
@@ -484,6 +488,8 @@
 				C4478A7A1349A2F10097BB67 /* NSObjectHelper.m */,
 				C4478A7B1349A2F10097BB67 /* NSString+extensions.h */,
 				C4478A7C1349A2F10097BB67 /* NSString+extensions.m */,
+				C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */,
+				C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */,
 				C4478A7D1349A2F10097BB67 /* NSDictionaryHelper.h */,
 				C4478A7E1349A2F10097BB67 /* NSDictionaryHelper.m */,
 				C4478A7F1349A2F20097BB67 /* NSArrayHelper.h */,
@@ -816,6 +822,7 @@
 				C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */,
 				C4A1E036134A572100E01A2B /* Functions.h in Headers */,
 				C4FFBB72134A6D33007F4F2B /* MTStatusBarOverlay.h in Headers */,
+				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1013,7 @@
 				C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */,
 				C4A1E037134A572100E01A2B /* Functions.m in Sources */,
 				C4FFBB73134A6D33007F4F2B /* MTStatusBarOverlay.m in Sources */,
+				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
