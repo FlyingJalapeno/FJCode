@@ -146,6 +146,22 @@
 
 @implementation NSString (exstensions) 
 
+- (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size{
+    
+    CGFloat fontSize = [*font pointSize];
+    CGSize finalSize = [self sizeWithFont:*font constrainedToSize:CGSizeMake(size.width,FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+    
+    //Reduce font size while too large, break if no height (empty string)
+    while (finalSize.height > size.height && fontSize > minimumFontSize && finalSize.height != 0) {   
+        fontSize = (fontSize) - 1;  
+        *font = [*font fontWithSize:fontSize];   
+        finalSize = [self sizeWithFont:*font constrainedToSize:CGSizeMake(size.width, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+    };
+    
+    return finalSize;
+}
+
+
 - (BOOL)containsString:(NSString*)string {
 	return [self containsString:string options:NSCaseInsensitiveSearch];
 }

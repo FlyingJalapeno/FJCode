@@ -53,6 +53,7 @@ enum {
 
 @interface NSString (exstensions) 
 
+- (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size;
 
 - (BOOL)doesContainString:(NSString *)aString;
 /*
