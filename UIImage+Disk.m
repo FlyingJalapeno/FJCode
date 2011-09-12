@@ -22,7 +22,7 @@ NSString* const ImageFetchedAtPathNotification = @"FJSimageFetchedFromDisk";
 static NSString* folderName = @"Images";
 //static NSString* fetching = @"imageInCue";
 
-createImagesDirectory()
+void createImagesDirectory()
 {
 	
 	BOOL isDirectory;
@@ -104,7 +104,8 @@ createImagesDirectory()
 - (BOOL)writeToImageDirectoryWithName:(NSString*)fileName{
     
     NSString *fullPath = [[UIImage imageDirectoryPath] stringByAppendingPathComponent:fileName];
-    return [self writeToPath:fullPath];
+    BOOL ans =  [self writeToPath:fullPath];
+    return ans;
 }
 
 - (BOOL)writeToImageCacheDirectoryWithName:(NSString*)fileName{
@@ -145,9 +146,20 @@ createImagesDirectory()
     
 	NSData* imageData = UIImagePNGRepresentation(self); 
 	
+    /*
+    if(![[path pathExtension] isEqualToString:@"png"]){
+        
+        path = [path stringByAppendingPathExtension:@"png"];
+    }
+     */
+    
 	[UIImage deleteImageAtPath:path];
+    
+    NSString* folderPath = [path stringByDeletingLastPathComponent];
 	
     NSError* error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
+    
     BOOL success = [imageData writeToFile:path options:NSDataWritingAtomic error:&error];
     	
     //debugLog([error description]);

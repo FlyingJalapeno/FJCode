@@ -20,8 +20,8 @@
 
 // ~/Documents/images/
 + (NSString*)imageDirectoryPath;
-//+ (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName;
-//- (BOOL)writeToImageDirectoryWithName:(NSString*)fileName;
++ (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName;
+- (BOOL)writeToImageDirectoryWithName:(NSString*)fileName;
 
 // ~/Caches/images/
 + (NSString*)imageCacheDirectoryPath;
