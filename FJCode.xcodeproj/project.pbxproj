@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */; };
 		C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */; };
+		C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C42AC214143265C1002737E6 /* NSPredicate+extensions.h */; };
+		C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
+		C42AC218143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
 		C4474C5E1349A2060097BB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C5D1349A2060097BB67 /* Foundation.framework */; };
 		C4474C691349A2070097BB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C681349A2070097BB67 /* UIKit.framework */; };
 		C4474C6A1349A2070097BB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4474C5D1349A2060097BB67 /* Foundation.framework */; };
@@ -178,6 +181,8 @@
 /* Begin PBXFileReference section */
 		C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extensions.h"; sourceTree = "<group>"; };
 		C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extensions.m"; sourceTree = "<group>"; };
+		C42AC214143265C1002737E6 /* NSPredicate+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+extensions.h"; sourceTree = "<group>"; };
+		C42AC215143265C1002737E6 /* NSPredicate+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+extensions.m"; sourceTree = "<group>"; };
 		C4474C5A1349A2060097BB67 /* libFJCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFJCode.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4474C5D1349A2060097BB67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4474C611349A2060097BB67 /* FJCode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCode-Prefix.pch"; sourceTree = "<group>"; };
@@ -506,6 +511,8 @@
 				C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */,
 				C4478A891349A2F40097BB67 /* NSOperationQueue+Shared.h */,
 				C4478A8A1349A2F40097BB67 /* NSOperationQueue+Shared.m */,
+				C42AC214143265C1002737E6 /* NSPredicate+extensions.h */,
+				C42AC215143265C1002737E6 /* NSPredicate+extensions.m */,
 			);
 			name = "Foundation Categories";
 			sourceTree = "<group>";
@@ -823,6 +830,7 @@
 				C4A1E036134A572100E01A2B /* Functions.h in Headers */,
 				C4FFBB72134A6D33007F4F2B /* MTStatusBarOverlay.h in Headers */,
 				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
+				C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,6 +1022,7 @@
 				C4A1E037134A572100E01A2B /* Functions.m in Sources */,
 				C4FFBB73134A6D33007F4F2B /* MTStatusBarOverlay.m in Sources */,
 				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
+				C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,6 +1031,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4474C7A1349A2070097BB67 /* FJCodeTests.m in Sources */,
+				C42AC218143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
