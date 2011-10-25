@@ -171,37 +171,65 @@
 	
 }
 
+////==========================================================================================
+//- (void)viewDidLoad
+//{
+//	MARK;
+//        
+//    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
+//    
+//    NSURLRequest *localRequest = [NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60.0];
+//    NSURLRequest *remoteRequest = [NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0];
+//    
+//    if(self.currentURL && [self.network currentReachabilityStatus]){
+//        
+//        [[NSURLCache sharedURLCache] removeCachedResponseForRequest:localRequest];
+//        [self.webView loadRequest:localRequest];
+//        
+//    } else if (self.currentURL) {
+//        
+//        [self.webView loadRequest:localRequest];
+//    }
+//    
+////    else if (self.currentURL){
+////        
+////        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+////        [self.webView loadRequest:localRequest];
+////        
+////    } 
+////    
+////    else if(self.staticHTMLPath != nil){
+////        
+////        BOOL isDir;
+////        [[NSFileManager defaultManager] fileExistsAtPath:self.staticHTMLPath isDirectory:&isDir];
+////        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.staticHTMLPath isDirectory:isDir]];
+////        [self.webView loadRequest:request];
+////        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+////        
+////        
+////    } else{
+////        
+////        [UIAlertView presentAlertViewWithTitle:@"Error" message:@"No webpage to load" delegate:nil];
+////    }
+//
+//    //	[self showLoadingView];
+//	[super viewDidLoad];
+//}
+
 //==========================================================================================
-- (void)viewDidLoad
-{
-	MARK;
-        
-    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
 
-    if(self.currentURL && [self.network currentReachabilityStatus]){
-        
-        [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
-        
-        
-    }else if(self.staticHTMLPath != nil){
-        
-        BOOL isDir;
-        [[NSFileManager defaultManager] fileExistsAtPath:self.staticHTMLPath isDirectory:&isDir];
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:self.staticHTMLPath isDirectory:isDir]]];
-        
-        
-    }else{
-        
-        [UIAlertView presentAlertViewWithTitle:@"Error" message:@"No webpage to load" delegate:nil];
-    }
-
-    //	[self showLoadingView];
-	[super viewDidLoad];
-}
-
-//==========================================================================================
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
+    
+    NSURLRequest *remoteRequest = [NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0];
+    
+    if(self.currentURL){
+        
+        [self.webView loadRequest:remoteRequest];
+        
+    }
+    
 	self.webView.delegate = self;	// setup the delegate as the web view is shown
 }
 
