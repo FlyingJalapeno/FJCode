@@ -176,8 +176,16 @@
 {
 	MARK;
         
-    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
+    //	[self showLoadingView];
+	[super viewDidLoad];
+}
 
+//==========================================================================================
+- (void)viewWillAppear:(BOOL)animated
+{
+	//self.webView.delegate = self;	// setup the delegate as the web view is shown
+    self.network = [Reachability reachabilityWithHostName:[self.currentURL host]];
+    
     if(self.currentURL && [self.network currentReachabilityStatus]){
         
         [self.webView loadRequest:[NSURLRequest requestWithURL:self.currentURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0]];
@@ -195,14 +203,6 @@
         [UIAlertView presentAlertViewWithTitle:@"Error" message:@"No webpage to load" delegate:nil];
     }
 
-    //	[self showLoadingView];
-	[super viewDidLoad];
-}
-
-//==========================================================================================
-- (void)viewWillAppear:(BOOL)animated
-{
-	self.webView.delegate = self;	// setup the delegate as the web view is shown
 }
 
 //==========================================================================================
