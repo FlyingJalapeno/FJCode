@@ -361,6 +361,16 @@
 	return [escapedString autorelease];
 }
 
+   
+- (NSString*) stringByRemovingHTMLTags{
+    
+    NSRange r;
+    NSString *s = [[self copy] autorelease];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s; 
+
+}
 
 
 @end
