@@ -26,6 +26,13 @@ dispatch_time_t dispatchTimeFromNow(float seconds);
 
 NSString* timeZoneString();
 
+#pragma mark -
+#pragma mark NSRange
+
+BOOL rangesAreContiguous(NSRange first, NSRange second);
+
+NSRange rangeWithFirstAndLastIndexes(NSUInteger first, NSUInteger last);
+
 
 #pragma mark -
 #pragma mark Dispatch Help

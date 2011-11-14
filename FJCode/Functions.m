@@ -21,6 +21,36 @@ NSString* fileNameBasedOnCurrentTime() {
 }
 
 
+BOOL rangesAreContiguous(NSRange first, NSRange second){
+    
+    NSIndexSet* firstIndexes = [NSIndexSet indexSetWithIndexesInRange:first];
+    NSIndexSet* secondIndexes = [NSIndexSet indexSetWithIndexesInRange:second];
+    
+    NSUInteger endOfFirstRange = [firstIndexes lastIndex];
+    NSUInteger beginingOfSecondRange = [secondIndexes firstIndex];
+    
+    if(beginingOfSecondRange - endOfFirstRange == 1)
+        return YES;
+    
+    return NO;
+    
+}
+
+NSRange rangeWithFirstAndLastIndexes(NSUInteger first, NSUInteger last){
+    
+    if(last < first)
+        return NSMakeRange(0, 0);
+    
+    if(first == NSNotFound || last == NSNotFound)
+        return NSMakeRange(0, 0);
+    
+    NSUInteger length = last-first + 1;
+    
+    NSRange r = NSMakeRange(first, length);
+    return r;
+    
+}
+
 
 float nanosecondsWithSeconds(float seconds){
     

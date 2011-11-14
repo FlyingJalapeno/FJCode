@@ -64,6 +64,9 @@
 		C44F1BDD1378EC5E008BF6ED /* 11-x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC0134A4BF400E01A2B /* 11-x.png */; };
 		C44F1BDE1378EC5E008BF6ED /* 19-check.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC1134A4BF400E01A2B /* 19-check.png */; };
 		C44F1BDF1378EC61008BF6ED /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFD6134A4C0200E01A2B /* pop.wav */; };
+		C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */; };
+		C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
+		C453D6881470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
 		C483EE5C1349B0A8004D164C /* UIView-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4A1349B0A2004D164C /* UIView-Extensions.m */; };
 		C483EE5D1349B0A8004D164C /* UIView-Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE4B1349B0A2004D164C /* UIView-Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE5E1349B0A8004D164C /* UITableViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */; };
@@ -237,6 +240,8 @@
 		C44F1BD21378EC47008BF6ED /* FJCodeBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FJCodeBundle-Info.plist"; sourceTree = "<group>"; };
 		C44F1BD41378EC47008BF6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C44F1BD61378EC47008BF6ED /* FJCodeBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCodeBundle-Prefix.pch"; sourceTree = "<group>"; };
+		C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+extensions.h"; sourceTree = "<group>"; };
+		C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+extensions.m"; sourceTree = "<group>"; };
 		C483EE4A1349B0A2004D164C /* UIView-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-Extensions.m"; sourceTree = "<group>"; };
 		C483EE4B1349B0A2004D164C /* UIView-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView-Extensions.h"; sourceTree = "<group>"; };
 		C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerHelper.m; sourceTree = "<group>"; };
@@ -513,6 +518,8 @@
 				C4478A8A1349A2F40097BB67 /* NSOperationQueue+Shared.m */,
 				C42AC214143265C1002737E6 /* NSPredicate+extensions.h */,
 				C42AC215143265C1002737E6 /* NSPredicate+extensions.m */,
+				C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */,
+				C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */,
 			);
 			name = "Foundation Categories";
 			sourceTree = "<group>";
@@ -831,6 +838,7 @@
 				C4FFBB72134A6D33007F4F2B /* MTStatusBarOverlay.h in Headers */,
 				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
 				C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */,
+				C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +905,7 @@
 		C4474C511349A2060097BB67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Flying Jalapeño";
 			};
 			buildConfigurationList = C4474C541349A2060097BB67 /* Build configuration list for PBXProject "FJCode" */;
@@ -1023,6 +1031,7 @@
 				C4FFBB73134A6D33007F4F2B /* MTStatusBarOverlay.m in Sources */,
 				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
 				C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
+				C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1041,7 @@
 			files = (
 				C4474C7A1349A2070097BB67 /* FJCodeTests.m in Sources */,
 				C42AC218143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
+				C453D6881470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

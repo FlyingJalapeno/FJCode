@@ -17,5 +17,6 @@
 #import "NSError+FJNetwork.h"
 #import "NSTimer+Extensions.h"
 #import "NSPredicate+extensions.h"
+#import "NSIndexSet+extensions.h"
 //#import "NSData+Base64.h"
 
