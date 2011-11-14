@@ -56,7 +56,6 @@ enum {
  */
 - (BOOL)containsString:(NSString*)string options:(NSStringCompareOptions)options;
 
-
 - (NSRange)fullRange;
 - (NSString*)stringByDeletingLastCharacter;
 - (NSString*)stringByRemovingArticlePrefixes;
@@ -86,6 +85,8 @@ enum {
 
 
 - (NSString*) stringByPreparingForURL;
+
+- (NSString*) stringByRemovingHTMLTags;
 
 
 @end
