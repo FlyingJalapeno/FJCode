@@ -57,18 +57,32 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
 
     self.mapView.delegate = nil;	
     
-    [self removeObserver:self forKeyPath:@"annotations"];
+    @try {
+        [self removeObserver:self forKeyPath:@"annotations"];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"trying to remove observer");
+    }
+   
     [selectedAnnotation release];
     selectedAnnotation = nil;
     [annotations release], annotations = nil;
     
-    //Doing this to avoid crash from animations not completing before the view disapears
-    dispatch_after(dispatchTimeFromNow(2), dispatch_get_main_queue(), ^{
-        
-        [mapView release], mapView = nil;
-        [super dealloc];
+    mapView.delegate = nil;
+    [mapView release];
+    mapView = nil;
+    /*
+     //Doing this to avoid crash from animations not completing before the view disapears
+     dispatch_after(dispatchTimeFromNow(2), dispatch_get_main_queue(), ^{
+     
+     mapView.delegate = nil;
+     //[mapView release];
+     mapView = nil;
+     
+     });
+     */
+    [super dealloc];
 
-    });
     
 }
 
