@@ -30,11 +30,8 @@
 - (NSArray *) unionWithArray: (NSArray *) array;
 - (NSArray *) intersectionWithArray: (NSArray *) array;
 
+- (NSArray*)mapWithBlock:(id (^)(id obj, NSUInteger idx))block;
 
-// Note also see: makeObjectsPeformSelector: withObject:. Map collects the results a la mapcar in Lisp
-- (NSArray *) mapWithSelector: (SEL) selector;
-- (NSArray *) mapWithSelector: (SEL) selector withObject: (id)object;
-- (NSArray *) mapWithSelector: (SEL) selector withObject: (id)object1 withObject: (id)object2;
 
 @end
 

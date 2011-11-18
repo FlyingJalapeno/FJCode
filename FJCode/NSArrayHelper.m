@@ -69,6 +69,24 @@
 	return [copy uniqueMembers];
 }
 
+- (NSArray*)mapWithBlock:(id (^)(id obj, NSUInteger idx))block{
+    
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity:[self count]];
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        id mappedObject = block(obj, idx);
+        
+        [array addObject:mappedObject];
+        
+    }];
+    
+    return array;
+
+}
+    
+    
+
 // A la LISP, will return an array populated with values
 - (NSArray *) mapWithSelector: (SEL) selector withObject: (id) object1 withObject: (id) object2
 {

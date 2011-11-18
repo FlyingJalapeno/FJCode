@@ -897,7 +897,7 @@
 		C4474C511349A2060097BB67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Flying Jalapeño";
 			};
 			buildConfigurationList = C4474C541349A2060097BB67 /* Build configuration list for PBXProject "FJCode" */;
