@@ -1,24 +1,8 @@
 
 #import "Functions.h"
+#import "LambdaAlert.h"
 
 
-NSString* documentsDirectory(){
-    
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
-}
-
-NSString* cachesDirectory(){
-    
-    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    
-}
-
-
-NSString* fileNameBasedOnCurrentTime() {
-	NSString* fileName = [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"png"];
-	return fileName;
-}
 
 
 BOOL rangesAreContiguous(NSRange first, NSRange second){
@@ -132,6 +116,80 @@ void dispatchAfterDelayInSeconds(float delay, dispatch_queue_t queue, dispatch_b
     dispatch_after(dispatchTimeFromNow(delay), queue, block);
     
 }
+
+void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation){
+    
+    CLLocationCoordinate2D start = startLocation.coordinate;
+	CLLocationCoordinate2D destination = endLocation.coordinate;        
+	
+	NSString *googleMapsURLString = [NSString stringWithFormat:@"http://maps.google.com/?saddr=%1.6f,%1.6f&daddr=%1.6f,%1.6f",
+									 start.latitude, start.longitude, destination.latitude, destination.longitude];
+	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleMapsURLString]];
+    
+}
+
+void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation, void(^block)(BOOL didOpenMap)){
+    
+    LambdaAlert* a = [[LambdaAlert alloc] initWithTitle:@"Get Directions?" message:@"Close the app and get directions using Google maps?"];
+    
+    [a addButtonWithTitle:@"Directions" block:^{
+        
+        //CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
+        
+        openGoogleMapsForDirectionsWithLocations(startLocation, endLocation);
+        
+        block(YES);
+        
+    }];
+    
+    [a addButtonWithTitle:@"Cancel" block:^{
+        
+        block(NO);
+
+    }];
+}
+
+NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1, id<MKAnnotation> obj2, CLLocation* center){
+        
+    if(!center)
+        return NSOrderedAscending;
+    
+    CLLocation* l1 = [[CLLocation alloc] initWithLatitude:[obj1 coordinate].latitude longitude:[obj1 coordinate].longitude];
+    
+    CLLocationDistance d1 = [center distanceFromLocation:l1];
+    
+    CLLocation* l2 = [[CLLocation alloc] initWithLatitude:[obj2 coordinate].latitude longitude:[obj2 coordinate].longitude];
+    
+    CLLocationDistance d2 = [center distanceFromLocation:l2];
+    
+    if(d1 < d2)
+        return NSOrderedAscending;
+    if(d1 == d2)
+        return NSOrderedSame;
+    
+    return NSOrderedDescending;
+    
+}
+
+NSComparisonResult compareLocationsByDistanceToLocation(CLLocation* obj1, CLLocation* obj2, CLLocation* center){
+        
+    if(!center)
+        return NSOrderedAscending;
+        
+    CLLocationDistance d1 = [center distanceFromLocation:obj1];
+        
+    CLLocationDistance d2 = [center distanceFromLocation:obj2];
+    
+    if(d1 < d2)
+        return NSOrderedAscending;
+    if(d1 == d2)
+        return NSOrderedSame;
+    
+    return NSOrderedDescending;
+    
+}
+
 
 Progress progressMake(unsigned long long complete, unsigned long long total){
     

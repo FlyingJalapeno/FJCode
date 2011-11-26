@@ -9,45 +9,20 @@
 #import "MapViewController.h"
 #import "NSObject+Proxy.h"
 #import "Functions.h"
-
-
-
-static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLLocation* endLocation) {
-	
-	CLLocationCoordinate2D start = startLocation.coordinate;
-	CLLocationCoordinate2D destination = endLocation.coordinate;        
-	
-	NSString *googleMapsURLString = [NSString stringWithFormat:@"http://maps.google.com/?saddr=%1.6f,%1.6f&daddr=%1.6f,%1.6f",
-									 start.latitude, start.longitude, destination.latitude, destination.longitude];
-	
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleMapsURLString]];		
-}
+#import "MKMapView+extensions.h"
 
 @interface MapViewController()
 
-- (void)refreshMapAnnotations;
-- (void)centerOnAnnotations;
-- (void)centerOnAnnotation:(id<MKAnnotation>)annotation;
-- (void)centerOnCoordinate:(CLLocationCoordinate2D)coord;
-
-
-
+@property (nonatomic) BOOL animatePinDrop;
 
 @end
 
 
 @implementation MapViewController
-@synthesize annotations;
 @synthesize mapView;
-@synthesize currentCcoordinate;
 @synthesize numberOfLocationsToCenterMap;
-@synthesize defaultCoordinate;
-@synthesize shouldPromptToLaunchDirections;
-@synthesize selectedAnnotation;
-@synthesize shouldAnimatePinDrop;
-
-
-
+@synthesize animatePinDrop;
+@synthesize pinImage;
 
 
 #pragma mark -
@@ -55,18 +30,8 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
 
 - (void)dealloc {
 
-    self.mapView.delegate = nil;	
-    
-    @try {
-        [self removeObserver:self forKeyPath:@"annotations"];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"trying to remove observer");
-    }
-   
-    [selectedAnnotation release];
-    selectedAnnotation = nil;
-    [annotations release], annotations = nil;
+    [pinImage release];
+    pinImage = nil;
     
     mapView.delegate = nil;
     [mapView release];
@@ -110,6 +75,14 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
 }
 
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.numberOfLocationsToCenterMap = 25;
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark UIViewController
 
@@ -120,13 +93,6 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
     
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-        
-    [self addObserver:self forKeyPath:@"annotations" options:0 context:nil];
-    
-    if([self.annotations count] > 0){
-        
-        [self refreshMapAnnotations];
-    }
     
 }
 
@@ -136,161 +102,22 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
     
     self.mapView.delegate = self;
     
-    if([self.mapView.annotations count] == 0){
-        
-        [self refreshMapAnnotations];
-    }
-}
-
-
-#pragma mark -
-#pragma mark KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-	
-	if([keyPath isEqualToString:@"annotations"]){
-		
-		[self refreshMapAnnotations];
-		
-		return;
-		
-	}
-	
-	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 
 #pragma mark -
 #pragma mark MKMapView
 
-- (void)refreshMapAnnotations{
-		
-    [self.mapView removeAnnotations: [self.mapView.annotations filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"!(self isKindOfClass: %@)", [MKUserLocation class]]]];
-
-	//[self.mapView removeAnnotations:self.mapView.annotations];
-	[self.mapView addAnnotations:self.annotations];	
+- (void)reloadMapWithAnnotations:(NSArray*)annotations animated:(BOOL)animated{
     
-    [self centerOnAnnotations];
+    self.animatePinDrop = animated;
     
-    if([self.annotations count] == 1){
+    [self.mapView removeAnnotations:[self.mapView annotationsWithoutUserAnnotation]];
         
-        self.title = [((id<MKAnnotation>)[self.annotations objectAtIndex:0]) title];
-        
-    }   
-		
-}
-
-
-#pragma mark -
-#pragma mark annotation center
-
-
-- (void)centerOnAnnotation:(id<MKAnnotation>)annotation{
+    [self.mapView addAnnotationsSortedByDistanceFromUserLocation:annotations];
     
-    if(annotation == nil)
-        return;
+    [self.mapView smartCenterOnAnnotationsUpToIndex:self.numberOfLocationsToCenterMap withDefaultCenter:nil animated:YES];
     
-    CLLocationCoordinate2D coord = [annotation coordinate];
-    
-    [self centerOnCoordinate:coord];
-    
-}
-
-- (void)centerOnCoordinate:(CLLocationCoordinate2D)coord{
-	
-	MKCoordinateRegion	locationsRegion;
-	
-	locationsRegion.center.latitude = coord.latitude;
-	locationsRegion.center.longitude = coord.longitude;
-	
-	locationsRegion.span.latitudeDelta = 0.01f;
-	locationsRegion.span.longitudeDelta = 0.01f;
-	
-	[self.mapView setRegion: locationsRegion animated: YES];
-    
-    
-}
-
-- (void)centerOnAnnotations
-{
-    //center on defualt if no locations
-    if([[self annotations] count] == 0){
-        
-        [self centerOnCoordinate:[self defaultCoordinate]];
-        return;
-    }
-    
-    //center on single
-    if([[self annotations] count] == 1){
-        
-        [self centerOnAnnotation:[self.annotations objectAtIndex:0]];
-        return;
-    }
-    
-    //calculate bitches
-    if(numberOfLocationsToCenterMap < 1)
-        numberOfLocationsToCenterMap = 1;
-
-    
-	CLLocationCoordinate2D	minCoord;
-	CLLocationCoordinate2D	maxCoord;
-    
-    minCoord.latitude = 90.0f;
-	minCoord.longitude = 180.0f;
-    maxCoord.latitude = -90.0f;
-	maxCoord.longitude = -180.0f;
-	
-    int i = 1;
-    
-	for (id<MKAnnotation> annotation in self.annotations)
-	{
-        
-        if(i > numberOfLocationsToCenterMap)
-            break;
-        
-        if(i == 1){
-            
-            minCoord.latitude = annotation.coordinate.latitude;
-            minCoord.longitude = annotation.coordinate.longitude;
-            maxCoord.latitude = annotation.coordinate.latitude;
-            maxCoord.longitude = annotation.coordinate.longitude;
-
-        }else{
-            
-            if (annotation.coordinate.latitude < minCoord.latitude)
-            {
-                minCoord.latitude = annotation.coordinate.latitude;
-            }
-            
-            if (annotation.coordinate.longitude < minCoord.longitude)
-            {
-                minCoord.longitude = annotation.coordinate.longitude;
-            }
-            
-            if (annotation.coordinate.latitude > maxCoord.latitude)
-            {
-                maxCoord.latitude = annotation.coordinate.latitude;
-            }
-            
-            if (annotation.coordinate.longitude > maxCoord.longitude)
-            {
-                maxCoord.longitude = annotation.coordinate.longitude ;
-            }
-        }
-        
-        i++;
-	}
-	
-	MKCoordinateRegion	locationsRegion;
-	
-	locationsRegion.center.latitude = (CLLocationDegrees)((maxCoord.latitude + minCoord.latitude) / 2.0f);
-	locationsRegion.center.longitude = (CLLocationDegrees)((maxCoord.longitude + minCoord.longitude) / 2.0f);
-	
-	locationsRegion.span.latitudeDelta = (maxCoord.latitude - minCoord.latitude) + 0.001;
-	locationsRegion.span.longitudeDelta = (maxCoord.longitude - minCoord.longitude) + 0.001f;
-	
-	
-	[self.mapView setRegion: locationsRegion animated: YES];
 }
 
 
@@ -299,92 +126,127 @@ static void openGoogleMapsForDirectionsToLocation(CLLocation* startLocation, CLL
 
 - (MKAnnotationView*)mapView: (MKMapView*)mapView viewForAnnotation: (id <MKAnnotation>)annotation
 {
-	MKPinAnnotationView* annotationView = nil;
     
     if([annotation isKindOfClass:[MKUserLocation class]]){
         
         return nil; 
     }
-        
-    annotationView = (MKPinAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"locationAnnotation"];
     
-    if (annotationView == nil)
-    {
-        annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier:@"locationAnnotation"] autorelease];
-        annotationView.canShowCallout = YES;
-        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        annotationView.animatesDrop = self.shouldAnimatePinDrop;
+
+    if(self.pinImage == nil){
         
-    }
-    else
-    {
-        annotationView.annotation = annotation;
-    }
-    
-    
-    if([self.annotations count] == 1){
+        MKPinAnnotationView* annotationView = nil;
+
+        annotationView = (MKPinAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"locationAnnotation"];
         
-        dispatch_after(dispatchTimeFromNow(1), dispatch_get_main_queue(), ^{
+        if (annotationView == nil)
+        {
+            annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier:@"locationAnnotation"] autorelease];
+            annotationView.canShowCallout = YES;
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            annotationView.animatesDrop = self.animatePinDrop;
             
-            [self.mapView selectAnnotation:[self.annotations objectAtIndex:0] animated:YES];
+        }
+        else
+        {
+            annotationView.annotation = annotation;
+        }
+        
+        
+        return annotationView;
+        
+        
+    }else{
+     
+        
+        MKAnnotationView* annotationView = nil;
+        
+        annotationView = (MKAnnotationView*)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"locationAnnotation"];
+        
+        if (annotationView == nil)
+        {
+            annotationView = [[[MKAnnotationView alloc]  initWithAnnotation:annotation reuseIdentifier:@"locationAnnotation"] autorelease];
+            
+            UIImage* i = self.pinImage;
+            
+            annotationView.image = i;
+            annotationView.canShowCallout = YES;
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            
+        }
+        else
+        {
+            annotationView.annotation = annotation;
+        }
+        
+        
+        return annotationView;
+    }
+        
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views{
+    
+    NSArray* myAnnotations = [self.mapView annotationsWithoutUserAnnotation];
+    
+    if(self.pinImage && self.animatePinDrop){
+        
+        MKAnnotationView *aV; 
+        
+        NSUInteger count = [myAnnotations count];
+        
+        if(count > 20){
+            
+            for (aV in views) {            
+                aV.alpha = 0.0;
+                
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationDuration:0.7];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                [aV setAlpha:1.0];
+                [UIView commitAnimations];
+                
+            }
+            
+        }else{
+            
+            float offset = 0;
+            float delta = 0.05;
+            
+            for (aV in views) {
+                CGRect endFrame = aV.frame;
+                
+                aV.frame = CGRectMake(aV.frame.origin.x, aV.frame.origin.y - 480.0, aV.frame.size.width, aV.frame.size.height);
+                
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationDelay:offset];
+                [UIView setAnimationDuration:0.7];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+                [aV setFrame:endFrame];
+                [UIView commitAnimations];
+                
+                offset = offset + delta;
+                
+            }
+        }
+        
+    }
+    
+    if([myAnnotations count] == 1){
+        
+        id<MKAnnotation> a = [myAnnotations firstObject];
+        
+        dispatchOnMainQueueAfterDelayInSeconds(1.0, ^{
+            
+            [self.mapView selectAnnotation:a animated:YES];
             
         });
-        
     }
+        
     
-    return annotationView;
 }
 
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    
-    id <MKAnnotation> annotation = view.annotation;
-    
-    [self selectedAnnotation:annotation];
-    
-    if(self.shouldPromptToLaunchDirections){
-        
-        self.selectedAnnotation = annotation;
-        UIAlertView* v = [[UIAlertView alloc] initWithTitle:@"Get Directions?" message:@"Select OK to close the app and get directions using Google maps" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-        v.tag = 98989;
-        [v show];
-        [v release];
-    }
-}
-
-- (void)selectedAnnotation:(id<MKAnnotation>)anAnnotation{
-    
-    //nonop
-    
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if(alertView.tag != 98989)
-        return;
-    
-    id <MKAnnotation> annotation = self.selectedAnnotation;
-
-    if(buttonIndex != [alertView cancelButtonIndex]){
-        
-        CLLocation* storeLocation = [[CLLocation alloc] initWithLatitude: [annotation coordinate].latitude longitude: [annotation coordinate].longitude];
-        
-        CLLocation* startLocation = [self.mapView userLocation].location;
-        
-        openGoogleMapsForDirectionsToLocation(startLocation, storeLocation);
-        
-        [storeLocation release];
-        
-        [self openedMap];
-        
-    }
-    
-    self.selectedAnnotation = nil;
-}
-
-- (void)openedMap{
-    
-    //nonop
-}
 
 @end

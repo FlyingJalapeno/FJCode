@@ -1,14 +1,29 @@
 
 #import <Foundation/Foundation.h>
-
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 #pragma mark -
 #pragma mark paths
 
-NSString* documentsDirectory();
-NSString* cachesDirectory();
+static inline NSString* documentsDirectory(){
+    
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    
+}
 
-NSString* fileNameBasedOnCurrentTime();
+static inline NSString* cachesDirectory(){
+    
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    
+}
+
+
+static inline NSString* fileNameBasedOnCurrentTime() {
+	NSString* fileName = [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"png"];
+	return fileName;
+}
+
 
 
 #pragma mark -
@@ -41,6 +56,19 @@ void dispatchOnMainQueue(dispatch_block_t block);
 void dispatchOnMainQueueAfterDelayInSeconds(float delay, dispatch_block_t block);
 
 void dispatchAfterDelayInSeconds(float delay, dispatch_queue_t queue, dispatch_block_t block);
+
+
+#pragma mark -
+#pragma mark Location
+
+void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation);
+
+void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation, void(^block)(BOOL didOpenMap));
+
+NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1, id<MKAnnotation> obj2, CLLocation* center);
+
+NSComparisonResult compareLocationsByDistanceToLocation(CLLocation* obj1, CLLocation* obj2, CLLocation* center);
+
 
 
 #pragma mark -
