@@ -61,9 +61,6 @@
 		C4478AC41349A3450097BB67 /* DDCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */; };
 		C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06D134A5BF500E01A2B /* CoreFoundation.framework */; };
 		C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44F1BD31378EC47008BF6ED /* InfoPlist.strings */; };
-		C44F1BDD1378EC5E008BF6ED /* 11-x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC0134A4BF400E01A2B /* 11-x.png */; };
-		C44F1BDE1378EC5E008BF6ED /* 19-check.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFC1134A4BF400E01A2B /* 19-check.png */; };
-		C44F1BDF1378EC61008BF6ED /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4A1DFD6134A4C0200E01A2B /* pop.wav */; };
 		C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
 		C453D6881470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
@@ -108,18 +105,6 @@
 		C483EEA11349B435004D164C /* CKVOBlockNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE9D1349B419004D164C /* CKVOBlockNotificationHelper.m */; };
 		C483EEA21349B435004D164C /* NSObject_KVOBlockNotificationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE9E1349B41F004D164C /* NSObject_KVOBlockNotificationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EEA31349B435004D164C /* NSObject_KVOBlockNotificationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE9F1349B427004D164C /* NSObject_KVOBlockNotificationExtensions.m */; };
-		C4A1DFD8134A4C0500E01A2B /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFC3134A4BF400E01A2B /* ATMHud.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFD9134A4C0500E01A2B /* ATMHud.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFC4134A4BF400E01A2B /* ATMHud.m */; };
-		C4A1DFDC134A4C0500E01A2B /* ATMHudQueueItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFC7134A4BF500E01A2B /* ATMHudQueueItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFDD134A4C0500E01A2B /* ATMHudQueueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFC8134A4BF600E01A2B /* ATMHudQueueItem.m */; };
-		C4A1DFDE134A4C0500E01A2B /* ATMHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFC9134A4BF600E01A2B /* ATMHudView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFDF134A4C0500E01A2B /* ATMHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFCA134A4BF700E01A2B /* ATMHudView.m */; };
-		C4A1DFE0134A4C0500E01A2B /* ATMProgressLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFCB134A4BF700E01A2B /* ATMProgressLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFE1134A4C0500E01A2B /* ATMProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFCC134A4BF800E01A2B /* ATMProgressLayer.m */; };
-		C4A1DFE2134A4C0500E01A2B /* ATMSoundFX.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFCD134A4BF900E01A2B /* ATMSoundFX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFE3134A4C0500E01A2B /* ATMSoundFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFCE134A4BFA00E01A2B /* ATMSoundFX.m */; };
-		C4A1DFE4134A4C0500E01A2B /* ATMTextLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFCF134A4BFA00E01A2B /* ATMTextLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFE5134A4C0500E01A2B /* ATMTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFD0134A4BFC00E01A2B /* ATMTextLayer.m */; };
 		C4A1DFEE134A4C7800E01A2B /* CLLocation+DCTBetterDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFE8134A4C7700E01A2B /* CLLocation+DCTBetterDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1DFEF134A4C7800E01A2B /* CLLocation+DCTBetterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFE9134A4C7700E01A2B /* CLLocation+DCTBetterDescription.m */; };
 		C4A1DFF0134A4C7800E01A2B /* NSObject+DCTBetterDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFEA134A4C7700E01A2B /* NSObject+DCTBetterDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,18 +113,6 @@
 		C4A1DFF3134A4C7800E01A2B /* UIFont+DCTBetterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFED134A4C7800E01A2B /* UIFont+DCTBetterDescription.m */; };
 		C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */; };
-		C4A1DFFC134A4D0700E01A2B /* TITokenFieldView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFFA134A4D0600E01A2B /* TITokenFieldView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFFD134A4D0700E01A2B /* TITokenFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFFB134A4D0600E01A2B /* TITokenFieldView.m */; };
-		C4A1E001134A4D3300E01A2B /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFFF134A4D3300E01A2B /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E002134A4D3300E01A2B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E000134A4D3300E01A2B /* MBProgressHUD.m */; };
-		C4A1E008134A4DA400E01A2B /* BrowserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E006134A4DA400E01A2B /* BrowserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E009134A4DA400E01A2B /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E007134A4DA400E01A2B /* BrowserViewController.m */; };
-		C4A1E011134A4DE000E01A2B /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E00B134A4DDF00E01A2B /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E012134A4DE000E01A2B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E00C134A4DDF00E01A2B /* SoundEffect.m */; };
-		C4A1E013134A4DE000E01A2B /* SCListener.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E00D134A4DE000E01A2B /* SCListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E014134A4DE000E01A2B /* SCListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E00E134A4DE000E01A2B /* SCListener.m */; };
-		C4A1E015134A4DE000E01A2B /* ListenerController.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E00F134A4DE000E01A2B /* ListenerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E016134A4DE000E01A2B /* ListenerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E010134A4DE000E01A2B /* ListenerController.m */; };
 		C4A1E01E134A4E3200E01A2B /* UITableViewContentUnavailableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E018134A4E3100E01A2B /* UITableViewContentUnavailableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1E01F134A4E3200E01A2B /* UITableViewContentUnavailableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E019134A4E3100E01A2B /* UITableViewContentUnavailableView.m */; };
 		C4A1E020134A4E3200E01A2B /* UITableViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E01A134A4E3100E01A2B /* UITableViewHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -162,8 +135,6 @@
 		C4A1E07E134A5BF500E01A2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E074134A5BF500E01A2B /* UIKit.framework */; };
 		C4B77FD3147CDA1A0051A719 /* MKMapView+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B77FD1147CDA1A0051A719 /* MKMapView+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4B77FD4147CDA1A0051A719 /* MKMapView+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B77FD2147CDA1A0051A719 /* MKMapView+extensions.m */; };
-		C4FFBB72134A6D33007F4F2B /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = C4FFBB70134A6D2E007F4F2B /* MTStatusBarOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4FFBB73134A6D33007F4F2B /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFBB71134A6D30007F4F2B /* MTStatusBarOverlay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,21 +256,6 @@
 		C483EE9D1349B419004D164C /* CKVOBlockNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKVOBlockNotificationHelper.m; sourceTree = "<group>"; };
 		C483EE9E1349B41F004D164C /* NSObject_KVOBlockNotificationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_KVOBlockNotificationExtensions.h; sourceTree = "<group>"; };
 		C483EE9F1349B427004D164C /* NSObject_KVOBlockNotificationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_KVOBlockNotificationExtensions.m; sourceTree = "<group>"; };
-		C4A1DFC0134A4BF400E01A2B /* 11-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-x.png"; sourceTree = "<group>"; };
-		C4A1DFC1134A4BF400E01A2B /* 19-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-check.png"; sourceTree = "<group>"; };
-		C4A1DFC3134A4BF400E01A2B /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
-		C4A1DFC4134A4BF400E01A2B /* ATMHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHud.m; sourceTree = "<group>"; };
-		C4A1DFC7134A4BF500E01A2B /* ATMHudQueueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudQueueItem.h; sourceTree = "<group>"; };
-		C4A1DFC8134A4BF600E01A2B /* ATMHudQueueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHudQueueItem.m; sourceTree = "<group>"; };
-		C4A1DFC9134A4BF600E01A2B /* ATMHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudView.h; sourceTree = "<group>"; };
-		C4A1DFCA134A4BF700E01A2B /* ATMHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMHudView.m; sourceTree = "<group>"; };
-		C4A1DFCB134A4BF700E01A2B /* ATMProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMProgressLayer.h; sourceTree = "<group>"; };
-		C4A1DFCC134A4BF800E01A2B /* ATMProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMProgressLayer.m; sourceTree = "<group>"; };
-		C4A1DFCD134A4BF900E01A2B /* ATMSoundFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMSoundFX.h; sourceTree = "<group>"; };
-		C4A1DFCE134A4BFA00E01A2B /* ATMSoundFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMSoundFX.m; sourceTree = "<group>"; };
-		C4A1DFCF134A4BFA00E01A2B /* ATMTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMTextLayer.h; sourceTree = "<group>"; };
-		C4A1DFD0134A4BFC00E01A2B /* ATMTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMTextLayer.m; sourceTree = "<group>"; };
-		C4A1DFD6134A4C0200E01A2B /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		C4A1DFE8134A4C7700E01A2B /* CLLocation+DCTBetterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+DCTBetterDescription.h"; sourceTree = "<group>"; };
 		C4A1DFE9134A4C7700E01A2B /* CLLocation+DCTBetterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+DCTBetterDescription.m"; sourceTree = "<group>"; };
 		C4A1DFEA134A4C7700E01A2B /* NSObject+DCTBetterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DCTBetterDescription.h"; sourceTree = "<group>"; };
@@ -308,18 +264,6 @@
 		C4A1DFED134A4C7800E01A2B /* UIFont+DCTBetterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+DCTBetterDescription.m"; sourceTree = "<group>"; };
 		C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
 		C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
-		C4A1DFFA134A4D0600E01A2B /* TITokenFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenFieldView.h; sourceTree = "<group>"; };
-		C4A1DFFB134A4D0600E01A2B /* TITokenFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenFieldView.m; sourceTree = "<group>"; };
-		C4A1DFFF134A4D3300E01A2B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		C4A1E000134A4D3300E01A2B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		C4A1E006134A4DA400E01A2B /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
-		C4A1E007134A4DA400E01A2B /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
-		C4A1E00B134A4DDF00E01A2B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
-		C4A1E00C134A4DDF00E01A2B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
-		C4A1E00D134A4DE000E01A2B /* SCListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCListener.h; sourceTree = "<group>"; };
-		C4A1E00E134A4DE000E01A2B /* SCListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCListener.m; sourceTree = "<group>"; };
-		C4A1E00F134A4DE000E01A2B /* ListenerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerController.h; sourceTree = "<group>"; };
-		C4A1E010134A4DE000E01A2B /* ListenerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerController.m; sourceTree = "<group>"; };
 		C4A1E018134A4E3100E01A2B /* UITableViewContentUnavailableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewContentUnavailableView.h; sourceTree = "<group>"; };
 		C4A1E019134A4E3100E01A2B /* UITableViewContentUnavailableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewContentUnavailableView.m; sourceTree = "<group>"; };
 		C4A1E01A134A4E3100E01A2B /* UITableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewHelper.h; sourceTree = "<group>"; };
@@ -342,8 +286,6 @@
 		C4A1E074134A5BF500E01A2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4B77FD1147CDA1A0051A719 /* MKMapView+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+extensions.h"; sourceTree = "<group>"; };
 		C4B77FD2147CDA1A0051A719 /* MKMapView+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+extensions.m"; sourceTree = "<group>"; };
-		C4FFBB70134A6D2E007F4F2B /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
-		C4FFBB71134A6D30007F4F2B /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,18 +386,11 @@
 				C483EEA41349FF3B004D164C /* KVO Blocks */,
 				C483EEA5134A004F004D164C /* Key Chain */,
 				C4A1E004134A4D6500E01A2B /* Reachability */,
-				C4A1E017134A4DE300E01A2B /* Audio */,
 				C4A1E029134A4F3200E01A2B /* Archiving */,
 				C4A1E005134A4D8000E01A2B /* Activity Indicator */,
 				C483EEA6134A015C004D164C /* Map and Location */,
-				C4A1E00A134A4DAA00E01A2B /* BrowserViewController */,
 				C4A1E024134A4E3900E01A2B /* Activity Table */,
 				C4A1DFB4134A4B4000E01A2B /* Alert & Sheet Blocks */,
-				C4A1E003134A4D3A00E01A2B /* MBProgressHud */,
-				C4A1DFE7134A4C2700E01A2B /* ATM Hud */,
-				C4FFBB70134A6D2E007F4F2B /* MTStatusBarOverlay.h */,
-				C4FFBB71134A6D30007F4F2B /* MTStatusBarOverlay.m */,
-				C4A1DFFE134A4D0E00E01A2B /* Token Field */,
 				C4A1DFF9134A4CAF00E01A2B /* Badges */,
 				C4474C601349A2060097BB67 /* Supporting Files */,
 			);
@@ -643,28 +578,6 @@
 			name = "Alert & Sheet Blocks";
 			sourceTree = "<group>";
 		};
-		C4A1DFE7134A4C2700E01A2B /* ATM Hud */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1DFC0134A4BF400E01A2B /* 11-x.png */,
-				C4A1DFC1134A4BF400E01A2B /* 19-check.png */,
-				C4A1DFC3134A4BF400E01A2B /* ATMHud.h */,
-				C4A1DFC4134A4BF400E01A2B /* ATMHud.m */,
-				C4A1DFC7134A4BF500E01A2B /* ATMHudQueueItem.h */,
-				C4A1DFC8134A4BF600E01A2B /* ATMHudQueueItem.m */,
-				C4A1DFC9134A4BF600E01A2B /* ATMHudView.h */,
-				C4A1DFCA134A4BF700E01A2B /* ATMHudView.m */,
-				C4A1DFCB134A4BF700E01A2B /* ATMProgressLayer.h */,
-				C4A1DFCC134A4BF800E01A2B /* ATMProgressLayer.m */,
-				C4A1DFCD134A4BF900E01A2B /* ATMSoundFX.h */,
-				C4A1DFCE134A4BFA00E01A2B /* ATMSoundFX.m */,
-				C4A1DFCF134A4BFA00E01A2B /* ATMTextLayer.h */,
-				C4A1DFD0134A4BFC00E01A2B /* ATMTextLayer.m */,
-				C4A1DFD6134A4C0200E01A2B /* pop.wav */,
-			);
-			name = "ATM Hud";
-			sourceTree = "<group>";
-		};
 		C4A1DFF4134A4C7D00E01A2B /* Description Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,24 +602,6 @@
 			name = Badges;
 			sourceTree = "<group>";
 		};
-		C4A1DFFE134A4D0E00E01A2B /* Token Field */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1DFFA134A4D0600E01A2B /* TITokenFieldView.h */,
-				C4A1DFFB134A4D0600E01A2B /* TITokenFieldView.m */,
-			);
-			name = "Token Field";
-			sourceTree = "<group>";
-		};
-		C4A1E003134A4D3A00E01A2B /* MBProgressHud */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1DFFF134A4D3300E01A2B /* MBProgressHUD.h */,
-				C4A1E000134A4D3300E01A2B /* MBProgressHUD.m */,
-			);
-			name = MBProgressHud;
-			sourceTree = "<group>";
-		};
 		C4A1E004134A4D6500E01A2B /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,28 +618,6 @@
 				C483EE891349B32C004D164C /* ACActivityIndicatorQueue.m */,
 			);
 			name = "Activity Indicator";
-			sourceTree = "<group>";
-		};
-		C4A1E00A134A4DAA00E01A2B /* BrowserViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1E006134A4DA400E01A2B /* BrowserViewController.h */,
-				C4A1E007134A4DA400E01A2B /* BrowserViewController.m */,
-			);
-			name = BrowserViewController;
-			sourceTree = "<group>";
-		};
-		C4A1E017134A4DE300E01A2B /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1E00B134A4DDF00E01A2B /* SoundEffect.h */,
-				C4A1E00C134A4DDF00E01A2B /* SoundEffect.m */,
-				C4A1E00D134A4DE000E01A2B /* SCListener.h */,
-				C4A1E00E134A4DE000E01A2B /* SCListener.m */,
-				C4A1E00F134A4DE000E01A2B /* ListenerController.h */,
-				C4A1E010134A4DE000E01A2B /* ListenerController.m */,
-			);
-			name = Audio;
 			sourceTree = "<group>";
 		};
 		C4A1E024134A4E3900E01A2B /* Activity Table */ = {
@@ -820,28 +693,15 @@
 				C483EE9A1349B3DB004D164C /* LambdaSheet.h in Headers */,
 				C483EEA01349B435004D164C /* CKVOBlockNotificationHelper.h in Headers */,
 				C483EEA21349B435004D164C /* NSObject_KVOBlockNotificationExtensions.h in Headers */,
-				C4A1DFD8134A4C0500E01A2B /* ATMHud.h in Headers */,
-				C4A1DFDC134A4C0500E01A2B /* ATMHudQueueItem.h in Headers */,
-				C4A1DFDE134A4C0500E01A2B /* ATMHudView.h in Headers */,
-				C4A1DFE0134A4C0500E01A2B /* ATMProgressLayer.h in Headers */,
-				C4A1DFE2134A4C0500E01A2B /* ATMSoundFX.h in Headers */,
-				C4A1DFE4134A4C0500E01A2B /* ATMTextLayer.h in Headers */,
 				C4A1DFEE134A4C7800E01A2B /* CLLocation+DCTBetterDescription.h in Headers */,
 				C4A1DFF0134A4C7800E01A2B /* NSObject+DCTBetterDescription.h in Headers */,
 				C4A1DFF2134A4C7800E01A2B /* UIFont+DCTBetterDescription.h in Headers */,
 				C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */,
-				C4A1DFFC134A4D0700E01A2B /* TITokenFieldView.h in Headers */,
-				C4A1E001134A4D3300E01A2B /* MBProgressHUD.h in Headers */,
-				C4A1E008134A4DA400E01A2B /* BrowserViewController.h in Headers */,
-				C4A1E011134A4DE000E01A2B /* SoundEffect.h in Headers */,
-				C4A1E013134A4DE000E01A2B /* SCListener.h in Headers */,
-				C4A1E015134A4DE000E01A2B /* ListenerController.h in Headers */,
 				C4A1E01E134A4E3200E01A2B /* UITableViewContentUnavailableView.h in Headers */,
 				C4A1E020134A4E3200E01A2B /* UITableViewHelper.h in Headers */,
 				C4A1E022134A4E3200E01A2B /* UITableViewUpdatingView.h in Headers */,
 				C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */,
 				C4A1E036134A572100E01A2B /* Functions.h in Headers */,
-				C4FFBB72134A6D33007F4F2B /* MTStatusBarOverlay.h in Headers */,
 				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
 				C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */,
 				C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */,
@@ -949,9 +809,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */,
-				C44F1BDD1378EC5E008BF6ED /* 11-x.png in Resources */,
-				C44F1BDE1378EC5E008BF6ED /* 19-check.png in Resources */,
-				C44F1BDF1378EC61008BF6ED /* pop.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,28 +871,15 @@
 				C483EE9B1349B3DB004D164C /* LambdaSheet.m in Sources */,
 				C483EEA11349B435004D164C /* CKVOBlockNotificationHelper.m in Sources */,
 				C483EEA31349B435004D164C /* NSObject_KVOBlockNotificationExtensions.m in Sources */,
-				C4A1DFD9134A4C0500E01A2B /* ATMHud.m in Sources */,
-				C4A1DFDD134A4C0500E01A2B /* ATMHudQueueItem.m in Sources */,
-				C4A1DFDF134A4C0500E01A2B /* ATMHudView.m in Sources */,
-				C4A1DFE1134A4C0500E01A2B /* ATMProgressLayer.m in Sources */,
-				C4A1DFE3134A4C0500E01A2B /* ATMSoundFX.m in Sources */,
-				C4A1DFE5134A4C0500E01A2B /* ATMTextLayer.m in Sources */,
 				C4A1DFEF134A4C7800E01A2B /* CLLocation+DCTBetterDescription.m in Sources */,
 				C4A1DFF1134A4C7800E01A2B /* NSObject+DCTBetterDescription.m in Sources */,
 				C4A1DFF3134A4C7800E01A2B /* UIFont+DCTBetterDescription.m in Sources */,
 				C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */,
-				C4A1DFFD134A4D0700E01A2B /* TITokenFieldView.m in Sources */,
-				C4A1E002134A4D3300E01A2B /* MBProgressHUD.m in Sources */,
-				C4A1E009134A4DA400E01A2B /* BrowserViewController.m in Sources */,
-				C4A1E012134A4DE000E01A2B /* SoundEffect.m in Sources */,
-				C4A1E014134A4DE000E01A2B /* SCListener.m in Sources */,
-				C4A1E016134A4DE000E01A2B /* ListenerController.m in Sources */,
 				C4A1E01F134A4E3200E01A2B /* UITableViewContentUnavailableView.m in Sources */,
 				C4A1E021134A4E3200E01A2B /* UITableViewHelper.m in Sources */,
 				C4A1E023134A4E3200E01A2B /* UITableViewUpdatingView.m in Sources */,
 				C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */,
 				C4A1E037134A572100E01A2B /* Functions.m in Sources */,
-				C4FFBB73134A6D33007F4F2B /* MTStatusBarOverlay.m in Sources */,
 				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
 				C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
 				C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */,
