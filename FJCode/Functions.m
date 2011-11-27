@@ -94,12 +94,6 @@ double megaBytesWithBytes(long long bytes){
 }
 
 
-NSString* timeZoneString(){
-    
-    NSTimeZone* ltz = [NSTimeZone localTimeZone];
-    NSString* abbreviation = [ltz abbreviation];
-    return abbreviation;
-}
 
 void dispatchOnMainQueue(dispatch_block_t block){
     

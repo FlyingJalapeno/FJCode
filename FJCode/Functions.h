@@ -39,7 +39,12 @@ double megaBytesWithBytes(long long bytes);
 float nanosecondsWithSeconds(float seconds);
 dispatch_time_t dispatchTimeFromNow(float seconds);
 
-NSString* timeZoneString();
+static inline NSString* timeZoneString(){
+    NSTimeZone* ltz = [NSTimeZone localTimeZone];
+    NSString* abbreviation = [ltz abbreviation];
+    return abbreviation;
+}
+
 
 #pragma mark -
 #pragma mark NSRange

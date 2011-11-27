@@ -1,6 +1,6 @@
 #import "FetchQueryContext.h"
 
-NSArray* sortDescriptorsWithKeys(NSArray* keys){
+static NSArray* sortDescriptorsWithKeys(NSArray* keys){
     
     NSMutableArray* a = [NSMutableArray arrayWithCapacity:[keys count]];
     
