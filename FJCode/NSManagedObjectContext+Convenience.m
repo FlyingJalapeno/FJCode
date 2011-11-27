@@ -1,5 +1,5 @@
 #import "NSManagedObjectContext+Convenience.h"
-#import "NSArrayHelper.h"
+#import "NSArray+extensions.h"
 
 @implementation NSManagedObjectContext (insert)
 -(NSManagedObject *) insertNewEntityWithName:(NSString *)name

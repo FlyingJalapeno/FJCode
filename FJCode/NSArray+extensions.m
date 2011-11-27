@@ -1,15 +1,18 @@
 //
-//  NSArrayHelper.m
-//  CocoaHelpers
+//  NSArray+extensions.m
+//  FJCode
 //
-//  Created by Shaun Harrison on 10/28/08.
-//  Copyright 2008 enormego. All rights reserved.
+//  Created by Corey Floyd on 11/26/11.
+//  Copyright (c) 2011 Flying Jalapeño. All rights reserved.
 //
 
-#import "NSArrayHelper.h"
+#import "NSArray+extensions.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
-@implementation NSArray (Helper)
+@implementation NSArray (extensions)
+
 
 - (BOOL)isEmpty {
 	return [self count] == 0 ? YES : NO;
@@ -25,10 +28,6 @@
     return [self count]-1;
 }
 
-
-@end
-
-@implementation NSArray (UtilityExtensions)
 - (id) firstObject
 {
 	return [self objectAtIndex:0];
@@ -40,6 +39,17 @@
 		return [self objectAtIndex:0];
 	
 	return nil;
+    
+}
+
+- (id)objectAtIndexSafe:(NSUInteger)index{
+    
+    if(index == NSNotFound)
+        return nil;
+    if(index >= [self count])
+        return nil;
+    
+    return [self objectAtIndex:index];
     
 }
 
@@ -82,60 +92,85 @@
     }];
     
     return array;
-
+    
 }
-    
-    
 
-// A la LISP, will return an array populated with values
-- (NSArray *) mapWithSelector: (SEL) selector withObject: (id) object1 withObject: (id) object2
+- (void)each:(void (^)(id))block
 {
-	NSMutableArray *results = [NSMutableArray array];
+    for (id obj in self) {
+        block(obj);
+    }
+}
+
+- (NSArray *)select:(BOOL (^)(id))block
+{
+    NSMutableArray *rslt = [NSMutableArray array];
+    for (id obj in self) {
+        if (block(obj)) {
+            [rslt addObject:obj]; 
+        }
+    }
+    return rslt;
+}
+
+- (id)reduce:(id)initial withBlock:(id (^)(id,id))block
+{
+    id rslt = initial;
+    for (id obj in self) {
+        rslt = block(rslt, obj);
+    }
+    return rslt;
+    
+}
+
+
+
+- (id )objectPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate{
+    
+    NSUInteger index = [self indexOfObjectPassingTest:predicate];
+    
+    if(index == NSNotFound)
+        return nil;
+    
+    return [self objectAtIndex:index];
+    
+    
+}
+
+
+- (NSArray *)objectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate{
+    
+    NSIndexSet* set = [self indexesOfObjectsPassingTest:predicate];
+    
+    return [self objectsAtIndexes:set];
+    
+}
+
+
+- (NSArray *) arrayBySortingStrings
+{
+	NSMutableArray *sort = [NSMutableArray arrayWithArray:self];
 	for (id eachitem in self)
-	{
-		if (![eachitem respondsToSelector:selector])
-		{
-			[results addObject:[NSNull null]];
-			continue;
-		}
-		
-		id riz = [eachitem performSelector:selector withObject:object1 withObject:object2];
-		if (riz)
-			[results addObject:riz];
-		else
-			[results addObject:[NSNull null]];
-	}
-	return results;
+		if (![eachitem isKindOfClass:[NSString class]])	[sort removeObject:eachitem];
+	return [sort sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
- 
- 
-- (NSArray *) mapWithSelector: (SEL) selector withObject: (id) object1
+
+- (NSString *) stringValue
 {
-	return [self mapWithSelector:selector withObject:object1 withObject:nil];
+	return [self componentsJoinedByString:@" "];
 }
-
-
-- (NSArray *) mapWithSelector: (SEL) selector
-{
-	return [self mapWithSelector:selector withObject:nil];
-}
-
 
 @end
 
 
+@implementation NSMutableArray (UtilityExtensions)
 
-@implementation  NSMutableArray(primatives)
 
 - (void)addInt:(int)integer{
 	
 	[self addObject:[NSNumber numberWithInt:integer]];
 }
 
-@end
-
-
-@implementation  NSMutableArray(Stack)
 
 
 -(void) push:(id) item {
@@ -156,7 +191,7 @@
 - (NSArray*)popToObject:(id)object{
     
     NSMutableArray *returnArray = [[NSMutableArray alloc] init];
-
+    
     while (![[self top] isEqual:object]) {
 		[returnArray addObject:[self pop]];
 	}
@@ -164,13 +199,11 @@
     return [returnArray autorelease];
 }
 - (NSArray*)popToRootObject{
- 
+    
     return [self popToObject:[self firstObject]];
 }
 
-@end
 
-@implementation  NSMutableArray(Queue)
 
 -(void) enqueue:(id) item {
 	[self insertObject:item atIndex:0];
@@ -181,10 +214,7 @@
 	[self removeLastObject];
 	return [r autorelease];
 }
-@end
 
-
-@implementation NSMutableArray (UtilityExtensions)
 - (NSMutableArray *) reverse
 {
 	for (int i=0; i<(floor([self count]/2.0)); i++) 
@@ -207,17 +237,5 @@
 }
 @end
 
-@implementation NSArray (StringExtensions)
-- (NSArray *) arrayBySortingStrings
-{
-	NSMutableArray *sort = [NSMutableArray arrayWithArray:self];
-	for (id eachitem in self)
-		if (![eachitem isKindOfClass:[NSString class]])	[sort removeObject:eachitem];
-	return [sort sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-}
 
-- (NSString *) stringValue
-{
-	return [self componentsJoinedByString:@" "];
-}
-@end
+
