@@ -83,6 +83,16 @@
     return self;
 }
 
+- (void)loadView{
+    
+    MKMapView* map = [[MKMapView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    map.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+    map.delegate = self;
+    self.view = map;
+    self.mapView = map;
+    
+}
+
 #pragma mark -
 #pragma mark UIViewController
 

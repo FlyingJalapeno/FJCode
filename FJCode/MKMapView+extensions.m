@@ -139,7 +139,7 @@
         return;
     }
             
-    [self centerOnAnnotationsUpToIndex:index animated:YES];
+    [self centerOnAnnotationsUpToIndex:index animated:animated];
 
 }
 
