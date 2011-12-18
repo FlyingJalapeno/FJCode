@@ -54,6 +54,7 @@ enum {
 
 @interface NSString (exstensions) 
 
+
 - (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size;
 
 - (BOOL)doesContainString:(NSString *)aString;
@@ -70,6 +71,8 @@ enum {
 - (NSRange)fullRange;
 - (NSString*)stringByDeletingLastCharacter;
 - (NSString*)stringByRemovingArticlePrefixes;
+
+- (NSString*)stringByRemovingQueryString;
 
 //replaces deprecated methods below
 - (BOOL)containsCharacters; //tests if length is > 0, does not count whitespace

@@ -274,6 +274,19 @@
     return aString;
 }
 
+- (NSString*)stringByRemovingQueryString{
+    
+    NSString* newS = self;
+    
+    NSRange chopRange = [self rangeOfString:@"?"];
+    if (chopRange.length > 0) {
+        if (chopRange.location < [self length])
+            newS = [self substringToIndex:chopRange.location];
+    }
+
+    return newS;    
+}
+
 - (NSString*)stringByTrimmingWhiteSpace{
     
    	NSString* stripped = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
