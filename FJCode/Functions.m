@@ -142,6 +142,8 @@ void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLoca
         block(NO);
 
     }];
+    
+    [a show];
 }
 
 NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1, id<MKAnnotation> obj2, CLLocation* center){
