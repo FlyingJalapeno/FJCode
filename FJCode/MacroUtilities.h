@@ -9,11 +9,23 @@
  *  \copyright Copyright 2006-2009 6Tringle LLC. All rights reserved.
  */
 
-
+#define IS_RETINA ([[UIScreen mainScreen] scale] > 1) ? YES : NO
+//#define IS_RETINA NO
 
 #define IS_IPAD             (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_OS_4_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0)
-#define IS_OS_32_OR_LATER   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2)
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define IS_OS_5_0_1_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0.1"))
+#define IS_OS_5_0   (SYSTEM_VERSION_EQUAL_TO(@"5.0"))
+#define IS_OS_5_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))
+#define IS_PRIOR_TO_OS_5    (SYSTEM_VERSION_LESS_THAN(@"5.0"))
+#define IS_OS_4_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
+#define IS_OS_32_OR_LATER   (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.2"))
 
 
 #define NSYES [NSNumber numberWithBool:YES]

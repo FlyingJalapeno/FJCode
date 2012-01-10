@@ -25,6 +25,7 @@ static inline NSString* fileNameBasedOnCurrentTime() {
 }
 
 
+BOOL addSkipBackupAttributeToItemAtURL(NSURL *URL);
 
 #pragma mark -
 #pragma mark size

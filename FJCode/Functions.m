@@ -1,6 +1,7 @@
 
 #import "Functions.h"
 #import "LambdaAlert.h"
+#include <sys/xattr.h>
 
 
 
@@ -46,6 +47,17 @@ dispatch_time_t dispatchTimeFromNow(float seconds){
     
     return  dispatch_time(DISPATCH_TIME_NOW, nanosecondsWithSeconds(seconds));
     
+}
+
+BOOL addSkipBackupAttributeToItemAtURL(NSURL *URL){
+    
+    const char* filePath = [[URL path] fileSystemRepresentation];
+    
+    const char* attrName = "com.apple.MobileBackup";
+    u_int8_t attrValue = 1;
+    
+    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+    return result == 0;
 }
 
 NSUInteger sizeOfFolderContentsInBytes(NSString* folderPath){
