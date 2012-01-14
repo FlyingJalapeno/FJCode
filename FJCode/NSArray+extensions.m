@@ -223,11 +223,13 @@
 }
 
 // Make sure to run srandom([[NSDate date] timeIntervalSince1970]); or similar somewhere in your program
-- (NSMutableArray *) scramble
+- (void) scramble
 {
+    if([self count] < 3)
+        return;
+    
 	for (int i=0; i<([self count]-2); i++) 
 		[self exchangeObjectAtIndex:i withObjectAtIndex:(i+(random()%([self count]-i)))];
-	return self;
 }
 
 - (NSMutableArray *) removeFirstObject

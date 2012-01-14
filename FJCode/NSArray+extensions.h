@@ -63,7 +63,7 @@
 
 - (NSMutableArray *) removeFirstObject;
 - (NSMutableArray *) reverse;
-- (NSMutableArray *) scramble;
+- (void)scramble;
 
 @property (readonly, getter=reverse) NSMutableArray *reversed;
 
