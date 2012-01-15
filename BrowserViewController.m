@@ -629,7 +629,7 @@
 		return NO;
 	}
 	
-	if ([url host] != nil && [[url host] isEqualToString:@"phobos.apple.com"] || [[url host] isEqualToString:@"itunes.apple.com"]) {
+	if ([url host] != nil && ([[url host] isEqualToString:@"phobos.apple.com"] || [[url host] isEqualToString:@"itunes.apple.com"])) {
 		[self confirmBeforeOpeningURL:url withMessage:NSLocalizedString(@"You are opening iTunes", nil)];
 		return NO;
 	}
