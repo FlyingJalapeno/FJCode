@@ -70,7 +70,7 @@
     
     [super viewWillDisappear:animated];
     
-    self.mapView.delegate = nil;	
+    //self.mapView.delegate = nil;	
     
 }
 
