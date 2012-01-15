@@ -160,6 +160,15 @@
 	return [self componentsJoinedByString:@" "];
 }
 
+- (NSUInteger)randomIndex{
+    
+    if([self count] == 0)
+        return NSNotFound;
+    
+    NSUInteger randomIndex = arc4random() % [self count];
+    return randomIndex;
+}
+
 @end
 
 
@@ -229,7 +238,7 @@
         return;
     
 	for (int i=0; i<([self count]-2); i++) 
-		[self exchangeObjectAtIndex:i withObjectAtIndex:(i+(random()%([self count]-i)))];
+		[self exchangeObjectAtIndex:i withObjectAtIndex:(i+(arc4random()%([self count]-i)))];
 }
 
 - (NSMutableArray *) removeFirstObject

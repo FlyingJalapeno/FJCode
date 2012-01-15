@@ -40,6 +40,8 @@
 @property (readonly, getter=arrayBySortingStrings) NSArray *sortedStrings;
 @property (readonly) NSString *stringValue;
 
+- (NSUInteger)randomIndex;
+
 @end
 
 
