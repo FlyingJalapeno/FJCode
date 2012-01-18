@@ -156,6 +156,7 @@ void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLoca
     }];
     
     [a show];
+    [a autorelease];
 }
 
 NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1, id<MKAnnotation> obj2, CLLocation* center){
@@ -171,12 +172,17 @@ NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1,
     
     CLLocationDistance d2 = [center distanceFromLocation:l2];
     
-    if(d1 < d2)
-        return NSOrderedAscending;
-    if(d1 == d2)
-        return NSOrderedSame;
+    NSComparisonResult result = NSOrderedDescending;
     
-    return NSOrderedDescending;
+    if(d1 < d2)
+        result = NSOrderedAscending;
+    if(d1 == d2)
+        result = NSOrderedSame;
+    
+    [l1 release];
+    [l2 release];
+    
+    return result;
     
 }
 

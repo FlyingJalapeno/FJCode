@@ -370,7 +370,7 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 		[pool release];
 	}
 	
-    return newImage;
+    return [newImage autorelease];
 }
 
 @end

@@ -69,7 +69,7 @@ static BOOL createImagesDirectory()
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *directory = [paths objectAtIndex:0];
     NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    fullPath = [fullPath stringByAppendingPathComponent:fileName];
 	UIImage *res = [UIImage imageWithContentsOfFile:fullPath];
     
 	return res;
@@ -80,7 +80,7 @@ static BOOL createImagesDirectory()
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *directory = [paths objectAtIndex:0];
     NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    fullPath = [fullPath stringByAppendingPathComponent:fileName];
     UIImage *res = [UIImage imageWithContentsOfFile:fullPath];
     
 	return res;
@@ -92,7 +92,7 @@ static BOOL createImagesDirectory()
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *directory = [paths objectAtIndex:0];
 	NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    fullPath = [fullPath stringByAppendingPathComponent:fileName];
 
     return [self writeToPath:fullPath];
 }
@@ -102,7 +102,7 @@ static BOOL createImagesDirectory()
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *directory = [paths objectAtIndex:0];
     NSString *fullPath = [directory stringByAppendingPathComponent:@"Images"];      
-    fullPath = [directory stringByAppendingPathComponent:fileName];
+    fullPath = [fullPath stringByAppendingPathComponent:fileName];
     
     return [self writeToPath:fullPath];
 
