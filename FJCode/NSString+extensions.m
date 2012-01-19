@@ -248,9 +248,26 @@
     if([self length]==0)
         return self;
     
-    return [NSString stringWithString:[self substringToIndex:([self length]-1)]];
+    return [self substringToIndex:([self length]-1)];
     
+}
+
+- (NSString*)stringByRemovingCharactersFromEnd:(NSUInteger)chars{
+        
+    if([self length] < chars)
+        return [NSString string];
     
+    return [self substringToIndex:([self length]-chars)];
+
+}
+
+- (NSString*)stringByRemovingCharactersFromBeginning:(NSUInteger)chars{
+    
+    if([self length] < chars)
+        return [NSString string];
+    
+    return [self substringFromIndex:chars];
+
 }
 
 - (NSString*)stringByRemovingArticlePrefixes{

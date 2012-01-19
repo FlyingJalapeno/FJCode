@@ -70,6 +70,8 @@ enum {
 
 - (NSRange)fullRange;
 - (NSString*)stringByDeletingLastCharacter;
+- (NSString*)stringByRemovingCharactersFromEnd:(NSUInteger)chars;
+- (NSString*)stringByRemovingCharactersFromBeginning:(NSUInteger)chars;
 - (NSString*)stringByRemovingArticlePrefixes;
 
 - (NSString*)stringByRemovingQueryString;
