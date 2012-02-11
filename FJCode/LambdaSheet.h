@@ -11,6 +11,8 @@
 
 - (void) showFromTabBar: (UITabBar*) view;
 - (void) showFromToolbar: (UIToolbar*) view;
+- (void) showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated; 
+- (void) showFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated;
 - (void) showInView: (UIView*) view;
 
 @end
