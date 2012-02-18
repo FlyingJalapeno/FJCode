@@ -63,6 +63,7 @@ enum {
  */
 - (BOOL)containsString:(NSString*)string;
 
+- (NSString*) decomposeAndFilterString: (NSString*) string;
 /*
  * Checks to see if the string contains the given string while allowing you to define the compare options
  */

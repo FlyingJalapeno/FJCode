@@ -192,6 +192,24 @@
     return YES;
 }
 
+- (NSString*) decomposeAndFilterString: (NSString*) string
+{
+    NSMutableString *decomposedString = [[string decomposedStringWithCanonicalMapping] mutableCopy];
+    NSCharacterSet *nonBaseSet = [NSCharacterSet nonBaseCharacterSet];
+    NSRange range = NSMakeRange([decomposedString length], 0);
+    
+    while (range.location > 0) {
+        range = [decomposedString rangeOfCharacterFromSet:nonBaseSet
+                                                  options:NSBackwardsSearch range:NSMakeRange(0, range.location)];
+        if (range.length == 0) {
+            break;
+        }
+        [decomposedString deleteCharactersInRange:range];
+    }
+    
+    return [decomposedString autorelease];
+}
+
 - (NSString*)nilIfZeroLength{
     
     if([self containsCharacters])
