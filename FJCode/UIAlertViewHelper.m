@@ -159,7 +159,7 @@ void UIAlertViewQuick(NSString* title, NSString* message, NSString* dismissButto
     
     [alert show];
     
-    return alert;
+    return [alert autorelease];
     
 }
 
