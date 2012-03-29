@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */; };
+		C41D875315243AE60028B72A /* FJUIKitExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41D8713152427A60028B72A /* FJUIKitExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C42AC214143265C1002737E6 /* NSPredicate+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
 		C42AC218143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
@@ -24,8 +25,6 @@
 		C44771921349A25F0097BB67 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = C4474C861349A2550097BB67 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A731349A2DC0097BB67 /* MacroUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A721349A2DC0097BB67 /* MacroUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478A8C1349A2F40097BB67 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A751349A2F00097BB67 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478A8D1349A2F40097BB67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478A761349A2F00097BB67 /* NSData+Base64.m */; };
 		C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A791349A2F10097BB67 /* NSObjectHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A911349A2F40097BB67 /* NSObjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478A7A1349A2F10097BB67 /* NSObjectHelper.m */; };
 		C4478A921349A2F40097BB67 /* NSString+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A7B1349A2F10097BB67 /* NSString+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -525,7 +524,6 @@
 				C44771921349A25F0097BB67 /* SynthesizeSingleton.h in Headers */,
 				C4478A731349A2DC0097BB67 /* MacroUtilities.h in Headers */,
 				C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */,
-				C4478A8C1349A2F40097BB67 /* NSData+Base64.h in Headers */,
 				C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */,
 				C4478A921349A2F40097BB67 /* NSString+extensions.h in Headers */,
 				C4478A941349A2F40097BB67 /* NSDictionaryHelper.h in Headers */,
@@ -563,6 +561,7 @@
 				C4B77FD3147CDA1A0051A719 /* MKMapView+extensions.h in Headers */,
 				C4F5CA0A14819305005B973B /* NSArray+extensions.h in Headers */,
 				C4F5CA7C1481A6BB005B973B /* NSFetchRequest+extensions.h in Headers */,
+				C41D875315243AE60028B72A /* FJUIKitExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +664,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4478A8D1349A2F40097BB67 /* NSData+Base64.m in Sources */,
 				C4478A911349A2F40097BB67 /* NSObjectHelper.m in Sources */,
 				C4478A931349A2F40097BB67 /* NSString+extensions.m in Sources */,
 				C4478A951349A2F40097BB67 /* NSDictionaryHelper.m in Sources */,
