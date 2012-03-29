@@ -26,8 +26,6 @@
 		C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A8C1349A2F40097BB67 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A751349A2F00097BB67 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A8D1349A2F40097BB67 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478A761349A2F00097BB67 /* NSData+Base64.m */; };
-		C4478A8E1349A2F40097BB67 /* NSObject+Proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A771349A2F00097BB67 /* NSObject+Proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478A8F1349A2F40097BB67 /* NSObject+Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478A781349A2F00097BB67 /* NSObject+Proxy.m */; };
 		C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A791349A2F10097BB67 /* NSObjectHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A911349A2F40097BB67 /* NSObjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478A7A1349A2F10097BB67 /* NSObjectHelper.m */; };
 		C4478A921349A2F40097BB67 /* NSString+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A7B1349A2F10097BB67 /* NSString+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,14 +45,6 @@
 		C4478AB21349A33B0097BB67 /* NSManagedObjectContext+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AA91349A33A0097BB67 /* NSManagedObjectContext+Convenience.m */; };
 		C4478AB31349A33B0097BB67 /* NSManagedObject+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478AAA1349A33A0097BB67 /* NSManagedObject+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478AB41349A33B0097BB67 /* NSManagedObject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AAB1349A33B0097BB67 /* NSManagedObject+Extensions.m */; };
-		C4478ABD1349A3450097BB67 /* DDCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478AB51349A3440097BB67 /* DDCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478ABE1349A3450097BB67 /* DDCoreDataException.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478AB61349A3440097BB67 /* DDCoreDataException.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478ABF1349A3450097BB67 /* DDCoreDataException.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AB71349A3440097BB67 /* DDCoreDataException.m */; };
-		C4478AC01349A3450097BB67 /* DDCoreDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478AB81349A3440097BB67 /* DDCoreDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478AC11349A3450097BB67 /* DDCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AB91349A3450097BB67 /* DDCoreDataHelper.m */; };
-		C4478AC21349A3450097BB67 /* DDCoreDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478ABA1349A3450097BB67 /* DDCoreDataProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478AC31349A3450097BB67 /* DDCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478ABB1349A3450097BB67 /* DDCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4478AC41349A3450097BB67 /* DDCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */; };
 		C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06D134A5BF500E01A2B /* CoreFoundation.framework */; };
 		C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44F1BD31378EC47008BF6ED /* InfoPlist.strings */; };
 		C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,24 +87,8 @@
 		C483EE991349B3DB004D164C /* LambdaAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE951349B3BB004D164C /* LambdaAlert.m */; };
 		C483EE9A1349B3DB004D164C /* LambdaSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE961349B3C1004D164C /* LambdaSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE9B1349B3DB004D164C /* LambdaSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE971349B3CC004D164C /* LambdaSheet.m */; };
-		C483EEA01349B435004D164C /* CKVOBlockNotificationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE9C1349B416004D164C /* CKVOBlockNotificationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EEA11349B435004D164C /* CKVOBlockNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE9D1349B419004D164C /* CKVOBlockNotificationHelper.m */; };
-		C483EEA21349B435004D164C /* NSObject_KVOBlockNotificationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE9E1349B41F004D164C /* NSObject_KVOBlockNotificationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EEA31349B435004D164C /* NSObject_KVOBlockNotificationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE9F1349B427004D164C /* NSObject_KVOBlockNotificationExtensions.m */; };
-		C4A1DFEE134A4C7800E01A2B /* CLLocation+DCTBetterDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFE8134A4C7700E01A2B /* CLLocation+DCTBetterDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFEF134A4C7800E01A2B /* CLLocation+DCTBetterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFE9134A4C7700E01A2B /* CLLocation+DCTBetterDescription.m */; };
-		C4A1DFF0134A4C7800E01A2B /* NSObject+DCTBetterDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFEA134A4C7700E01A2B /* NSObject+DCTBetterDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFF1134A4C7800E01A2B /* NSObject+DCTBetterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFEB134A4C7700E01A2B /* NSObject+DCTBetterDescription.m */; };
-		C4A1DFF2134A4C7800E01A2B /* UIFont+DCTBetterDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFEC134A4C7800E01A2B /* UIFont+DCTBetterDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1DFF3134A4C7800E01A2B /* UIFont+DCTBetterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFED134A4C7800E01A2B /* UIFont+DCTBetterDescription.m */; };
 		C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */; };
-		C4A1E01E134A4E3200E01A2B /* UITableViewContentUnavailableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E018134A4E3100E01A2B /* UITableViewContentUnavailableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E01F134A4E3200E01A2B /* UITableViewContentUnavailableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E019134A4E3100E01A2B /* UITableViewContentUnavailableView.m */; };
-		C4A1E020134A4E3200E01A2B /* UITableViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E01A134A4E3100E01A2B /* UITableViewHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E021134A4E3200E01A2B /* UITableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E01B134A4E3100E01A2B /* UITableViewHelper.m */; };
-		C4A1E022134A4E3200E01A2B /* UITableViewUpdatingView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E01C134A4E3100E01A2B /* UITableViewUpdatingView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E023134A4E3200E01A2B /* UITableViewUpdatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E01D134A4E3100E01A2B /* UITableViewUpdatingView.m */; };
 		C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E025134A4F2C00E01A2B /* TPAutoArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E026134A4F2C00E01A2B /* TPAutoArchiver.m */; };
 		C4A1E036134A572100E01A2B /* Functions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E034134A572100E01A2B /* Functions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,8 +152,6 @@
 		C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFoundationExtensions.h; sourceTree = "<group>"; };
 		C4478A751349A2F00097BB67 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		C4478A761349A2F00097BB67 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		C4478A771349A2F00097BB67 /* NSObject+Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Proxy.h"; sourceTree = "<group>"; };
-		C4478A781349A2F00097BB67 /* NSObject+Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Proxy.m"; sourceTree = "<group>"; };
 		C4478A791349A2F10097BB67 /* NSObjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectHelper.h; sourceTree = "<group>"; };
 		C4478A7A1349A2F10097BB67 /* NSObjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectHelper.m; sourceTree = "<group>"; };
 		C4478A7B1349A2F10097BB67 /* NSString+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+extensions.h"; sourceTree = "<group>"; };
@@ -199,14 +171,6 @@
 		C4478AA91349A33A0097BB67 /* NSManagedObjectContext+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Convenience.m"; sourceTree = "<group>"; };
 		C4478AAA1349A33A0097BB67 /* NSManagedObject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Extensions.h"; sourceTree = "<group>"; };
 		C4478AAB1349A33B0097BB67 /* NSManagedObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extensions.m"; sourceTree = "<group>"; };
-		C4478AB51349A3440097BB67 /* DDCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreData.h; sourceTree = "<group>"; };
-		C4478AB61349A3440097BB67 /* DDCoreDataException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataException.h; sourceTree = "<group>"; };
-		C4478AB71349A3440097BB67 /* DDCoreDataException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCoreDataException.m; sourceTree = "<group>"; };
-		C4478AB81349A3440097BB67 /* DDCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataHelper.h; sourceTree = "<group>"; };
-		C4478AB91349A3450097BB67 /* DDCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCoreDataHelper.m; sourceTree = "<group>"; };
-		C4478ABA1349A3450097BB67 /* DDCoreDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataProvider.h; sourceTree = "<group>"; };
-		C4478ABB1349A3450097BB67 /* DDCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreDataStack.h; sourceTree = "<group>"; };
-		C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCoreDataStack.m; sourceTree = "<group>"; };
 		C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJCodeResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44F1BD21378EC47008BF6ED /* FJCodeBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FJCodeBundle-Info.plist"; sourceTree = "<group>"; };
 		C44F1BD41378EC47008BF6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -250,24 +214,8 @@
 		C483EE951349B3BB004D164C /* LambdaAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaAlert.m; sourceTree = "<group>"; };
 		C483EE961349B3C1004D164C /* LambdaSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaSheet.h; sourceTree = "<group>"; };
 		C483EE971349B3CC004D164C /* LambdaSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaSheet.m; sourceTree = "<group>"; };
-		C483EE9C1349B416004D164C /* CKVOBlockNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKVOBlockNotificationHelper.h; sourceTree = "<group>"; };
-		C483EE9D1349B419004D164C /* CKVOBlockNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKVOBlockNotificationHelper.m; sourceTree = "<group>"; };
-		C483EE9E1349B41F004D164C /* NSObject_KVOBlockNotificationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_KVOBlockNotificationExtensions.h; sourceTree = "<group>"; };
-		C483EE9F1349B427004D164C /* NSObject_KVOBlockNotificationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_KVOBlockNotificationExtensions.m; sourceTree = "<group>"; };
-		C4A1DFE8134A4C7700E01A2B /* CLLocation+DCTBetterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+DCTBetterDescription.h"; sourceTree = "<group>"; };
-		C4A1DFE9134A4C7700E01A2B /* CLLocation+DCTBetterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+DCTBetterDescription.m"; sourceTree = "<group>"; };
-		C4A1DFEA134A4C7700E01A2B /* NSObject+DCTBetterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DCTBetterDescription.h"; sourceTree = "<group>"; };
-		C4A1DFEB134A4C7700E01A2B /* NSObject+DCTBetterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DCTBetterDescription.m"; sourceTree = "<group>"; };
-		C4A1DFEC134A4C7800E01A2B /* UIFont+DCTBetterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+DCTBetterDescription.h"; sourceTree = "<group>"; };
-		C4A1DFED134A4C7800E01A2B /* UIFont+DCTBetterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+DCTBetterDescription.m"; sourceTree = "<group>"; };
 		C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
 		C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
-		C4A1E018134A4E3100E01A2B /* UITableViewContentUnavailableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewContentUnavailableView.h; sourceTree = "<group>"; };
-		C4A1E019134A4E3100E01A2B /* UITableViewContentUnavailableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewContentUnavailableView.m; sourceTree = "<group>"; };
-		C4A1E01A134A4E3100E01A2B /* UITableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewHelper.h; sourceTree = "<group>"; };
-		C4A1E01B134A4E3100E01A2B /* UITableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewHelper.m; sourceTree = "<group>"; };
-		C4A1E01C134A4E3100E01A2B /* UITableViewUpdatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewUpdatingView.h; sourceTree = "<group>"; };
-		C4A1E01D134A4E3100E01A2B /* UITableViewUpdatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewUpdatingView.m; sourceTree = "<group>"; };
 		C4A1E025134A4F2C00E01A2B /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAutoArchiver.h; sourceTree = "<group>"; };
 		C4A1E026134A4F2C00E01A2B /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAutoArchiver.m; sourceTree = "<group>"; };
 		C4A1E034134A572100E01A2B /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
@@ -382,16 +330,12 @@
 				C4A1E035134A572100E01A2B /* Functions.m */,
 				C4478AA21349A3000097BB67 /* Foundation Categories */,
 				C4478AC61349A35C0097BB67 /* Core Data Cateorgries */,
-				C4478AC51349A34B0097BB67 /* DDCoreData */,
 				C483EE711349B0E5004D164C /* UIKit Categories */,
-				C4A1DFF4134A4C7D00E01A2B /* Description Categories */,
-				C483EEA41349FF3B004D164C /* KVO Blocks */,
 				C483EEA5134A004F004D164C /* Key Chain */,
 				C4A1E004134A4D6500E01A2B /* Reachability */,
 				C4A1E029134A4F3200E01A2B /* Archiving */,
 				C4A1E005134A4D8000E01A2B /* Activity Indicator */,
 				C483EEA6134A015C004D164C /* Map and Location */,
-				C4A1E024134A4E3900E01A2B /* Activity Table */,
 				C4A1DFB4134A4B4000E01A2B /* Alert & Sheet Blocks */,
 				C4A1DFF9134A4CAF00E01A2B /* Badges */,
 				C4474C601349A2060097BB67 /* Supporting Files */,
@@ -433,8 +377,6 @@
 				C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */,
 				C4478A751349A2F00097BB67 /* NSData+Base64.h */,
 				C4478A761349A2F00097BB67 /* NSData+Base64.m */,
-				C4478A771349A2F00097BB67 /* NSObject+Proxy.h */,
-				C4478A781349A2F00097BB67 /* NSObject+Proxy.m */,
 				C4478A791349A2F10097BB67 /* NSObjectHelper.h */,
 				C4478A7A1349A2F10097BB67 /* NSObjectHelper.m */,
 				C4478A7B1349A2F10097BB67 /* NSString+extensions.h */,
@@ -463,21 +405,6 @@
 				C4F5CA7B1481A6BB005B973B /* NSFetchRequest+extensions.m */,
 			);
 			name = "Foundation Categories";
-			sourceTree = "<group>";
-		};
-		C4478AC51349A34B0097BB67 /* DDCoreData */ = {
-			isa = PBXGroup;
-			children = (
-				C4478AB51349A3440097BB67 /* DDCoreData.h */,
-				C4478AB61349A3440097BB67 /* DDCoreDataException.h */,
-				C4478AB71349A3440097BB67 /* DDCoreDataException.m */,
-				C4478AB81349A3440097BB67 /* DDCoreDataHelper.h */,
-				C4478AB91349A3450097BB67 /* DDCoreDataHelper.m */,
-				C4478ABA1349A3450097BB67 /* DDCoreDataProvider.h */,
-				C4478ABB1349A3450097BB67 /* DDCoreDataStack.h */,
-				C4478ABC1349A3450097BB67 /* DDCoreDataStack.m */,
-			);
-			name = DDCoreData;
 			sourceTree = "<group>";
 		};
 		C4478AC61349A35C0097BB67 /* Core Data Cateorgries */ = {
@@ -536,17 +463,6 @@
 			name = "UIKit Categories";
 			sourceTree = "<group>";
 		};
-		C483EEA41349FF3B004D164C /* KVO Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE9C1349B416004D164C /* CKVOBlockNotificationHelper.h */,
-				C483EE9D1349B419004D164C /* CKVOBlockNotificationHelper.m */,
-				C483EE9E1349B41F004D164C /* NSObject_KVOBlockNotificationExtensions.h */,
-				C483EE9F1349B427004D164C /* NSObject_KVOBlockNotificationExtensions.m */,
-			);
-			name = "KVO Blocks";
-			sourceTree = "<group>";
-		};
 		C483EEA5134A004F004D164C /* Key Chain */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,19 +496,6 @@
 			name = "Alert & Sheet Blocks";
 			sourceTree = "<group>";
 		};
-		C4A1DFF4134A4C7D00E01A2B /* Description Categories */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1DFE8134A4C7700E01A2B /* CLLocation+DCTBetterDescription.h */,
-				C4A1DFE9134A4C7700E01A2B /* CLLocation+DCTBetterDescription.m */,
-				C4A1DFEA134A4C7700E01A2B /* NSObject+DCTBetterDescription.h */,
-				C4A1DFEB134A4C7700E01A2B /* NSObject+DCTBetterDescription.m */,
-				C4A1DFEC134A4C7800E01A2B /* UIFont+DCTBetterDescription.h */,
-				C4A1DFED134A4C7800E01A2B /* UIFont+DCTBetterDescription.m */,
-			);
-			name = "Description Categories";
-			sourceTree = "<group>";
-		};
 		C4A1DFF9134A4CAF00E01A2B /* Badges */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,19 +525,6 @@
 			name = "Activity Indicator";
 			sourceTree = "<group>";
 		};
-		C4A1E024134A4E3900E01A2B /* Activity Table */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1E018134A4E3100E01A2B /* UITableViewContentUnavailableView.h */,
-				C4A1E019134A4E3100E01A2B /* UITableViewContentUnavailableView.m */,
-				C4A1E01A134A4E3100E01A2B /* UITableViewHelper.h */,
-				C4A1E01B134A4E3100E01A2B /* UITableViewHelper.m */,
-				C4A1E01C134A4E3100E01A2B /* UITableViewUpdatingView.h */,
-				C4A1E01D134A4E3100E01A2B /* UITableViewUpdatingView.m */,
-			);
-			name = "Activity Table";
-			sourceTree = "<group>";
-		};
 		C4A1E029134A4F3200E01A2B /* Archiving */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,7 +546,6 @@
 				C4478A731349A2DC0097BB67 /* MacroUtilities.h in Headers */,
 				C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */,
 				C4478A8C1349A2F40097BB67 /* NSData+Base64.h in Headers */,
-				C4478A8E1349A2F40097BB67 /* NSObject+Proxy.h in Headers */,
 				C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */,
 				C4478A921349A2F40097BB67 /* NSString+extensions.h in Headers */,
 				C4478A941349A2F40097BB67 /* NSDictionaryHelper.h in Headers */,
@@ -667,11 +556,6 @@
 				C4478AAE1349A33B0097BB67 /* FJCoreDataExtensions.h in Headers */,
 				C4478AB11349A33B0097BB67 /* NSManagedObjectContext+Convenience.h in Headers */,
 				C4478AB31349A33B0097BB67 /* NSManagedObject+Extensions.h in Headers */,
-				C4478ABD1349A3450097BB67 /* DDCoreData.h in Headers */,
-				C4478ABE1349A3450097BB67 /* DDCoreDataException.h in Headers */,
-				C4478AC01349A3450097BB67 /* DDCoreDataHelper.h in Headers */,
-				C4478AC21349A3450097BB67 /* DDCoreDataProvider.h in Headers */,
-				C4478AC31349A3450097BB67 /* DDCoreDataStack.h in Headers */,
 				C483EE5D1349B0A8004D164C /* UIView-Extensions.h in Headers */,
 				C483EE5F1349B0A8004D164C /* UITableViewControllerHelper.h in Headers */,
 				C483EE611349B0A8004D164C /* UIImageHelper.h in Headers */,
@@ -691,15 +575,7 @@
 				C483EE921349B39C004D164C /* MapViewController.h in Headers */,
 				C483EE981349B3DB004D164C /* LambdaAlert.h in Headers */,
 				C483EE9A1349B3DB004D164C /* LambdaSheet.h in Headers */,
-				C483EEA01349B435004D164C /* CKVOBlockNotificationHelper.h in Headers */,
-				C483EEA21349B435004D164C /* NSObject_KVOBlockNotificationExtensions.h in Headers */,
-				C4A1DFEE134A4C7800E01A2B /* CLLocation+DCTBetterDescription.h in Headers */,
-				C4A1DFF0134A4C7800E01A2B /* NSObject+DCTBetterDescription.h in Headers */,
-				C4A1DFF2134A4C7800E01A2B /* UIFont+DCTBetterDescription.h in Headers */,
 				C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */,
-				C4A1E01E134A4E3200E01A2B /* UITableViewContentUnavailableView.h in Headers */,
-				C4A1E020134A4E3200E01A2B /* UITableViewHelper.h in Headers */,
-				C4A1E022134A4E3200E01A2B /* UITableViewUpdatingView.h in Headers */,
 				C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */,
 				C4A1E036134A572100E01A2B /* Functions.h in Headers */,
 				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
@@ -838,7 +714,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4478A8D1349A2F40097BB67 /* NSData+Base64.m in Sources */,
-				C4478A8F1349A2F40097BB67 /* NSObject+Proxy.m in Sources */,
 				C4478A911349A2F40097BB67 /* NSObjectHelper.m in Sources */,
 				C4478A931349A2F40097BB67 /* NSString+extensions.m in Sources */,
 				C4478A951349A2F40097BB67 /* NSDictionaryHelper.m in Sources */,
@@ -848,9 +723,6 @@
 				C4478AA11349A2F40097BB67 /* NSOperationQueue+Shared.m in Sources */,
 				C4478AB21349A33B0097BB67 /* NSManagedObjectContext+Convenience.m in Sources */,
 				C4478AB41349A33B0097BB67 /* NSManagedObject+Extensions.m in Sources */,
-				C4478ABF1349A3450097BB67 /* DDCoreDataException.m in Sources */,
-				C4478AC11349A3450097BB67 /* DDCoreDataHelper.m in Sources */,
-				C4478AC41349A3450097BB67 /* DDCoreDataStack.m in Sources */,
 				C483EE5C1349B0A8004D164C /* UIView-Extensions.m in Sources */,
 				C483EE5E1349B0A8004D164C /* UITableViewControllerHelper.m in Sources */,
 				C483EE601349B0A8004D164C /* UIImageHelper.m in Sources */,
@@ -869,15 +741,7 @@
 				C483EE931349B39C004D164C /* MapViewController.m in Sources */,
 				C483EE991349B3DB004D164C /* LambdaAlert.m in Sources */,
 				C483EE9B1349B3DB004D164C /* LambdaSheet.m in Sources */,
-				C483EEA11349B435004D164C /* CKVOBlockNotificationHelper.m in Sources */,
-				C483EEA31349B435004D164C /* NSObject_KVOBlockNotificationExtensions.m in Sources */,
-				C4A1DFEF134A4C7800E01A2B /* CLLocation+DCTBetterDescription.m in Sources */,
-				C4A1DFF1134A4C7800E01A2B /* NSObject+DCTBetterDescription.m in Sources */,
-				C4A1DFF3134A4C7800E01A2B /* UIFont+DCTBetterDescription.m in Sources */,
 				C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */,
-				C4A1E01F134A4E3200E01A2B /* UITableViewContentUnavailableView.m in Sources */,
-				C4A1E021134A4E3200E01A2B /* UITableViewHelper.m in Sources */,
-				C4A1E023134A4E3200E01A2B /* UITableViewUpdatingView.m in Sources */,
 				C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */,
 				C4A1E037134A572100E01A2B /* Functions.m in Sources */,
 				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
