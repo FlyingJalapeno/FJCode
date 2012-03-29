@@ -8,6 +8,7 @@
 
 #import "MKMapView+extensions.h"
 #import "NSArray+extensions.h"
+#import "Functions.h"
 
 @implementation MKMapView (extensions)
 

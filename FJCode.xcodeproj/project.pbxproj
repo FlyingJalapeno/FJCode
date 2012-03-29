@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */; };
+		C41D8714152427A60028B72A /* FJUIKitExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41D8713152427A60028B72A /* FJUIKitExtensions.h */; };
 		C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C42AC214143265C1002737E6 /* NSPredicate+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
 		C42AC218143265C1002737E6 /* NSPredicate+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC215143265C1002737E6 /* NSPredicate+extensions.m */; };
@@ -45,8 +46,6 @@
 		C4478AB21349A33B0097BB67 /* NSManagedObjectContext+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AA91349A33A0097BB67 /* NSManagedObjectContext+Convenience.m */; };
 		C4478AB31349A33B0097BB67 /* NSManagedObject+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478AAA1349A33A0097BB67 /* NSManagedObject+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478AB41349A33B0097BB67 /* NSManagedObject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4478AAB1349A33B0097BB67 /* NSManagedObject+Extensions.m */; };
-		C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06D134A5BF500E01A2B /* CoreFoundation.framework */; };
-		C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44F1BD31378EC47008BF6ED /* InfoPlist.strings */; };
 		C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
 		C453D6881470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
@@ -121,18 +120,12 @@
 			remoteGlobalIDString = C4474C591349A2060097BB67;
 			remoteInfo = FJCode;
 		};
-		C44F1BDB1378EC52008BF6ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4474C511349A2060097BB67 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C44F1BCD1378EC46008BF6ED;
-			remoteInfo = FJCodeBundle;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Extensions.h"; sourceTree = "<group>"; };
 		C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Extensions.m"; sourceTree = "<group>"; };
+		C41D8713152427A60028B72A /* FJUIKitExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJUIKitExtensions.h; sourceTree = "<group>"; };
 		C42AC214143265C1002737E6 /* NSPredicate+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+extensions.h"; sourceTree = "<group>"; };
 		C42AC215143265C1002737E6 /* NSPredicate+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+extensions.m"; sourceTree = "<group>"; };
 		C4474C5A1349A2060097BB67 /* libFJCode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFJCode.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +164,6 @@
 		C4478AA91349A33A0097BB67 /* NSManagedObjectContext+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Convenience.m"; sourceTree = "<group>"; };
 		C4478AAA1349A33A0097BB67 /* NSManagedObject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Extensions.h"; sourceTree = "<group>"; };
 		C4478AAB1349A33B0097BB67 /* NSManagedObject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Extensions.m"; sourceTree = "<group>"; };
-		C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJCodeResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44F1BD21378EC47008BF6ED /* FJCodeBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FJCodeBundle-Info.plist"; sourceTree = "<group>"; };
 		C44F1BD41378EC47008BF6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C44F1BD61378EC47008BF6ED /* FJCodeBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCodeBundle-Prefix.pch"; sourceTree = "<group>"; };
@@ -268,14 +260,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C44F1BCB1378EC46008BF6ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C44F1BCF1378EC46008BF6ED /* CoreFoundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -295,7 +279,6 @@
 			children = (
 				C4474C5A1349A2060097BB67 /* libFJCode.a */,
 				C4474C671349A2070097BB67 /* FJCodeTests.octest */,
-				C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -440,6 +423,7 @@
 		C483EE711349B0E5004D164C /* UIKit Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C41D8713152427A60028B72A /* FJUIKitExtensions.h */,
 				C483EE761349B22E004D164C /* UIImage+Disk.h */,
 				C483EE771349B22F004D164C /* UIImage+Disk.m */,
 				C483EE6F1349B0DD004D164C /* FJUIKitExtensions.h */,
@@ -584,6 +568,7 @@
 				C4B77FD3147CDA1A0051A719 /* MKMapView+extensions.h in Headers */,
 				C4F5CA0A14819305005B973B /* NSArray+extensions.h in Headers */,
 				C4F5CA7C1481A6BB005B973B /* NSFetchRequest+extensions.h in Headers */,
+				C41D8714152427A60028B72A /* FJUIKitExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +586,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C44F1BDC1378EC52008BF6ED /* PBXTargetDependency */,
 			);
 			name = FJCode;
 			productName = FJCode;
@@ -627,23 +611,6 @@
 			productReference = C4474C671349A2070097BB67 /* FJCodeTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		C44F1BCD1378EC46008BF6ED /* FJCodeResources */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C44F1BD91378EC47008BF6ED /* Build configuration list for PBXNativeTarget "FJCodeResources" */;
-			buildPhases = (
-				C44F1BCA1378EC46008BF6ED /* Sources */,
-				C44F1BCB1378EC46008BF6ED /* Frameworks */,
-				C44F1BCC1378EC46008BF6ED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FJCodeResources;
-			productName = FJCodeBundle;
-			productReference = C44F1BCE1378EC46008BF6ED /* FJCodeResources.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -667,7 +634,6 @@
 			targets = (
 				C4474C591349A2060097BB67 /* FJCode */,
 				C4474C661349A2070097BB67 /* FJCodeTests */,
-				C44F1BCD1378EC46008BF6ED /* FJCodeResources */,
 			);
 		};
 /* End PBXProject section */
@@ -679,14 +645,6 @@
 			files = (
 				C4474C751349A2070097BB67 /* InfoPlist.strings in Resources */,
 				C4474C781349A2070097BB67 /* FJCodeTests.h in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C44F1BCC1378EC46008BF6ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C44F1BD51378EC47008BF6ED /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,13 +723,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C44F1BCA1378EC46008BF6ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -779,11 +730,6 @@
 			isa = PBXTargetDependency;
 			target = C4474C591349A2060097BB67 /* FJCode */;
 			targetProxy = C4474C6D1349A2070097BB67 /* PBXContainerItemProxy */;
-		};
-		C44F1BDC1378EC52008BF6ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C44F1BCD1378EC46008BF6ED /* FJCodeResources */;
-			targetProxy = C44F1BDB1378EC52008BF6ED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -916,43 +862,6 @@
 			};
 			name = Release;
 		};
-		C44F1BD71378EC47008BF6ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FJCodeBundle/FJCodeBundle-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "FJCodeBundle/FJCodeBundle-Info.plist";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		C44F1BD81378EC47008BF6ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FJCodeBundle/FJCodeBundle-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "FJCodeBundle/FJCodeBundle-Info.plist";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -979,15 +888,6 @@
 			buildConfigurations = (
 				C4474C811349A2070097BB67 /* Debug */,
 				C4474C821349A2070097BB67 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C44F1BD91378EC47008BF6ED /* Build configuration list for PBXNativeTarget "FJCodeResources" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C44F1BD71378EC47008BF6ED /* Debug */,
-				C44F1BD81378EC47008BF6ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
