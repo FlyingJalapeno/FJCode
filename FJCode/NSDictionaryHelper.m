@@ -72,7 +72,7 @@
 
 - (void)setObjectIfNotNil:(id)anObject forKey:(id)aKey{
     
-    if(anObject != nil)
+    if(anObject != nil && aKey != nil)
         [self setObject:anObject forKey:aKey];
     
 }
