@@ -60,7 +60,7 @@ static ACActivityIndicatorQueue *activityIndicatorQueue = nil;
     return activityIndicatorQueue;
 }
 
-- (void)release {
+- (oneway void)release {
 	// Do nothing
 }
 
