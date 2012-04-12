@@ -13,6 +13,7 @@
 //#define IS_RETINA NO
 
 #define IS_IPAD             (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPAD_1             (IS_IPAD && ![UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
 
 #define VERSION_GREATER_THAN(v1, v2)              ([v1 compare:v2 options:NSNumericSearch] == NSOrderedDescending)
 
