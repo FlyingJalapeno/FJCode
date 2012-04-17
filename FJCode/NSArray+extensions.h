@@ -29,7 +29,6 @@
 - (void)each:(void (^)(id))block;
 - (NSArray* )select:(BOOL (^)(id))block;
 - (id)reduce:(id)initial withBlock:(id (^)(id,id))block;
-- (void)addInt:(int)integer;
 
 - (id )objectPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate;
 - (NSArray *)objectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate;
@@ -61,6 +60,8 @@
 //Queue
 - (void)enqueue:(id)item;
 - (id)dequeue;
+
+- (void)addInt:(int)integer;
 
 
 - (NSMutableArray *) removeFirstObject;

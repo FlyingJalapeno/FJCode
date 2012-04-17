@@ -7,9 +7,9 @@
 //
 
 #import "MapViewController.h"
-#import "NSObject+Proxy.h"
 #import "Functions.h"
 #import "MKMapView+extensions.h"
+#import "NSArray+extensions.h"
 
 @interface MapViewController()
 
