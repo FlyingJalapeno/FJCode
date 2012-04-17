@@ -76,8 +76,9 @@
 	for (id object in self)
 		if (![anArray containsObject:object]) 
 			[copy removeObjectIdenticalTo:object];
-    [copy autorelease];
-	return [copy uniqueMembers];
+    NSArray* unique = [copy uniqueMembers];
+    [copy release];
+	return unique;
 }
 
 - (NSArray*)mapWithBlock:(id (^)(id obj, NSUInteger idx))block{
