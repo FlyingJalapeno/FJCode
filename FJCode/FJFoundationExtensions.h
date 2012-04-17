@@ -5,7 +5,6 @@
 
 #import "NSObject+Proxy.h"
 #import "NSObjectHelper.h"
-#import "NSObject_KVOBlockNotificationExtensions.h"
 #import "NSString+extensions.h"
 #import "NSDictionaryHelper.h"
 #import "NSArray+extensions.h"
