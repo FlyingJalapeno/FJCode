@@ -133,6 +133,16 @@ void UIAlertViewQuick(NSString* title, NSString* message, NSString* dismissButto
         return [self presentNoInternetAlertWithDelegate:object];
     }
 	
+    if([error code] == kCFHostErrorUnknown){
+        
+        return [self presentNoInternetAlertWithDelegate:object];
+    }
+    
+    if([error code] == kCFHostErrorHostNotFound){
+        
+        return [self presentNoInternetAlertWithDelegate:object];
+    }
+    
 	for(NSString* eachKey in [error userInfo]){
 		
 		NSLog(@"%@: %@", eachKey, [[error userInfo] objectForKey:eachKey]);
