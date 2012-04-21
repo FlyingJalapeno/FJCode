@@ -156,6 +156,18 @@ NSString* const kOriginalPostParametersDataKey = @"kOriginalPostParametersDataKe
     
 }
 
++ (NSError*)invalidCredentialsError{
+    
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"Incorrect username or password", NSLocalizedDescriptionKey, 
+                          nil];
+    
+    NSError* err = [NSError errorWithDomain: FJNetworkErrorDomain code:FJNetworkErrorInvalidCredentials userInfo:dict];
+    
+    return err;
+
+}
+
 + (NSError*)corruptImageResponse:(NSURL*)url data:(NSData*)corruptData{
     
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:

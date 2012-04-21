@@ -15,6 +15,7 @@ typedef enum  {
     FJNetworkErrorCorruptImageResponse,
     FJNetworkErrorPasswordResetRequired,
     FJNetworkErrorMissingRequiredInfo
+    FJNetworkErrorInvalidCredentials
     
 } FJNetworkErrorType;
 
@@ -43,6 +44,8 @@ extern NSString* const kOriginalPostParametersDataKey;
 + (NSError*)invalidResponseErrorWithData:(id)invalidData;
 
 + (NSError*)userNotAuthenticatedInError;
+
++ (NSError*)invalidCredentialsError;
 
 + (NSError*)unknownErrorWithDescription:(NSString*)desc;
 
