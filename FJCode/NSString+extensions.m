@@ -640,6 +640,9 @@
 
 - (void)removeLastCharacter{
     
+    if([self length] == 0)
+        return;
+    
     [self deleteCharactersInRange:NSMakeRange([self length]-1, 1)];
     
 }
