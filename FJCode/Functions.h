@@ -46,6 +46,8 @@ static inline NSString* timeZoneString(){
     return abbreviation;
 }
 
+CGFloat BNRTimeBlock (void (^block)(void));
+
 
 #pragma mark -
 #pragma mark NSRange
