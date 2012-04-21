@@ -123,6 +123,62 @@ double megaBytesWithBytes(long long bytes){
 }
 
 
+double gigaBytesWithBytes(long long bytes){
+    
+    NSNumber* b = [NSNumber numberWithLongLong:bytes];
+    
+    double bytesAsDouble = [b doubleValue];
+    
+    double gb = bytesAsDouble/1073741824.0;
+    
+    return gb;
+    
+}
+
+NSString* prettySizeStringWithBytesRounded(long long bytes){
+    
+    NSString* size = nil;
+    
+    if(bytes <= 524288000){ //smaller than 500 MB
+        
+        double mb = megaBytesWithBytes(bytes);
+        mb = round(mb);
+        size = [NSString stringWithFormat:@"%.f MB", mb];
+        
+    }else{
+        
+        double gb = gigaBytesWithBytes(bytes);
+        gb = round(gb/0.1)*0.1;
+        size = [NSString stringWithFormat:@"%.1f GB", gb];
+        
+    }    
+    return size;
+    
+}
+
+NSString* prettySizeStringWithBytesFloored(long long bytes){
+    
+    NSString* size = nil;
+    
+    if(bytes <= 524288000){ //smaller than 500 MB
+        
+        double mb = megaBytesWithBytes(bytes);
+        mb = floor(mb);
+        size = [NSString stringWithFormat:@"%.f MB", mb];
+        
+    }else{
+        
+        double gb = gigaBytesWithBytes(bytes);
+        gb = floor(gb/0.1)*0.1;
+        size = [NSString stringWithFormat:@"%.1f GB", gb];
+        
+    }    
+    return size;
+    
+}
+
+
+
 
 void dispatchOnMainQueue(dispatch_block_t block){
     
@@ -139,6 +195,43 @@ void dispatchAfterDelayInSeconds(float delay, dispatch_queue_t queue, dispatch_b
     dispatch_after(dispatchTimeFromNow(delay), queue, block);
     
 }
+
+
+CGRect rectExpandedByValue(CGRect rect,  float expandRadius){
+    
+    rect.size.width += (2*expandRadius);
+    rect.size.height += (2*expandRadius);
+    
+    rect.origin.x -= expandRadius;
+    rect.origin.y -= expandRadius;
+    
+    
+    return rect;
+    
+}
+
+
+CGRect rectContractedByValue(CGRect rect,  float expandRadius){
+    
+    rect.size.width -= (2*expandRadius);
+    rect.size.height -= (2*expandRadius);
+    
+    rect.origin.x += expandRadius;
+    rect.origin.y += expandRadius;
+    
+    return rect;    
+    
+}
+
+CGPoint centerOfRect(CGRect rect){
+    
+    CGPoint c;
+    c.x = CGRectGetMidX(rect);
+    c.y = CGRectGetMidY(rect);
+    return c;
+    
+}
+
 
 void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation){
     

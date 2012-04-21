@@ -8,36 +8,6 @@
 
 #import "UIView-Extensions.h"
 
-#define degreesToRadians(x) (M_PI * x / 180.0)
-
-
-CGRect rectExpandedByValue(CGRect rect,  float expandRadius){
-    
-    rect.size.width += (2*expandRadius);
-    rect.size.height += (2*expandRadius);
-    
-    rect.origin.x -= expandRadius;
-    rect.origin.y -= expandRadius;
-    
-    
-    return rect;
-    
-}
-
-
-CGRect rectContractedByValue(CGRect rect,  float expandRadius){
-    
-    rect.size.width -= (2*expandRadius);
-    rect.size.height -= (2*expandRadius);
-    
-    rect.origin.x += expandRadius;
-    rect.origin.y += expandRadius;
-    
-    return rect;    
-    
-}
-
-
 @implementation UIView (utility)
 
 - (void)setBackgroundColor:(UIColor*)aColor recursive:(BOOL)flag{
@@ -55,19 +25,19 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius){
 @end
 
 
-
-
 @implementation UIView (frame)
 
-
-- (CGPoint)position {
-	return [self frame].origin;
+- (CGPoint)origin{
+    
+    return [self frame].origin;
 }
 
-- (void)setPosition:(CGPoint)position {
-	CGRect rect = [self frame];
-	rect.origin = position;
-	[self setFrame:rect];
+-(void)setOrigin:(CGPoint)aPoint{
+    
+    CGRect newFrame = self.frame;
+    newFrame.origin = aPoint;
+    self.frame = newFrame;
+    
 }
 
 - (CGFloat)x {
@@ -128,34 +98,35 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius){
     self.frame = newFrame;
     
 }
--(void)setOriginY:(float)value{
     
     CGRect newFrame = self.frame;
-    newFrame.origin.y = value;
     self.frame = newFrame;
     
 }
--(void)setOriginX:(float)value{
+- (CGPoint)centerOfBounds{
     
-    CGRect newFrame = self.frame;
-    newFrame.origin.x = value;
-    self.frame = newFrame;
+    return centerOfRect(self.bounds);
+}
+
+
+- (CGPoint)pointByAdjustingBoundsCenterByOffset:(CGPoint)offset{
+    
+    CGPoint p = centerOfRect(self.bounds);
+    p.x += offset.x;
+    p.y += offset.y;
+    
+    return p;
+
     
 }
 
--(void)setSizeWidth:(float)value{
+- (CGPoint)pointByAdjustingFrameCenterByOffset:(CGPoint)offset{
     
-    CGRect newFrame = self.frame;
-    newFrame.size.width = value;
-    self.frame = newFrame;
+    CGPoint p = self.center;
+    p.x += offset.x;
+    p.y += offset.y;
     
-}
--(void)setSizeHeight:(float)value{
-    
-    CGRect newFrame = self.frame;
-    newFrame.size.height = value;
-    self.frame = newFrame;
-    
+    return p;
 }
 
 @end
@@ -167,35 +138,35 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius){
 
 -(CGPoint)bottomCenter{
     
-    return CGPointMake(self.bounds.size.width/2, self.bounds.size.height); 
+    return CGPointMake(self.frame.size.width/2, self.frame.size.height + self.frame.origin.y); 
 }
 -(CGPoint)topCenter{
     
-    return CGPointMake(self.bounds.size.width/2, self.bounds.origin.y); 
+    return CGPointMake(self.frame.size.width/2, self.frame.origin.y); 
 }
 -(CGPoint)leftCenter{
     
-    return CGPointMake(self.bounds.origin.x, self.bounds.size.height/2); 
+    return CGPointMake(self.frame.origin.x, self.frame.size.height/2); 
 }
 -(CGPoint)rightCenter{
     
-    return CGPointMake(self.bounds.size.width, self.bounds.size.height/2); 
+    return CGPointMake(self.frame.origin.x + self.frame.size.width, self.frame.size.height/2); 
 }
--(CGPoint)upperRightCorner{
+-(CGPoint)topRightCorner{
     
-    return CGPointMake(self.bounds.size.width, self.bounds.origin.y); 
+    return CGPointMake(self.frame.origin.x + self.frame.size.width, self.frame.origin.y); 
 }
--(CGPoint)upperLeftCorner{
+-(CGPoint)topLeftCorner{
         
-    return CGPointMake(self.bounds.origin.x, self.bounds.origin.y); 
+    return CGPointMake(self.frame.origin.x, self.frame.origin.y); 
 }
--(CGPoint)lowerLeftCorner{
+-(CGPoint)bottomLeftCorner{
     
-    return CGPointMake(self.bounds.origin.x, self.bounds.size.height); 
+    return CGPointMake(self.frame.origin.x, self.frame.size.height + self.frame.origin.y); 
 }
--(CGPoint)lowerRightCorner{
+-(CGPoint)bottomRightCorner{
     
-    return CGPointMake(self.bounds.size.width, self.bounds.size.height); 
+    return CGPointMake(self.frame.origin.x + self.frame.size.width, self.frame.size.height + self.frame.origin.y); 
 }
 
 
@@ -203,93 +174,6 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius){
 @end
 
 
-
-
-
-@implementation UIView (animation)
-
-
-- (void)fadeInWithDelay:(CGFloat)delay duration:(CGFloat)duration{
-    
-	[UIView beginAnimations:@"fadeIn" context:nil];
-	[UIView setAnimationDelay:delay];
-	[UIView setAnimationDuration:duration];
-	self.alpha=1;
-	[UIView commitAnimations];		
-	
-	
-}
-
-- (void)fadeOutWithDelay:(CGFloat)delay duration:(CGFloat)duration{
-	
-	[UIView beginAnimations:@"fadeOut" context:nil];
-	[UIView setAnimationDelay:delay];
-	[UIView setAnimationDuration:duration];
-	self.alpha=0;
-	[UIView commitAnimations];
-	
-}
-
-- (void)translateToFrame:(CGRect)aFrame delay:(CGFloat)delay duration:(CGFloat)duration{
-	
-	[UIView beginAnimations:@"slide" context:nil];
-	[UIView setAnimationDelay:delay];
-	[UIView setAnimationDuration:duration];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-	self.frame=aFrame;
-	[UIView commitAnimations];
-	
-}	
-
--(void)shrinkToSize:(CGSize)aSize withDelay:(CGFloat)delay duration:(CGFloat)duration{
-	
-	CGRect myNewFrame= self.frame;
-	myNewFrame.size=aSize;	
-	myNewFrame.origin=CGPointMake(self.frame.origin.x+self.frame.size.width/2-myNewFrame.size.width/2,self.frame.origin.y+self.frame.size.height/2-myNewFrame.size.height/2);
-	
-	[UIView beginAnimations:@"shrink" context:nil];
-	[UIView setAnimationDuration:.5];	
-	self.frame=myNewFrame;
-	[UIView commitAnimations];	
-	
-}
-
-
-- (void)changeColor:(UIColor *)aColor withDelay:(CGFloat)delay duration:(CGFloat)duration{
-	
-	[UIView beginAnimations:@"changeColor" context:nil];
-	[UIView setAnimationDelay:delay];
-	[UIView setAnimationDuration:duration];	
-	[self setBackgroundColor:[UIColor lightGrayColor]];
-	[UIView commitAnimations];
-	
-}
-
-- (void)rotate:(float)degrees{
-	
-	CGAffineTransform rotateTransform = self.transform;
-	rotateTransform = CGAffineTransformRotate(rotateTransform, degreesToRadians(degrees));
-	self.transform = rotateTransform;
-    
-}
-
-
-
-- (void)animateAlpha:(float)alphaValue delay:(CGFloat)delay duration:(CGFloat)duration removeFromSuperView:(BOOL)flag{
-    
-    [UIView beginAnimations:@"setAlpha" context:nil];
-	[UIView setAnimationDelay:delay];
-	[UIView setAnimationDuration:duration];
-	self.alpha=alphaValue;
-	[UIView commitAnimations];
-    
-    if(flag)
-        [self performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:(delay + duration)];
-    
-}
-
-
-@end
 
 @implementation UIView (introspection)
 

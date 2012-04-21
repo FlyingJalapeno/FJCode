@@ -32,7 +32,9 @@ BOOL addSkipBackupAttributeToItemAtURL(NSURL *URL);
 
 NSUInteger sizeOfFolderContentsInBytes(NSString* folderPath);
 double megaBytesWithBytes(long long bytes);
-
+double gigaBytesWithBytes(long long bytes);
+NSString* prettySizeStringWithBytesRounded(long long bytes); //includes MB or GB in string
+NSString* prettySizeStringWithBytesFloored(long long bytes); //same
 
 #pragma mark -
 #pragma mark time
@@ -64,6 +66,16 @@ void dispatchOnMainQueue(dispatch_block_t block);
 void dispatchOnMainQueueAfterDelayInSeconds(float delay, dispatch_block_t block);
 
 void dispatchAfterDelayInSeconds(float delay, dispatch_queue_t queue, dispatch_block_t block);
+
+
+#define degreesToRadians(x) (M_PI * x / 180.0)
+
+#pragma mark -
+#pragma mark CG
+
+CGRect rectExpandedByValue(CGRect rect,  float expandRadius);
+CGRect rectContractedByValue(CGRect rect,  float expandRadius);
+CGPoint centerOfRect(CGRect rect);
 
 
 #pragma mark -

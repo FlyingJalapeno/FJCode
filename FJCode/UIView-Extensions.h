@@ -22,9 +22,9 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius);
 
 @interface UIView (frame)
 
+@property CGPoint origin;
 
 // Position of the top-left corner in superview's coordinates
-@property CGPoint position;
 @property CGFloat x;
 @property CGFloat y;
 
@@ -34,46 +34,26 @@ CGRect rectContractedByValue(CGRect rect,  float expandRadius);
 @property CGFloat height;
 
 
--(void)setOrigin:(CGPoint)aPoint;
--(void)setOriginY:(float)value;
--(void)setOriginX:(float)value;
--(void)setSize:(CGSize)aSize;
--(void)setSizeWidth:(float)value;
--(void)setSizeHeight:(float)value;
 
 @end
 
 
 
-//returns points relative to bounds
+//returns points relative to frame
 @interface UIView (points)
 
 -(CGPoint)bottomCenter;
 -(CGPoint)topCenter;
 -(CGPoint)leftCenter;
 -(CGPoint)rightCenter;
--(CGPoint)upperRightCorner;
--(CGPoint)upperLeftCorner;
--(CGPoint)lowerLeftCorner;
--(CGPoint)lowerRightCorner;
+-(CGPoint)topRightCorner;
+-(CGPoint)topLeftCorner;
+-(CGPoint)bottomLeftCorner;
+-(CGPoint)bottomRightCorner;
 
 
 @end
 
-
-
-@interface UIView (animation)
-
-- (void)fadeInWithDelay:(CGFloat)delay duration:(CGFloat)duration;
-- (void)fadeOutWithDelay:(CGFloat)delay duration:(CGFloat)duration;
-- (void)translateToFrame:(CGRect)aFrame delay:(CGFloat)delay duration:(CGFloat)duration;
-- (void)shrinkToSize:(CGSize)aSize withDelay:(CGFloat)delay duration:(CGFloat)duration;
-- (void)changeColor:(UIColor *)aColor withDelay:(CGFloat)delay duration:(CGFloat)duration;
-- (void)rotate:(float)degrees;
-
-- (void)animateAlpha:(float)alphaValue delay:(CGFloat)delay duration:(CGFloat)duration removeFromSuperView:(BOOL)flag;
-
-@end
 
 @interface UIView (introspection)
 
