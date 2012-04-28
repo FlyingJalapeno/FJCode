@@ -14,7 +14,7 @@ typedef enum  {
     FJNetworkErrorNotAuthenticated,
     FJNetworkErrorCorruptImageResponse,
     FJNetworkErrorPasswordResetRequired,
-    FJNetworkErrorMissingRequiredInfo
+    FJNetworkErrorMissingRequiredInfo,
     FJNetworkErrorInvalidCredentials
     
 } FJNetworkErrorType;

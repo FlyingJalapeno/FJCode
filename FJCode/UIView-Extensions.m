@@ -7,6 +7,7 @@
 //
 
 #import "UIView-Extensions.h"
+#import "Functions.h"
 
 @implementation UIView (utility)
 
@@ -90,19 +91,6 @@
 	[self setFrame:rect];
 }
 
-
--(void)setOrigin:(CGPoint)aPoint{
-    
-    CGRect newFrame = self.frame;
-    newFrame.origin = aPoint;
-    self.frame = newFrame;
-    
-}
-    
-    CGRect newFrame = self.frame;
-    self.frame = newFrame;
-    
-}
 - (CGPoint)centerOfBounds{
     
     return centerOfRect(self.bounds);
