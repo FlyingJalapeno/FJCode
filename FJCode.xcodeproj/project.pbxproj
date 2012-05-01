@@ -68,7 +68,6 @@
 		C483EE781349B232004D164C /* UIImage+Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE761349B22E004D164C /* UIImage+Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE791349B232004D164C /* UIImage+Disk.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE771349B22F004D164C /* UIImage+Disk.m */; };
 		C483EE801349B2F1004D164C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7B1349B2CE004D164C /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE811349B2F1004D164C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7C1349B2D3004D164C /* Reachability.m */; };
 		C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */; };
 		C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE841349B302004D164C /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -683,7 +682,6 @@
 				C483EE6C1349B0A8004D164C /* BlueBadge.m in Sources */,
 				C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */,
 				C483EE791349B232004D164C /* UIImage+Disk.m in Sources */,
-				C483EE811349B2F1004D164C /* Reachability.m in Sources */,
 				C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */,
 				C483EE871349B30A004D164C /* SFHFKeychainUtils.m in Sources */,
 				C483EE8B1349B330004D164C /* ACActivityIndicatorQueue.m in Sources */,
