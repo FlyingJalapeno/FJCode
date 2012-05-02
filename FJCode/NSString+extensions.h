@@ -152,7 +152,7 @@ typedef enum {
 
 
 
-- (BOOL)isValid:(int)type acceptWhiteSpace:(BOOL)acceptWhiteSpace;
+- (BOOL)isValid:(StringValidationType)type acceptWhiteSpace:(BOOL)acceptWhiteSpace;
 
 - (BOOL)validatesWithPredicate:(NSPredicate*)predicate acceptWhiteSpace:(BOOL)acceptWhiteSpace;
 

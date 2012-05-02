@@ -77,7 +77,7 @@ void UIAlertViewQuick(NSString* title, NSString* message, NSString* dismissButto
 + (id)presentDialogForMissingField:(NSString*)fieldName{
     
     NSString* t = [NSString stringWithFormat:@"Missing %@", fieldName];
-    NSString* m = [NSString stringWithFormat:@"Please enter a %@", [fieldName lowercaseString]];
+    NSString* m = [NSString stringWithFormat:@"Please enter a valid %@", [fieldName lowercaseString]];
     
     return [UIAlertView presentAlertViewWithTitle:t message:m delegate:nil];
     
