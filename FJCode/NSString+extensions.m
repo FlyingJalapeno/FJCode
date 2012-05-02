@@ -587,7 +587,7 @@
 }
 
 
-- (BOOL)isValid:(int)type acceptWhiteSpace:(BOOL)acceptWhiteSpace {	
+- (BOOL)isValid:(StringValidationType)type acceptWhiteSpace:(BOOL)acceptWhiteSpace {	
 	
 	NSPredicate *primaryPredicate = nil;
 	
