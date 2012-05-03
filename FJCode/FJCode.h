@@ -12,16 +12,20 @@
 
 #import "Functions.h"
 
-#import "SynthesizeSingleton.h"
-
 #import "FJFoundationExtensions.h"
 #import "FJUIKitExtensions.h"
-#import "FJCoreDataExtensions.h"
+
+#import "LambdaAlert.h"
+#import "LambdaSheet.h"
+
+#import "BlueBadge.h"
+#import "MKNumberBadgeView.h"
+
+#import "SFHFKeychainUtils.h"
 
 /*
 #import "TPAutoArchiver.h"
 
 #import "ACActivityIndicatorQueue.h"
 
-#import "SFHFKeychainUtils.h"
 */

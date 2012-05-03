@@ -781,13 +781,14 @@
 				DSTROOT = /tmp/FJCode.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FJCode/FJCode-Prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
+				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FJCode;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -799,13 +800,14 @@
 				DSTROOT = /tmp/FJCode.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FJCode/FJCode-Prefix.pch";
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
+				PRIVATE_HEADERS_FOLDER_PATH = "$(PUBLIC_HEADERS_FOLDER_PATH)/Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FJCode;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
