@@ -18,6 +18,11 @@ static inline NSString* cachesDirectory(){
     
 }
 
+static inline NSString* tempDirectory(){
+    
+    return [NSSearchPathForDirectoriesInDomains(NSTemporaryDirectory, NSUserDomainMask, YES) lastObject];
+    
+}
 
 static inline NSString* fileNameBasedOnCurrentTime() {
 	NSString* fileName = [NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"png"];
