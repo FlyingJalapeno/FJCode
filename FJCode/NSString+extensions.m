@@ -587,7 +587,7 @@
 }
 
 
-- (BOOL)isValid:(int)type acceptWhiteSpace:(BOOL)acceptWhiteSpace {	
+- (BOOL)isValid:(StringValidationType)type acceptWhiteSpace:(BOOL)acceptWhiteSpace {	
 	
 	NSPredicate *primaryPredicate = nil;
 	
@@ -651,7 +651,6 @@
 
 @implementation NSString (InflectionSupport)
 
-/*
 - (NSCharacterSet *)capitals {
 	return [NSCharacterSet uppercaseLetterCharacterSet];
 }
@@ -737,6 +736,5 @@
 										   withString:[[result substringWithRange:NSMakeRange(0,1)] uppercaseString]];
 }
  
- */
 
 @end
