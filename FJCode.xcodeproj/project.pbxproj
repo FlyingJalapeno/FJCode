@@ -778,10 +778,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/FJCode.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FJCode/FJCode-Prefix.pch";
-				INSTALL_PATH = /usr/local/lib;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -790,6 +791,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/FJCode;
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -800,7 +802,6 @@
 				DSTROOT = /tmp/FJCode.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FJCode/FJCode-Prefix.pch";
-				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -809,6 +810,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = include/FJCode;
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
