@@ -22,7 +22,6 @@
 		C4474C781349A2070097BB67 /* FJCodeTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C4474C771349A2070097BB67 /* FJCodeTests.h */; };
 		C4474C7A1349A2070097BB67 /* FJCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4474C791349A2070097BB67 /* FJCodeTests.m */; };
 		C447718F1349A25F0097BB67 /* FJCode.h in Headers */ = {isa = PBXBuildFile; fileRef = C4474C831349A2550097BB67 /* FJCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C44771921349A25F0097BB67 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = C4474C861349A2550097BB67 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A731349A2DC0097BB67 /* MacroUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A721349A2DC0097BB67 /* MacroUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C4478A791349A2F10097BB67 /* NSObjectHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -137,7 +136,6 @@
 		C4474C771349A2070097BB67 /* FJCodeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FJCodeTests.h; path = FJCodeTests/FJCodeTests.h; sourceTree = SOURCE_ROOT; };
 		C4474C791349A2070097BB67 /* FJCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCodeTests.m; sourceTree = "<group>"; };
 		C4474C831349A2550097BB67 /* FJCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJCode.h; sourceTree = "<group>"; };
-		C4474C861349A2550097BB67 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		C4478A721349A2DC0097BB67 /* MacroUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroUtilities.h; sourceTree = "<group>"; };
 		C4478A741349A2F00097BB67 /* FJFoundationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFoundationExtensions.h; sourceTree = "<group>"; };
 		C4478A751349A2F00097BB67 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				C4474C831349A2550097BB67 /* FJCode.h */,
-				C4474C861349A2550097BB67 /* SynthesizeSingleton.h */,
 				C4478A721349A2DC0097BB67 /* MacroUtilities.h */,
 				C4A1E034134A572100E01A2B /* Functions.h */,
 				C4A1E035134A572100E01A2B /* Functions.m */,
@@ -521,7 +518,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C447718F1349A25F0097BB67 /* FJCode.h in Headers */,
-				C44771921349A25F0097BB67 /* SynthesizeSingleton.h in Headers */,
 				C4478A731349A2DC0097BB67 /* MacroUtilities.h in Headers */,
 				C4478A8B1349A2F40097BB67 /* FJFoundationExtensions.h in Headers */,
 				C4478A901349A2F40097BB67 /* NSObjectHelper.h in Headers */,

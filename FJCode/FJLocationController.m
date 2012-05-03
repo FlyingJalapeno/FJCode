@@ -1,5 +1,4 @@
 #import "FJLocationController.h"
-#import "SynthesizeSingleton.h"
 #import "MacroUtilities.h"
 
 NSString* const LocationServicesDenied = @"LocationServicesDenied";
@@ -15,8 +14,6 @@ CLLocationDistance const kLocationDistanceFilter = 100.0;
 
 @implementation FJLocationController
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(FJLocationController)
-
 @synthesize locationManager, location;
 @synthesize updateTimer;
 @synthesize lastActiveTime;
@@ -24,6 +21,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(FJLocationController)
 
 #pragma mark -
 #pragma mark NSObject
+
++ (FJLocationController*)sharedFJLocationController{
+    
+    static dispatch_once_t pred = 0;
+    __strong static id _sharedObject = nil;
+    dispatch_once(&pred, ^{
+        _sharedObject = [[self alloc] init]; // or some other init method
+    });
+    
+    return _sharedObject;
+}
 
 
 - (void)dealloc {
