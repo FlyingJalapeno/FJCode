@@ -20,7 +20,7 @@ static inline NSString* cachesDirectory(){
 
 static inline NSString* tempDirectory(){
     
-    return [NSSearchPathForDirectoriesInDomains(NSTemporaryDirectory, NSUserDomainMask, YES) lastObject];
+    return NSTemporaryDirectory();
     
 }
 
