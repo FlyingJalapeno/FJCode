@@ -7,8 +7,6 @@
 //
 
 #import "UIImage+Disk.h"
-#import "NSOperationQueue+Shared.h"
-
 
 NSString* const FJSImageNotFoundKey = @"FJSimageNotFound";
 NSString* const FJSImageKey = @"FJSImage";
@@ -20,6 +18,9 @@ NSString* const ImageFetchedAtPathNotification = @"FJSimageFetchedFromDisk";
 
 static NSString* folderName = @"images";
 //static NSString* fetching = @"imageInCue";
+
+
+static NSOperationQueue* _queue = nil;
 
 
 static NSString* imageDirectoryPath()
@@ -62,6 +63,18 @@ static BOOL createImagesDirectory()
 
 
 @implementation UIImage(File)
+
++ (NSOperationQueue*)diskOperationQueue{
+    
+    if(_queue == nil){
+        
+        _queue = [[NSOperationQueue alloc] init];
+        [_queue setMaxConcurrentOperationCount:1];
+
+    }
+
+    return _queue;
+}
 
 
 + (UIImage*)imageFromImageDirectoryNamed:(NSString*)fileName {
@@ -123,7 +136,7 @@ static BOOL createImagesDirectory()
 																					  selector:@selector(writeToPath:) 
 																						object:filePathWithName(fileName)] autorelease];
 		
-		[[NSOperationQueue sharedOperationQueue] addOperation:cacheOperation];
+		[[UIImage diskOperationQueue] addOperation:cacheOperation];
 		
 		
 	}
@@ -145,7 +158,7 @@ static BOOL createImagesDirectory()
 																					  selector:@selector(writeToPath:) 
 																						object:path] autorelease];
 		
-		[[NSOperationQueue sharedOperationQueue] addOperation:cacheOperation];
+		[[UIImage diskOperationQueue] addOperation:cacheOperation];
 		
 		
 	}

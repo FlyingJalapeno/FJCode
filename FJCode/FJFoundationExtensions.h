@@ -8,7 +8,6 @@
 #import "NSDictionaryHelper.h"
 #import "NSSet+blocks.h"
 #import "NSURL+Extensions.h"
-#import "NSOperationQueue+Shared.h"
 #import "NSDate+Helper.h"
 #import "NSError+FJNetwork.h"
 #import "NSTimer+Extensions.h"
