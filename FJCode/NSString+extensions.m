@@ -161,6 +161,12 @@
     return finalSize;
 }
 
+- (BOOL)isCaseInsensitiveEqualToString:(NSString *)aString{
+    
+    return [self caseInsensitiveCompare:aString] == NSOrderedSame;
+    
+}
+
 
 - (BOOL)containsString:(NSString*)string {
 	return [self containsString:string options:NSCaseInsensitiveSearch];

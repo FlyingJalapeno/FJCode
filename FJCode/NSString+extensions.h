@@ -57,6 +57,8 @@ enum {
 
 - (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size;
 
+- (BOOL)isCaseInsensitiveEqualToString:(NSString *)aString;
+
 - (BOOL)doesContainString:(NSString *)aString;
 /*
  * Checks to see if the string contains the given string, case insenstive

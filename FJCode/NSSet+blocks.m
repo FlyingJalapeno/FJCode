@@ -46,4 +46,13 @@
     return rslt;
     
 }
+
+- (id )objectPassingTest:(BOOL (^)(id obj, BOOL *stop))predicate{
+    
+    NSSet* objs = [self objectsPassingTest:predicate];
+    
+    return [objs anyObject];
+}
+
+
 @end

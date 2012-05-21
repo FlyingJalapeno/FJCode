@@ -14,5 +14,8 @@
 - (NSSet* )select:(BOOL (^)(id))block;
 - (NSSet *)map:(id (^)(id))block;
 - (id)reduce:(id)initial withBlock:(id (^)(id,id))block;
+
+- (id )objectPassingTest:(BOOL (^)(id obj, BOOL *stop))predicate;
+
 @end
 
