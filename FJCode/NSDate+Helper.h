@@ -117,6 +117,9 @@ NSString* prettyMinutesAndSecondsFromInterval(NSTimeInterval seconds); //mm:ss
 // Checks whether current date is past date
 - (BOOL)isPastDate;
 
+// Checks whether current date is future date
+- (BOOL)isFutureDate;
+
 - (BOOL)isEarlierThanDate:(NSDate*)anotherDate;
 
 - (BOOL)isLaterThanDate:(NSDate*)anotherDate;

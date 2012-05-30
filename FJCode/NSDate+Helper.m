@@ -788,6 +788,14 @@ NSString* prettyMinutesAndSecondsFromInterval(NSTimeInterval seconds){
 		return NO;
 	}	
 }
+- (BOOL)isFutureDate {
+	NSDate* now = [NSDate date];
+	if([[now laterDate:self] isEqualToDate:self]) {
+		return YES;
+	} else {
+		return NO;
+	}	
+}
 
 - (BOOL)isEarlierThanDate:(NSDate*)anotherDate{
     
