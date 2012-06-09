@@ -8,7 +8,6 @@
 
 #import "NSArray+extensions.h"
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 
 @implementation NSArray (extensions)

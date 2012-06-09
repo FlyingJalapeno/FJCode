@@ -1,6 +1,4 @@
 
-#import <UIKit/UIKit.h>
-
 extern NSString* const FJNetworkErrorDomain;
 extern NSString* const FJNetworkServerErrorDomain;
 

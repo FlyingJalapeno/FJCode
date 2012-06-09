@@ -1,7 +1,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+
+#ifndef TARGET_OS_MAC
 #import <MapKit/MapKit.h>
+#endif
+
 
 #pragma mark -
 #pragma mark paths
@@ -86,6 +90,8 @@ CGPoint centerOfRect(CGRect rect);
 #pragma mark -
 #pragma mark Location
 
+#ifndef TARGET_OS_MAC
+
 void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation);
 
 void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation, void(^block)(BOOL didOpenMap));
@@ -94,6 +100,7 @@ NSComparisonResult compareAnnotationsByDistanceToLocation(id<MKAnnotation> obj1,
 
 NSComparisonResult compareLocationsByDistanceToLocation(CLLocation* obj1, CLLocation* obj2, CLLocation* center);
 
+#endif
 
 
 #pragma mark -

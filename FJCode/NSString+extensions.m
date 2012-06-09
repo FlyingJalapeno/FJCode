@@ -146,6 +146,9 @@
 
 @implementation NSString (exstensions) 
 
+#ifndef TARGET_OS_MAC
+
+
 - (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size{
     
     CGFloat fontSize = [*font pointSize];
@@ -160,6 +163,9 @@
     
     return finalSize;
 }
+
+#endif
+
 
 - (BOOL)isCaseInsensitiveEqualToString:(NSString *)aString{
     

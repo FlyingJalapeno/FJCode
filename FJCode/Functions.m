@@ -1,9 +1,11 @@
 
 #import "Functions.h"
-#import "LambdaAlert.h"
 #include <sys/xattr.h>
 #import <mach/mach_time.h> 
 
+#ifndef TARGET_OS_MAC
+#import "LambdaAlert.h"
+#endif
 
 
 BOOL rangesAreContiguous(NSRange first, NSRange second){
@@ -232,6 +234,8 @@ CGPoint centerOfRect(CGRect rect){
     
 }
 
+#ifndef TARGET_OS_MAC
+
 
 void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation){
     
@@ -313,6 +317,9 @@ NSComparisonResult compareLocationsByDistanceToLocation(CLLocation* obj1, CLLoca
     return NSOrderedDescending;
     
 }
+
+
+#endif
 
 
 Progress progressMake(unsigned long long complete, unsigned long long total){

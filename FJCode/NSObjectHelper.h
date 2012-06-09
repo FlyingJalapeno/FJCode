@@ -6,8 +6,6 @@
 //  Copyright 2009 enormego. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface NSObject (Helper)
 
 - (id)performIfRespondsToSelector:(SEL)aSelector;

@@ -7,7 +7,8 @@
 //
 
 #import "NSObjectHelper.h"
-#import </usr/include/objc/objc-class.h>
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 // Credit: http://www.cocoadev.com/index.pl?MethodSwizzle
 static BOOL MethodSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {

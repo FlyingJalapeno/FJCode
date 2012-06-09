@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 
 /* 
@@ -54,8 +53,10 @@ enum {
 
 @interface NSString (exstensions) 
 
-
+#ifndef TARGET_OS_MAC
 - (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size;
+#endif
+
 
 - (BOOL)isCaseInsensitiveEqualToString:(NSString *)aString;
 
