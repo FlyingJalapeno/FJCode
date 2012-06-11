@@ -9,6 +9,8 @@
  *  \copyright Copyright 2006-2009 6Tringle LLC. All rights reserved.
  */
 
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
+
 #define IS_RETINA ([[UIScreen mainScreen] scale] > 1) ? YES : NO
 //#define IS_RETINA NO
 
@@ -31,6 +33,7 @@
 #define IS_OS_4_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"4.0"))
 #define IS_OS_32_OR_LATER   (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.2"))
 
+#endif
 
 #define NSYES [NSNumber numberWithBool:YES]
 #define NSNO [NSNumber numberWithBool:NO]
