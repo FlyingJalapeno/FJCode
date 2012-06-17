@@ -53,7 +53,7 @@ enum {
 
 @interface NSString (exstensions) 
 
-#ifndef TARGET_OS_MAC
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 - (CGSize)sizeForMultiLineLabelWithFont:(UIFont **)font minimumFontSize:(CGFloat)minimumFontSize constrainedToSize:(CGSize)size;
 #endif
 

@@ -3,7 +3,7 @@
 #include <sys/xattr.h>
 #import <mach/mach_time.h> 
 
-#ifndef TARGET_OS_MAC
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 #import "LambdaAlert.h"
 #endif
 
@@ -234,7 +234,7 @@ CGPoint centerOfRect(CGRect rect){
     
 }
 
-#ifndef TARGET_OS_MAC
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 
 
 void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation){

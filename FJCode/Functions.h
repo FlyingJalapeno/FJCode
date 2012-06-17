@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#ifndef TARGET_OS_MAC
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 #import <MapKit/MapKit.h>
 #endif
 
@@ -15,6 +15,19 @@ static inline NSString* documentsDirectory(){
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
 }
+
+#if (TARGET_OS_EMBEDDED || !TARGET_OS_IPHONE)
+
+
+#else
+
+static inline NSString* desktopDirectory(){
+    
+    return [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) lastObject];
+    
+}
+#endif
+
 
 static inline NSString* cachesDirectory(){
     
@@ -90,7 +103,7 @@ CGPoint centerOfRect(CGRect rect);
 #pragma mark -
 #pragma mark Location
 
-#ifndef TARGET_OS_MAC
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 
 void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation);
 
