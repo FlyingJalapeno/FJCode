@@ -16,7 +16,7 @@ static inline NSString* documentsDirectory(){
     
 }
 
-#if (TARGET_OS_EMBEDDED || !TARGET_OS_IPHONE)
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 
 
 #else
