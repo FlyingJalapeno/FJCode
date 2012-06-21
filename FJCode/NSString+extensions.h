@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
+
+#import <UIKit/UIKit.h>
+
+#endif
+
 
 /* 
  * Short hand NSLocalizedString, doesn't need 2 parameters
