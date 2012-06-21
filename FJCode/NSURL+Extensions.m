@@ -39,7 +39,7 @@
 		[baseString appendFormat:@"%@",[self host]];
 		
 		if([self port]) {
-			[baseString appendFormat:@":%@", [[self port] integerValue]];
+			[baseString appendFormat:@":%i", [[self port] integerValue]];
 		}
 		
 		[baseString appendString:@"/"];
