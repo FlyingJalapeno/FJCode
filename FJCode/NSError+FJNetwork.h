@@ -27,6 +27,8 @@ extern NSString* const kOriginalPostParametersDataKey;
 
 + (NSError*)errorWithErrorResponseDictionary:(NSDictionary*)dict;
 
++ (NSError*)serverOfflineErrorWithURL:(NSURL*)url;
+
 + (NSError*)invalidNetworkResponseErrorWithStatusCode:(int)status URL:(NSURL*)url;
 
 + (NSError*)invalidNetworkResponseErrorWithStatusCode:(int)status message:(NSString*)message URL:(NSURL*)url;

@@ -38,6 +38,19 @@ NSString* const kOriginalPostParametersDataKey = @"kOriginalPostParametersDataKe
     return err;
     
 }
+
++ (NSError*)serverOfflineErrorWithURL:(NSURL*)url{
+    
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"Server is offline", NSLocalizedDescriptionKey,
+                          url, NSURLErrorKey,
+                          nil];
+    
+    NSError* err = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorCannotConnectToHost userInfo:dict];
+    
+    return err;
+
+}
 + (NSError*)invalidNetworkResponseErrorWithStatusCode:(int)status URL:(NSURL*)url{
     
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
