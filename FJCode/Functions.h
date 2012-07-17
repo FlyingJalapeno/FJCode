@@ -84,8 +84,11 @@ NSRange rangeWithFirstAndLastIndexes(NSUInteger first, NSUInteger last);
 #pragma mark -
 #pragma mark Dispatch Help
 
+
 void dispatchOnMainQueue(dispatch_block_t block);
 void dispatchOnMainQueueAfterDelayInSeconds(float delay, dispatch_block_t block);
+
+void dispatchOnBackgroundQueue(dispatch_block_t block);
 
 void dispatchAfterDelayInSeconds(float delay, dispatch_queue_t queue, dispatch_block_t block);
 

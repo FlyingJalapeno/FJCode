@@ -187,6 +187,12 @@ void dispatchOnMainQueue(dispatch_block_t block){
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
+void dispatchOnBackgroundQueue(dispatch_block_t block){
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, NULL), block);
+}
+
+
 void dispatchOnMainQueueAfterDelayInSeconds(float delay, dispatch_block_t block){
     
     dispatchAfterDelayInSeconds(delay, dispatch_get_main_queue(), block);    
