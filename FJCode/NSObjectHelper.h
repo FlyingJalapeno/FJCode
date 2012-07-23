@@ -26,6 +26,9 @@
 
 @interface NSObject (AMAssociatedObjects)
 
++ (void)associateValue:(id)value withKey:(void *)key; // Retains value.
++ (id)associatedValueForKey:(void *)key;
+
 - (void)associateValue:(id)value withKey:(void *)key; // Retains value.
 - (id)associatedValueForKey:(void *)key;
 
