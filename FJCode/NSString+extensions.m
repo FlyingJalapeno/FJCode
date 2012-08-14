@@ -580,7 +580,7 @@
 
 + (NSPredicate *)predicateForStongPasswordLength:(NSUInteger)length {
 	
-	NSString *regex = [NSString stringWithFormat:@"^.*(?=.{%i,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$", length]; 
+	NSString *regex = [NSString stringWithFormat:@"^.*(?=.{%i,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%%^&+=]).*$", length]; 
 	return [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
 	
 }
