@@ -138,6 +138,9 @@ extern NSString* const kStoreExtension; //sqlite
                      options:(NSDictionary *)options
                        error:(NSError **)error; //coordinator must exist!!
 
+- (void)checkForMigration:(NSString *)configuration;
+- (void)performMigrationWithSourceMetadata :(NSDictionary *)sourceMetadata
+                         toDestinationModel:(NSManagedObjectModel *)destinationModel;
 - (void)removeMainStore; //does not remove from disk
 
 - (void)removeMainStoreDeleteFromDisk:(BOOL)flag;

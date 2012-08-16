@@ -353,6 +353,8 @@ NSString* const kStoreExtension = @"sqlite";
 {
     NSAssert(_mainStore == nil, @"Main store is already created");
     NSAssert(_coordinator != nil, @"Coordinator should not be nil");
+    
+    [self checkForMigration:configuration];
     _mainStore = [_coordinator addPersistentStoreWithType:storeType
                                             configuration:configuration
                                                       URL:url
@@ -363,6 +365,81 @@ NSString* const kStoreExtension = @"sqlite";
         return NO;
     else
         return YES;
+}
+
+- (void)checkForMigration:(NSString *)configuration {
+    NSURL *storeSourceUrl = [DDCoreDataStack defaultStoreURL];
+    NSError *error = nil;       
+    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator
+                                    metadataForPersistentStoreOfType:NSSQLiteStoreType
+                                    URL:storeSourceUrl
+                                    error:&error];
+    
+    if (sourceMetadata) {
+        NSManagedObjectModel *destinationModel = [_coordinator managedObjectModel];
+        BOOL pscCompatible = [destinationModel isConfiguration:configuration compatibleWithStoreMetadata:sourceMetadata];
+        if (pscCompatible == NO) {
+            [self performMigrationWithSourceMetadata:sourceMetadata toDestinationModel:destinationModel];
+        }
+        
+    }
+}
+- (void)performMigrationWithSourceMetadata :(NSDictionary *)sourceMetadata
+                         toDestinationModel:(NSManagedObjectModel *)destinationModel {
+    BOOL migrationSuccess = NO;
+    //Initialise a Migration Manager...
+    NSManagedObjectModel *sourceModel = [NSManagedObjectModel mergedModelFromBundles:nil forStoreMetadata:sourceMetadata];
+    //Perform the migration...
+    if (sourceModel) {
+        NSMigrationManager *standardMigrationManager = [[NSMigrationManager alloc]
+                                                        initWithSourceModel:sourceModel
+                                                        destinationModel:destinationModel];
+        
+        NSError *error = nil;
+        
+        NSString *storeFileName = [kDefaultStoreName stringByAppendingPathExtension:kStoreExtension];    
+        NSString *storeSourcePath = [[DDCoreDataStack defaultStoreDirectory] stringByAppendingPathComponent:storeFileName];
+        NSURL *storeSourceUrl = [NSURL fileURLWithPath: storeSourcePath];
+        
+        NSString *destFileName = [storeFileName stringByReplacingOccurrencesOfString:@".sqlite" withString:@"_temp.sqlite"];
+        NSString *storeDestPath = [[DDCoreDataStack defaultStoreDirectory] stringByAppendingPathComponent:destFileName];
+        NSURL *storeDestUrl = [NSURL fileURLWithPath:storeDestPath];
+        
+        //Pass nil here because we don't want to use any of these options:
+        //NSIgnorePersistentStoreVersioningOption, NSMigratePersistentStoresAutomaticallyOption, or NSInferMappingModelAutomaticallyOption
+        NSDictionary *sourceStoreOptions = nil;
+        NSDictionary *destinationStoreOptions = nil;
+        
+        
+        NSURL *migrationFileURL = [[NSBundle mainBundle] URLForResource:@"MigrationModelV10" withExtension:@"cdm"];            
+        NSMappingModel *mappingModel = [[NSMappingModel alloc] initWithContentsOfURL:migrationFileURL];
+        if (mappingModel) {
+            
+            migrationSuccess = [standardMigrationManager migrateStoreFromURL:storeSourceUrl
+                                                                        type:NSSQLiteStoreType
+                                                                     options:sourceStoreOptions
+                                                            withMappingModel:mappingModel
+                                                            toDestinationURL:storeDestUrl
+                                                             destinationType:NSSQLiteStoreType
+                                                          destinationOptions:destinationStoreOptions
+                                                                       error:&error];
+            NSLog(@"MIGRATION SUCCESSFUL? %@", (migrationSuccess==YES)?@"YES":@"NO");
+        } 
+        if (migrationSuccess) {
+            NSFileManager *fileMgr = [NSFileManager defaultManager];
+            NSLog(@"remove item at path: %@",storeSourcePath);
+            if ([fileMgr removeItemAtPath:storeSourcePath error:&error] != YES)
+                NSLog(@"Unable to delete file: %@", [error localizedDescription]);
+            
+            NSLog(@"move item at path: %@ to path: %@",storeDestPath,storeSourcePath);
+            if ([fileMgr moveItemAtPath:storeDestPath toPath:storeSourcePath error:&error] != YES)
+                NSLog(@"Unable to move file: %@", [error localizedDescription]);
+        }
+    }else {
+        //TODO: Error to user...
+        NSLog(@"checkForMigration FAIL - No Mapping Model found!");
+        abort();   
+    }
 }
 
 - (void)removeMainStore
