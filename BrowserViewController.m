@@ -307,7 +307,23 @@
 	}
 	actionSheet.tag = ACTION_SENDLINK;
 	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-	[actionSheet showInView:self.view];
+    
+    if(self.navigationController.tabBarController != nil){
+        
+        [actionSheet showFromTabBar:self.navigationController.tabBarController.tabBar];
+
+    }else if(self.tabBarController != nil){
+        
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
+        
+    }else{
+        
+        [actionSheet showInView:self.view];
+
+    }
+    
+    
+    
 	[actionSheet release];
     
 }
