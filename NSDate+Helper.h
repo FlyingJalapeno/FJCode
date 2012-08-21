@@ -11,6 +11,7 @@
 NSString* PrettyDateFromInterval( NSInteger epoch );
 
 NSString* prettyHoursFromInterval(NSTimeInterval seconds); //rounds to half hours, appends "hours" to string
+NSString* prettyHoursAndMinutesFromInterval(NSTimeInterval seconds); //shows "3 hours 5 minutes"
 NSString* prettyHoursFromIntervalNumberOnly(NSTimeInterval seconds); //rounds to half hours
 NSString* prettyMinutesAndSecondsFromInterval(NSTimeInterval seconds); //mm:ss
 
