@@ -26,6 +26,7 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define IS_OS_5_1_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.1"))
 #define IS_OS_5_0_1_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0.1"))
 #define IS_OS_5_0   (SYSTEM_VERSION_EQUAL_TO(@"5.0"))
 #define IS_OS_5_OR_LATER    (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))

@@ -2,6 +2,7 @@
 #import "Functions.h"
 #include <sys/xattr.h>
 #import <mach/mach_time.h> 
+#import "MacroUtilities.h"
 
 #if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
 #import "LambdaAlert.h"
@@ -66,17 +67,33 @@ dispatch_time_t dispatchTimeFromNow(float seconds){
     
 }
 
-
-
 BOOL addSkipBackupAttributeToItemAtURL(NSURL *URL){
     
-    const char* filePath = [[URL path] fileSystemRepresentation];
+    ASSERT_TRUE([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+
+    if(IS_OS_5_1_OR_LATER){
+                
+        NSError *error = nil;
+        BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
+        if(!success){
+            NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+        }
+        return success;
+
+    }else if(IS_OS_5_0_1_OR_LATER){
+        
+        const char* filePath = [[URL path] fileSystemRepresentation];
+        
+        const char* attrName = "com.apple.MobileBackup";
+        u_int8_t attrValue = 1;
+        
+        int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+        return result == 0;
+        
+    }
     
-    const char* attrName = "com.apple.MobileBackup";
-    u_int8_t attrValue = 1;
-    
-    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
-    return result == 0;
+    return NO;
 }
 
 NSUInteger sizeOfFolderContentsInBytes(NSString* folderPath){
