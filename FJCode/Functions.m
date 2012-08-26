@@ -69,8 +69,12 @@ dispatch_time_t dispatchTimeFromNow(float seconds){
 
 BOOL addSkipBackupAttributeToItemAtURL(NSURL *URL){
     
-    ASSERT_TRUE([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+#ifdef DEBUG
+    
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
 
+#endif
+    
     if(IS_OS_5_1_OR_LATER){
                 
         NSError *error = nil;
