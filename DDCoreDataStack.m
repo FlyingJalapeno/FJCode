@@ -354,7 +354,7 @@ NSString* const kStoreExtension = @"sqlite";
     NSAssert(_mainStore == nil, @"Main store is already created");
     NSAssert(_coordinator != nil, @"Coordinator should not be nil");
     
-    [self checkForMigration:configuration];
+    //[self checkForMigration:configuration];
     _mainStore = [_coordinator addPersistentStoreWithType:storeType
                                             configuration:configuration
                                                       URL:url
@@ -411,7 +411,7 @@ NSString* const kStoreExtension = @"sqlite";
         NSDictionary *destinationStoreOptions = nil;
         
         
-        NSURL *migrationFileURL = [[NSBundle mainBundle] URLForResource:@"MigrationModelV10" withExtension:@"cdm"];            
+        NSURL *migrationFileURL = [[NSBundle mainBundle] URLForResource:@"Version9ToVersion10" withExtension:@"cdm"];            
         NSMappingModel *mappingModel = [[NSMappingModel alloc] initWithContentsOfURL:migrationFileURL];
         if (mappingModel) {
             
