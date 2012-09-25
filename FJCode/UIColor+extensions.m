@@ -39,6 +39,8 @@
 // Static cache of looked up color names. Used with +colorWithName:
 static NSMutableDictionary *colorNameCache = nil;
 
+static NSMutableDictionary *colorHexCache = nil;
+
 #if SUPPORTS_UNDOCUMENTED_API
 // UIColor_Undocumented
 // Undocumented methods of UIColor
@@ -372,10 +374,25 @@ static NSMutableDictionary *colorNameCache = nil;
 // Returns a UIColor by scanning the string for a hex number and passing that to +[UIColor colorWithRGBHex:]
 // Skips any leading whitespace and ignores any trailing characters
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert {
-	NSScanner *scanner = [NSScanner scannerWithString:stringToConvert];
-	unsigned hexNum;
-	if (![scanner scanHexInt:&hexNum]) return nil;
-	return [UIColor colorWithRGBHex:hexNum];
+    
+    UIColor *color;
+    @synchronized(colorHexCache) {
+		// Look for the color in the cache
+		color = [colorHexCache objectForKey:stringToConvert];
+		
+		if (!color) {
+            
+            NSScanner *scanner = [NSScanner scannerWithString:stringToConvert];
+            unsigned hexNum;
+            if (![scanner scanHexInt:&hexNum]) return [UIColor blackColor];
+            color = [UIColor colorWithRGBHex:hexNum];
+            if(color)
+                [colorHexCache setObject:color forKey:stringToConvert];
+		}
+	}
+
+    return color;
+    
 }
 
 // Lookup a color using css 3/svg color name
@@ -405,6 +422,7 @@ static NSMutableDictionary *colorNameCache = nil;
 
 + (void)load {
 	colorNameCache = [[NSMutableDictionary alloc] init];
+    colorHexCache = [[NSMutableDictionary alloc] init];
 }
 
 @end
