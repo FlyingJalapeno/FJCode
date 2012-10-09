@@ -62,8 +62,6 @@
 		C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE5B1349B0A8004D164C /* BlueBadge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */; };
 		C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE781349B232004D164C /* UIImage+Disk.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE761349B22E004D164C /* UIImage+Disk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE791349B232004D164C /* UIImage+Disk.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE771349B22F004D164C /* UIImage+Disk.m */; };
 		C483EE801349B2F1004D164C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7B1349B2CE004D164C /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE811349B2F1004D164C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7C1349B2D3004D164C /* Reachability.m */; };
 		C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -229,8 +227,6 @@
 		C483EE5B1349B0A8004D164C /* BlueBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBadge.h; sourceTree = "<group>"; };
 		C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L0ExternalURLOpeningDetection.m; sourceTree = "<group>"; };
 		C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0ExternalURLOpeningDetection.h; sourceTree = "<group>"; };
-		C483EE761349B22E004D164C /* UIImage+Disk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Disk.h"; sourceTree = "<group>"; };
-		C483EE771349B22F004D164C /* UIImage+Disk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Disk.m"; sourceTree = "<group>"; };
 		C483EE7B1349B2CE004D164C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C483EE7C1349B2D3004D164C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+FJNetwork.h"; sourceTree = "<group>"; };
@@ -505,8 +501,6 @@
 			isa = PBXGroup;
 			children = (
 				C41D8713152427A60028B72A /* FJUIKitExtensions.h */,
-				C483EE761349B22E004D164C /* UIImage+Disk.h */,
-				C483EE771349B22F004D164C /* UIImage+Disk.m */,
 				C483EE4A1349B0A2004D164C /* UIView-Extensions.m */,
 				C483EE4B1349B0A2004D164C /* UIView-Extensions.h */,
 				C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */,
@@ -674,7 +668,6 @@
 				C483EE691349B0A8004D164C /* NSArray+TableView.h in Headers */,
 				C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */,
 				C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */,
-				C483EE781349B232004D164C /* UIImage+Disk.h in Headers */,
 				C483EE801349B2F1004D164C /* Reachability.h in Headers */,
 				C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */,
 				C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */,
@@ -907,7 +900,6 @@
 				C483EE681349B0A8004D164C /* NSArray+TableView.m in Sources */,
 				C483EE6C1349B0A8004D164C /* BlueBadge.m in Sources */,
 				C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */,
-				C483EE791349B232004D164C /* UIImage+Disk.m in Sources */,
 				C483EE811349B2F1004D164C /* Reachability.m in Sources */,
 				C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */,
 				C483EE871349B30A004D164C /* SFHFKeychainUtils.m in Sources */,
