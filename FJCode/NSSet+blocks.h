@@ -1,0 +1,21 @@
+//
+//  NSSet+blocks.h
+//  BGCD
+//
+//  Created by Corey Floyd on 11/16/09.
+//  Copyright 2009 Flying Jalapeño Software. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+
+@interface NSSet (BlockExtension)
+- (void)each:(void (^)(id))block;
+- (NSSet* )select:(BOOL (^)(id))block;
+- (NSSet *)map:(id (^)(id))block;
+- (id)reduce:(id)initial withBlock:(id (^)(id,id))block;
+
+- (id )objectPassingTest:(BOOL (^)(id obj, BOOL *stop))predicate;
+
+@end
+
