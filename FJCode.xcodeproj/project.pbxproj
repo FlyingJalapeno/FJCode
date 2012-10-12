@@ -44,6 +44,8 @@
 		C453D6861470F8A7007C99BA /* NSIndexSet+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C453D6871470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
 		C453D6881470F8A7007C99BA /* NSIndexSet+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */; };
+		C456EC841627AA2B00E77827 /* UIDevice+Screen.h in Headers */ = {isa = PBXBuildFile; fileRef = C456EC821627AA2B00E77827 /* UIDevice+Screen.h */; };
+		C456EC851627AA2B00E77827 /* UIDevice+Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = C456EC831627AA2B00E77827 /* UIDevice+Screen.m */; };
 		C483EE5C1349B0A8004D164C /* UIView-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4A1349B0A2004D164C /* UIView-Extensions.m */; };
 		C483EE5D1349B0A8004D164C /* UIView-Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE4B1349B0A2004D164C /* UIView-Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE5E1349B0A8004D164C /* UITableViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */; };
@@ -211,6 +213,8 @@
 		C44F1BD61378EC47008BF6ED /* FJCodeBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FJCodeBundle-Prefix.pch"; sourceTree = "<group>"; };
 		C453D6841470F8A7007C99BA /* NSIndexSet+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+extensions.h"; sourceTree = "<group>"; };
 		C453D6851470F8A7007C99BA /* NSIndexSet+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+extensions.m"; sourceTree = "<group>"; };
+		C456EC821627AA2B00E77827 /* UIDevice+Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Screen.h"; sourceTree = "<group>"; };
+		C456EC831627AA2B00E77827 /* UIDevice+Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Screen.m"; sourceTree = "<group>"; };
 		C483EE4A1349B0A2004D164C /* UIView-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView-Extensions.m"; sourceTree = "<group>"; };
 		C483EE4B1349B0A2004D164C /* UIView-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView-Extensions.h"; sourceTree = "<group>"; };
 		C483EE4C1349B0A2004D164C /* UITableViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerHelper.m; sourceTree = "<group>"; };
@@ -523,6 +527,8 @@
 				C483EE551349B0A5004D164C /* UIAlertViewHelper.h */,
 				C483EE561349B0A5004D164C /* NSArray+TableView.m */,
 				C483EE571349B0A6004D164C /* NSArray+TableView.h */,
+				C456EC821627AA2B00E77827 /* UIDevice+Screen.h */,
+				C456EC831627AA2B00E77827 /* UIDevice+Screen.m */,
 			);
 			name = "UIKit Categories";
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				C4F5CA0A14819305005B973B /* NSArray+extensions.h in Headers */,
 				C4F5CA7C1481A6BB005B973B /* NSFetchRequest+extensions.h in Headers */,
 				C41D875315243AE60028B72A /* FJUIKitExtensions.h in Headers */,
+				C456EC841627AA2B00E77827 /* UIDevice+Screen.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +932,7 @@
 				C4B77FD4147CDA1A0051A719 /* MKMapView+extensions.m in Sources */,
 				C4F5CA0B14819305005B973B /* NSArray+extensions.m in Sources */,
 				C4F5CA7D1481A6BB005B973B /* NSFetchRequest+extensions.m in Sources */,
+				C456EC851627AA2B00E77827 /* UIDevice+Screen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
