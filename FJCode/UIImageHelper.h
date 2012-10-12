@@ -11,6 +11,7 @@
 
 @interface UIImage (Helper)
 
++ (UIImage *)retina4ImageNamed:(NSString *)imageName;
 
 /*
  * Creates an image from the contents of a URL
