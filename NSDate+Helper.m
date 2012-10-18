@@ -123,9 +123,13 @@ NSString* prettyHoursAndMinutesFromInterval(NSTimeInterval seconds){
     
     float hours = ((float)seconds/(60.0*60.0));
     hours = floorf(hours);
-    float leftoverMinutes = roundf(((float)seconds) - hours * 60);
     
-    return [NSString stringWithFormat:@"%.0f hours %.0f minutes", hours, leftoverMinutes];
+    float leftoverSeconds = roundf(((float)seconds) - hours * (60.0*60.0));
+
+    float minutes = floorf(((float)leftoverSeconds)/60);
+    minutes = floorf(minutes);
+    
+    return [NSString stringWithFormat:@"%.0f hours %.0f minutes", hours, minutes];
     
 }
 
