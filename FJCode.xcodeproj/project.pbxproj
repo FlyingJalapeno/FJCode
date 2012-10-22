@@ -64,8 +64,6 @@
 		C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE5B1349B0A8004D164C /* BlueBadge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */; };
 		C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE801349B2F1004D164C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7B1349B2CE004D164C /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE811349B2F1004D164C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7C1349B2D3004D164C /* Reachability.m */; };
 		C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */; };
 		C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE841349B302004D164C /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -231,8 +229,6 @@
 		C483EE5B1349B0A8004D164C /* BlueBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBadge.h; sourceTree = "<group>"; };
 		C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L0ExternalURLOpeningDetection.m; sourceTree = "<group>"; };
 		C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0ExternalURLOpeningDetection.h; sourceTree = "<group>"; };
-		C483EE7B1349B2CE004D164C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		C483EE7C1349B2D3004D164C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+FJNetwork.h"; sourceTree = "<group>"; };
 		C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+FJNetwork.m"; sourceTree = "<group>"; };
 		C483EE841349B302004D164C /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
@@ -398,7 +394,6 @@
 				C4478AC61349A35C0097BB67 /* Core Data Cateorgries */,
 				C483EE711349B0E5004D164C /* UIKit Categories */,
 				C483EEA5134A004F004D164C /* Key Chain */,
-				C4A1E004134A4D6500E01A2B /* Reachability */,
 				C4A1E029134A4F3200E01A2B /* Archiving */,
 				C4A1E005134A4D8000E01A2B /* Activity Indicator */,
 				C483EEA6134A015C004D164C /* Map and Location */,
@@ -571,15 +566,6 @@
 			name = Badges;
 			sourceTree = "<group>";
 		};
-		C4A1E004134A4D6500E01A2B /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE7B1349B2CE004D164C /* Reachability.h */,
-				C483EE7C1349B2D3004D164C /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		C4A1E005134A4D8000E01A2B /* Activity Indicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,7 +660,6 @@
 				C483EE691349B0A8004D164C /* NSArray+TableView.h in Headers */,
 				C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */,
 				C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */,
-				C483EE801349B2F1004D164C /* Reachability.h in Headers */,
 				C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */,
 				C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */,
 				C483EE8A1349B330004D164C /* ACActivityIndicatorQueue.h in Headers */,
@@ -907,7 +892,6 @@
 				C483EE681349B0A8004D164C /* NSArray+TableView.m in Sources */,
 				C483EE6C1349B0A8004D164C /* BlueBadge.m in Sources */,
 				C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */,
-				C483EE811349B2F1004D164C /* Reachability.m in Sources */,
 				C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */,
 				C483EE871349B30A004D164C /* SFHFKeychainUtils.m in Sources */,
 				C483EE8B1349B330004D164C /* ACActivityIndicatorQueue.m in Sources */,
