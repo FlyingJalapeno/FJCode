@@ -39,6 +39,7 @@ profile
 profile
 *.swp
 Icon?
+*.lock
 
 # Thumbnails
 ._*

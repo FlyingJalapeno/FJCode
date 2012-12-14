@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD7B5FF333704730A047388C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7C1C1FE8BA47BCB3A0089B /* libPods.a */; };
 		C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41BE9A413F87E7C009083D4 /* NSTimer+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BE9A513F87E7C009083D4 /* NSTimer+Extensions.m */; };
 		C41D875315243AE60028B72A /* FJUIKitExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C41D8713152427A60028B72A /* FJUIKitExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,41 +61,23 @@
 		C483EE671349B0A8004D164C /* UIAlertViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE551349B0A5004D164C /* UIAlertViewHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE681349B0A8004D164C /* NSArray+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE561349B0A5004D164C /* NSArray+TableView.m */; };
 		C483EE691349B0A8004D164C /* NSArray+TableView.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE571349B0A6004D164C /* NSArray+TableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE6C1349B0A8004D164C /* BlueBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE5A1349B0A7004D164C /* BlueBadge.m */; };
-		C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE5B1349B0A8004D164C /* BlueBadge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */; };
 		C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE801349B2F1004D164C /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7B1349B2CE004D164C /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE811349B2F1004D164C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7C1349B2D3004D164C /* Reachability.m */; };
 		C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */; };
-		C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE841349B302004D164C /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE871349B30A004D164C /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE851349B304004D164C /* SFHFKeychainUtils.m */; };
-		C483EE8A1349B330004D164C /* ACActivityIndicatorQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE881349B32A004D164C /* ACActivityIndicatorQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE8B1349B330004D164C /* ACActivityIndicatorQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE891349B32C004D164C /* ACActivityIndicatorQueue.m */; };
 		C483EE8E1349B364004D164C /* FJLocationController.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE8C1349B35D004D164C /* FJLocationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE8F1349B364004D164C /* FJLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE8D1349B35F004D164C /* FJLocationController.m */; };
 		C483EE921349B39C004D164C /* MapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE901349B395004D164C /* MapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C483EE931349B39C004D164C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE911349B398004D164C /* MapViewController.m */; };
-		C483EE981349B3DB004D164C /* LambdaAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE941349B3B8004D164C /* LambdaAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE991349B3DB004D164C /* LambdaAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE951349B3BB004D164C /* LambdaAlert.m */; };
-		C483EE9A1349B3DB004D164C /* LambdaSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = C483EE961349B3C1004D164C /* LambdaSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C483EE9B1349B3DB004D164C /* LambdaSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C483EE971349B3CC004D164C /* LambdaSheet.m */; };
 		C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */; };
-		C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E025134A4F2C00E01A2B /* TPAutoArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E026134A4F2C00E01A2B /* TPAutoArchiver.m */; };
 		C4A1E036134A572100E01A2B /* Functions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A1E034134A572100E01A2B /* Functions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4A1E037134A572100E01A2B /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A1E035134A572100E01A2B /* Functions.m */; };
-		C4A1E075134A5BF500E01A2B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06B134A5BF500E01A2B /* AVFoundation.framework */; };
 		C4A1E076134A5BF500E01A2B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06C134A5BF500E01A2B /* CoreData.framework */; };
 		C4A1E077134A5BF500E01A2B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06D134A5BF500E01A2B /* CoreFoundation.framework */; };
 		C4A1E078134A5BF500E01A2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06E134A5BF500E01A2B /* CoreGraphics.framework */; };
 		C4A1E079134A5BF500E01A2B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E06F134A5BF500E01A2B /* CoreLocation.framework */; };
 		C4A1E07A134A5BF500E01A2B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E070134A5BF500E01A2B /* MapKit.framework */; };
-		C4A1E07B134A5BF500E01A2B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E071134A5BF500E01A2B /* MobileCoreServices.framework */; };
-		C4A1E07C134A5BF500E01A2B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E072134A5BF500E01A2B /* Security.framework */; };
-		C4A1E07D134A5BF500E01A2B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E073134A5BF500E01A2B /* SystemConfiguration.framework */; };
 		C4A1E07E134A5BF500E01A2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A1E074134A5BF500E01A2B /* UIKit.framework */; };
 		C4B77FD3147CDA1A0051A719 /* MKMapView+extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B77FD1147CDA1A0051A719 /* MKMapView+extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4B77FD4147CDA1A0051A719 /* MKMapView+extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B77FD2147CDA1A0051A719 /* MKMapView+extensions.m */; };
@@ -227,30 +210,16 @@
 		C483EE551349B0A5004D164C /* UIAlertViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewHelper.h; sourceTree = "<group>"; };
 		C483EE561349B0A5004D164C /* NSArray+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TableView.m"; sourceTree = "<group>"; };
 		C483EE571349B0A6004D164C /* NSArray+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TableView.h"; sourceTree = "<group>"; };
-		C483EE5A1349B0A7004D164C /* BlueBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueBadge.m; sourceTree = "<group>"; };
-		C483EE5B1349B0A8004D164C /* BlueBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBadge.h; sourceTree = "<group>"; };
 		C483EE721349B134004D164C /* L0ExternalURLOpeningDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = L0ExternalURLOpeningDetection.m; sourceTree = "<group>"; };
 		C483EE731349B136004D164C /* L0ExternalURLOpeningDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L0ExternalURLOpeningDetection.h; sourceTree = "<group>"; };
-		C483EE7B1349B2CE004D164C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		C483EE7C1349B2D3004D164C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C483EE7D1349B2DA004D164C /* NSError+FJNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+FJNetwork.h"; sourceTree = "<group>"; };
 		C483EE7E1349B2E4004D164C /* NSError+FJNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+FJNetwork.m"; sourceTree = "<group>"; };
-		C483EE841349B302004D164C /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		C483EE851349B304004D164C /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
-		C483EE881349B32A004D164C /* ACActivityIndicatorQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACActivityIndicatorQueue.h; sourceTree = "<group>"; };
-		C483EE891349B32C004D164C /* ACActivityIndicatorQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACActivityIndicatorQueue.m; sourceTree = "<group>"; };
 		C483EE8C1349B35D004D164C /* FJLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJLocationController.h; sourceTree = "<group>"; };
 		C483EE8D1349B35F004D164C /* FJLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJLocationController.m; sourceTree = "<group>"; };
 		C483EE901349B395004D164C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C483EE911349B398004D164C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		C483EE941349B3B8004D164C /* LambdaAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaAlert.h; sourceTree = "<group>"; };
-		C483EE951349B3BB004D164C /* LambdaAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaAlert.m; sourceTree = "<group>"; };
-		C483EE961349B3C1004D164C /* LambdaSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaSheet.h; sourceTree = "<group>"; };
-		C483EE971349B3CC004D164C /* LambdaSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaSheet.m; sourceTree = "<group>"; };
 		C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNumberBadgeView.h; sourceTree = "<group>"; };
 		C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNumberBadgeView.m; sourceTree = "<group>"; };
-		C4A1E025134A4F2C00E01A2B /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAutoArchiver.h; sourceTree = "<group>"; };
-		C4A1E026134A4F2C00E01A2B /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAutoArchiver.m; sourceTree = "<group>"; };
 		C4A1E034134A572100E01A2B /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
 		C4A1E035134A572100E01A2B /* Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Functions.m; sourceTree = "<group>"; };
 		C4A1E06B134A5BF500E01A2B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -285,6 +254,8 @@
 		C4F5CA0914819305005B973B /* NSArray+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+extensions.m"; sourceTree = "<group>"; };
 		C4F5CA7A1481A6BB005B973B /* NSFetchRequest+extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+extensions.h"; sourceTree = "<group>"; };
 		C4F5CA7B1481A6BB005B973B /* NSFetchRequest+extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+extensions.m"; sourceTree = "<group>"; };
+		D17DEBBF81C1425B8298D437 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA7C1C1FE8BA47BCB3A0089B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,17 +263,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A1E075134A5BF500E01A2B /* AVFoundation.framework in Frameworks */,
 				C4A1E076134A5BF500E01A2B /* CoreData.framework in Frameworks */,
 				C4A1E077134A5BF500E01A2B /* CoreFoundation.framework in Frameworks */,
 				C4A1E078134A5BF500E01A2B /* CoreGraphics.framework in Frameworks */,
 				C4A1E079134A5BF500E01A2B /* CoreLocation.framework in Frameworks */,
 				C4A1E07A134A5BF500E01A2B /* MapKit.framework in Frameworks */,
-				C4A1E07B134A5BF500E01A2B /* MobileCoreServices.framework in Frameworks */,
-				C4A1E07C134A5BF500E01A2B /* Security.framework in Frameworks */,
-				C4A1E07D134A5BF500E01A2B /* SystemConfiguration.framework in Frameworks */,
 				C4A1E07E134A5BF500E01A2B /* UIKit.framework in Frameworks */,
 				C4474C5E1349A2060097BB67 /* Foundation.framework in Frameworks */,
+				BD7B5FF333704730A047388C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +317,7 @@
 				C4EE386D157EC16D006CFD5A /* FJCode FrameworkTests */,
 				C4474C5C1349A2060097BB67 /* Frameworks */,
 				C4474C5B1349A2060097BB67 /* Products */,
+				D17DEBBF81C1425B8298D437 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,6 +352,7 @@
 				C4EE3851157EC16D006CFD5A /* Cocoa.framework */,
 				C4EE3867157EC16D006CFD5A /* SenTestingKit.framework */,
 				C4EE3853157EC16D006CFD5A /* Other Frameworks */,
+				FA7C1C1FE8BA47BCB3A0089B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -397,12 +367,7 @@
 				C4478AA21349A3000097BB67 /* Foundation Categories */,
 				C4478AC61349A35C0097BB67 /* Core Data Cateorgries */,
 				C483EE711349B0E5004D164C /* UIKit Categories */,
-				C483EEA5134A004F004D164C /* Key Chain */,
-				C4A1E004134A4D6500E01A2B /* Reachability */,
-				C4A1E029134A4F3200E01A2B /* Archiving */,
-				C4A1E005134A4D8000E01A2B /* Activity Indicator */,
 				C483EEA6134A015C004D164C /* Map and Location */,
-				C4A1DFB4134A4B4000E01A2B /* Alert & Sheet Blocks */,
 				C4A1DFF9134A4CAF00E01A2B /* Badges */,
 				C4474C601349A2060097BB67 /* Supporting Files */,
 			);
@@ -527,15 +492,6 @@
 			name = "UIKit Categories";
 			sourceTree = "<group>";
 		};
-		C483EEA5134A004F004D164C /* Key Chain */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE841349B302004D164C /* SFHFKeychainUtils.h */,
-				C483EE851349B304004D164C /* SFHFKeychainUtils.m */,
-			);
-			name = "Key Chain";
-			sourceTree = "<group>";
-		};
 		C483EEA6134A015C004D164C /* Map and Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,53 +505,13 @@
 			name = "Map and Location";
 			sourceTree = "<group>";
 		};
-		C4A1DFB4134A4B4000E01A2B /* Alert & Sheet Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE941349B3B8004D164C /* LambdaAlert.h */,
-				C483EE951349B3BB004D164C /* LambdaAlert.m */,
-				C483EE961349B3C1004D164C /* LambdaSheet.h */,
-				C483EE971349B3CC004D164C /* LambdaSheet.m */,
-			);
-			name = "Alert & Sheet Blocks";
-			sourceTree = "<group>";
-		};
 		C4A1DFF9134A4CAF00E01A2B /* Badges */ = {
 			isa = PBXGroup;
 			children = (
-				C483EE5A1349B0A7004D164C /* BlueBadge.m */,
-				C483EE5B1349B0A8004D164C /* BlueBadge.h */,
 				C4A1DFF5134A4CA600E01A2B /* MKNumberBadgeView.h */,
 				C4A1DFF6134A4CA600E01A2B /* MKNumberBadgeView.m */,
 			);
 			name = Badges;
-			sourceTree = "<group>";
-		};
-		C4A1E004134A4D6500E01A2B /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE7B1349B2CE004D164C /* Reachability.h */,
-				C483EE7C1349B2D3004D164C /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
-		C4A1E005134A4D8000E01A2B /* Activity Indicator */ = {
-			isa = PBXGroup;
-			children = (
-				C483EE881349B32A004D164C /* ACActivityIndicatorQueue.h */,
-				C483EE891349B32C004D164C /* ACActivityIndicatorQueue.m */,
-			);
-			name = "Activity Indicator";
-			sourceTree = "<group>";
-		};
-		C4A1E029134A4F3200E01A2B /* Archiving */ = {
-			isa = PBXGroup;
-			children = (
-				C4A1E025134A4F2C00E01A2B /* TPAutoArchiver.h */,
-				C4A1E026134A4F2C00E01A2B /* TPAutoArchiver.m */,
-			);
-			name = Archiving;
 			sourceTree = "<group>";
 		};
 		C4EE3853157EC16D006CFD5A /* Other Frameworks */ = {
@@ -672,18 +588,11 @@
 				C483EE651349B0A8004D164C /* UIBarButtonItem+extensions.h in Headers */,
 				C483EE671349B0A8004D164C /* UIAlertViewHelper.h in Headers */,
 				C483EE691349B0A8004D164C /* NSArray+TableView.h in Headers */,
-				C483EE6D1349B0A8004D164C /* BlueBadge.h in Headers */,
 				C483EE751349B13B004D164C /* L0ExternalURLOpeningDetection.h in Headers */,
-				C483EE801349B2F1004D164C /* Reachability.h in Headers */,
 				C483EE821349B2F1004D164C /* NSError+FJNetwork.h in Headers */,
-				C483EE861349B30A004D164C /* SFHFKeychainUtils.h in Headers */,
-				C483EE8A1349B330004D164C /* ACActivityIndicatorQueue.h in Headers */,
 				C483EE8E1349B364004D164C /* FJLocationController.h in Headers */,
 				C483EE921349B39C004D164C /* MapViewController.h in Headers */,
-				C483EE981349B3DB004D164C /* LambdaAlert.h in Headers */,
-				C483EE9A1349B3DB004D164C /* LambdaSheet.h in Headers */,
 				C4A1DFF7134A4CA700E01A2B /* MKNumberBadgeView.h in Headers */,
-				C4A1E027134A4F2C00E01A2B /* TPAutoArchiver.h in Headers */,
 				C4A1E036134A572100E01A2B /* Functions.h in Headers */,
 				C41BE9A613F87E7C009083D4 /* NSTimer+Extensions.h in Headers */,
 				C42AC216143265C1002737E6 /* NSPredicate+extensions.h in Headers */,
@@ -733,6 +642,7 @@
 				C4474C561349A2060097BB67 /* Sources */,
 				C4474C571349A2060097BB67 /* Frameworks */,
 				C4474C581349A2060097BB67 /* Headers */,
+				2EE52FAD5E074006BD12D57E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -806,7 +716,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Flying Jalapeño";
+				ORGANIZATIONNAME = "Flying Jalape√±o";
 			};
 			buildConfigurationList = C4474C541349A2060097BB67 /* Build configuration list for PBXProject "FJCode" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -857,6 +767,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2EE52FAD5E074006BD12D57E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		C4474C651349A2070097BB67 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -905,18 +829,11 @@
 				C483EE641349B0A8004D164C /* UIBarButtonItem+extensions.m in Sources */,
 				C483EE661349B0A8004D164C /* UIAlertViewHelper.m in Sources */,
 				C483EE681349B0A8004D164C /* NSArray+TableView.m in Sources */,
-				C483EE6C1349B0A8004D164C /* BlueBadge.m in Sources */,
 				C483EE741349B13B004D164C /* L0ExternalURLOpeningDetection.m in Sources */,
-				C483EE811349B2F1004D164C /* Reachability.m in Sources */,
 				C483EE831349B2F1004D164C /* NSError+FJNetwork.m in Sources */,
-				C483EE871349B30A004D164C /* SFHFKeychainUtils.m in Sources */,
-				C483EE8B1349B330004D164C /* ACActivityIndicatorQueue.m in Sources */,
 				C483EE8F1349B364004D164C /* FJLocationController.m in Sources */,
 				C483EE931349B39C004D164C /* MapViewController.m in Sources */,
-				C483EE991349B3DB004D164C /* LambdaAlert.m in Sources */,
-				C483EE9B1349B3DB004D164C /* LambdaSheet.m in Sources */,
 				C4A1DFF8134A4CA700E01A2B /* MKNumberBadgeView.m in Sources */,
-				C4A1E028134A4F2C00E01A2B /* TPAutoArchiver.m in Sources */,
 				C4A1E037134A572100E01A2B /* Functions.m in Sources */,
 				C41BE9A713F87E7C009083D4 /* NSTimer+Extensions.m in Sources */,
 				C42AC217143265C1002737E6 /* NSPredicate+extensions.m in Sources */,
@@ -1057,6 +974,7 @@
 		};
 		C4474C7E1349A2070097BB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D17DEBBF81C1425B8298D437 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -1078,6 +996,7 @@
 		};
 		C4474C7F1349A2070097BB67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D17DEBBF81C1425B8298D437 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/FJCode.dst;
@@ -1152,6 +1071,7 @@
 		};
 		C4BF0B5D15DB7CA00042513A /* Beta */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D17DEBBF81C1425B8298D437 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DSTROOT = /tmp/FJCode.dst;

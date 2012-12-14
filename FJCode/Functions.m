@@ -3,11 +3,7 @@
 #include <sys/xattr.h>
 #import <mach/mach_time.h> 
 #import "MacroUtilities.h"
-
-#if (TARGET_OS_EMBEDDED || TARGET_OS_IPHONE)
-#import "LambdaAlert.h"
-#endif
-
+#import <PSAlertView/PSPDFAlertView.h>
 
 BOOL rangesAreContiguous(NSRange first, NSRange second){
     
@@ -278,7 +274,7 @@ void openGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocat
 
 void showPromptAndOpenGoogleMapsForDirectionsWithLocations(CLLocation* startLocation, CLLocation* endLocation, void(^block)(BOOL didOpenMap)){
     
-    LambdaAlert* a = [[LambdaAlert alloc] initWithTitle:@"Get Directions?" message:@"Close the app and get directions using Google maps?"];
+    PSPDFAlertView* a = [[PSPDFAlertView alloc] initWithTitle:@"Get Directions?" message:@"Close the app and get directions using Google maps?"];
     
     [a addButtonWithTitle:@"Directions" block:^{
         
