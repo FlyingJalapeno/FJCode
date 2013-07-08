@@ -3,8 +3,6 @@
 #import <Foundation/Foundation.h>
 
 
-#import "NSObject+Proxy.h"
-#import "NSObjectHelper.h"
 #import "NSObject_KVOBlockNotificationExtensions.h"
 #import "NSString+extensions.h"
 #import "NSDictionaryHelper.h"
